@@ -1,0 +1,9 @@
+@import "../../../styles/baseline/_styles";
+
+.menu-items {
+  display: flex;
+
+  @include respond-to($bp-lg) {
+    flex-direction: column;
+  }
+}

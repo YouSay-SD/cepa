@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Hero from '../components/organisms/Hero/Hero'
+import { HeadSeo, LayoutHome } from '../components/templates'
 
 export default function Home() {
   return (
@@ -10,7 +10,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Hero />
+      <HeadSeo title='CEPA | Home' />
+      <LayoutHome />
     </div>
   )
 }
