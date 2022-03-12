@@ -1,0 +1,36 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Rowdies', 'Open Sans', Calibri, Tahoma, Sans-Serif; 
+}
+
+body {
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 400;
+	font-family: 'Rowdies', 'Open Sans', Calibri, Tahoma, Sans-Serif; // NOTE:: if this changes, update _typography heading classes as well
+}
+
+
+p {
+  margin: initial;
+}
