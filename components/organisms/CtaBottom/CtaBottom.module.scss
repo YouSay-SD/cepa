@@ -1,0 +1,57 @@
+@import "../../../styles/baseline/_styles";
+
+.cta-bottom {
+  padding: 70px 0;
+
+  @include respond-to($bp-md) {
+    padding: 60px 0;
+  }
+}
+
+.content {
+  padding: 20px 80px 20px 20px;
+  display: flex;
+  align-items: center;
+  background-color: $color-green;
+  border-radius: 10px;
+
+  @include respond-to($bp-md) {
+    flex-direction: column;
+    text-align: center;
+    padding: 45px 24px;
+  }
+}
+
+.title {
+  font-weight: $bold;
+  max-width: 425px;
+  margin-bottom: 8px;
+}
+
+.img-container {
+  padding: 26px 24px;
+  background: rgba($color-black, 0.1);
+  border-radius: 10px;
+  margin-right: 32px;
+
+  @include respond-to($bp-md) {
+    margin-right: initial;
+    margin-bottom: 22px;
+  }
+}
+
+.text-container {
+  padding-right: 30px;
+
+  @include respond-to($bp-md) {
+    padding-right: initial;
+  }
+}
+
+.cta-container {
+  margin-left: auto;
+
+  @include respond-to($bp-lg) {
+    display: none;
+  }
+}

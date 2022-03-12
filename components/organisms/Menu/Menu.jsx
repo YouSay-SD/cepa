@@ -5,7 +5,7 @@ import { MenuItems } from '../../molecules'
 import styles from './Menu.module.scss'
 
 export const Menu = () => {
-  const [ isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className={`${styles.menu} ${isOpen && styles.active}`}>
@@ -17,10 +17,6 @@ export const Menu = () => {
           height={64}
         />
 
-        <div className={styles['menu-items']}>
-          <MenuItems />
-        </div>
-
         <div className={styles.btn} onClick={() => setIsOpen(!isOpen)}>
           <Image
             src='/img/icons/hamburger.svg'
@@ -28,6 +24,10 @@ export const Menu = () => {
             width={32}
             height={28}
           />
+        </div>
+
+        <div className={styles['menu-items']}>
+          <MenuItems />
         </div>
       </Container>
     </nav>

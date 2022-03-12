@@ -14,9 +14,10 @@
 
   @include respond-to($bp-lg) {
     position: fixed;
-    max-height: 97px;
+    max-height: 124px;
     height: 100vh;
     border-bottom: initial;
+    padding: 30px 0;
   }
 
   &.active {
@@ -28,7 +29,6 @@
       @include respond-to($bp-lg) {
         transform: initial;
         opacity: 1;
-        z-index: initial;
       }
     }
   }
@@ -38,6 +38,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .btn {
@@ -53,13 +54,8 @@
   transition: $global-transition;
 
   @include respond-to($bp-lg) {
-    transform: translateY(-10px);
-    position: absolute;
+    transform: translateY(30px);
     width: 100%;
-    top: 120px;
-    left: 0;
     opacity: 0;
-    z-index: -10;
-    padding: 0 25px;
   }
 }
