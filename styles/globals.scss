@@ -1,8 +1,81 @@
+// Roboto
+@font-face {
+	font-family: Roboto;
+	src: url("../assets/fonts/roboto/Roboto-Light.ttf") format("truetype");
+	font-weight: 300;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: Roboto;
+	src: url("../assets/fonts/roboto/Roboto-Regular.ttf") format("truetype");
+	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: Roboto;
+	src: url("../assets/fonts/roboto/Roboto-Medium.ttf") format("truetype");
+	font-weight: 500;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: Roboto;
+	src: url("../assets/fonts/roboto/Roboto-Bold.ttf") format("truetype");
+	font-weight: 700;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: Roboto;
+	src: url("../assets/fonts/roboto/Roboto-Black.ttf") format("truetype");
+	font-weight: 900;
+	font-display: swap;
+}
+
+// TRY Vesterbro
+@font-face {
+	font-family: 'TRYVesterbro';
+	src: url("../assets/fonts/try-vesterbro/TRYVesterbro-Light.otf") format("truetype");
+	font-weight: 300;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'TRYVesterbro';
+	src: url("../assets/fonts/try-vesterbro/TRYVesterbro-Regular.otf") format("truetype");
+	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'TRYVesterbro';
+	src: url("../assets/fonts/try-vesterbro/TRYVesterbro-Medium.otf") format("truetype");
+	font-weight: 500;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'TRYVesterbro';
+	src: url("../assets/fonts/try-vesterbro/TRYVesterbro-Extrabold.otf") format("truetype");
+	font-weight: 800;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'TRYVesterbro';
+	src: url("../assets/fonts/try-vesterbro/TRYVesterbro-Bold.otf") format("truetype");
+	font-weight: 700;
+	font-display: swap;
+}
+
+// Global
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Rowdies', 'Open Sans', Calibri, Tahoma, Sans-Serif; 
+  font-family: 'Roboto', Calibri, Tahoma, Sans-Serif; 
 }
 
 body {
@@ -27,9 +100,8 @@ h4,
 h5,
 h6 {
 	font-weight: 400;
-	font-family: 'Rowdies', 'Open Sans', Calibri, Tahoma, Sans-Serif; // NOTE:: if this changes, update _typography heading classes as well
+	font-family: 'Roboto', Calibri, Tahoma, Sans-Serif; // NOTE:: if this changes, update _typography heading classes as well
 }
-
 
 p {
   margin: initial;

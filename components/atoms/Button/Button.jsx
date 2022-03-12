@@ -1,7 +1,8 @@
+import styles from './Button.module.scss'
 
-const Button = () => {
+const Button = ({ type, color, children }) => {
   return (
-    <div>Button</div>
+    <button className={`${styles.button} ${styles[type]} ${styles[color]}`}>{children}</button>
   )
 }
 

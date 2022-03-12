@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Button from '../components/atoms/Button/Button'
 
 export default function Home() {
   return (

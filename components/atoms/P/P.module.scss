@@ -1,0 +1,22 @@
+@import "../../../styles/baseline/_styles";
+
+.p {
+  font-size: rem-calc(16);
+  line-height: rem-calc(24);
+  font-weight: $regular;
+
+  // Primary Color
+  &.primary {
+    color: $color-primary;
+  }
+  
+  // Secondary Color
+  &.secondary {
+    color: $color-secondary;
+  }
+
+  // White Color
+  &.white {
+    color: $color-white;
+  }
+}
