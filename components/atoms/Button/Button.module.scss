@@ -1,3 +1,102 @@
+@import "../../../styles/baseline/_styles";
+
 .button {
+  font-family: $font-tertiary;
+  font-size: rem-calc(14);
+  line-height: rem-calc(30);
+  font-weight: $bold;
   padding: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
+  border: initial;
+  transition: $global-transition;
+
+  svg {
+    margin-left: 10px;
+
+    path {
+      transition: $global-transition;
+      fill: $color-white;
+    }
+  }
+
+  // Solid
+  &.solid {
+    &:hover {
+      opacity: .8;
+    }
+
+
+    &.primary {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+
+    &.secondary {
+      background-color: $color-secondary;
+      color: $color-white;
+    }
+
+    &.tertiary {
+      background-color: $color-tertiary;
+      color: $color-white;
+    }
+
+    &.white {
+      background-color: $color-white;
+      color: $color-primary;
+
+      svg {
+        path {
+          fill: $color-primary;
+        }
+      }
+    }
+  }
+
+  // Outline
+  &.outline {
+    border: 1px solid $color-white;
+    color: $color-white;
+
+    &.primary {
+      &:hover {
+        background-color: $color-white;
+        color: $color-primary;
+
+        svg {
+          path {
+            fill: $color-primary;
+          }
+        }
+      }
+    }
+
+    &.secondary {
+      &:hover {
+        background-color: $color-white;
+        color: $color-secondary;
+
+        svg {
+          path {
+            fill: $color-secondary;
+          }
+        }
+      }
+    }
+
+    &.tertiary {
+      &:hover {
+        background-color: $color-white;
+        color: $color-tertiary;
+
+        svg {
+          path {
+            fill: $color-tertiary;
+          }
+        }
+      }
+    }
+  }
 }

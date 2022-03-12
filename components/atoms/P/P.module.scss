@@ -1,6 +1,7 @@
 @import "../../../styles/baseline/_styles";
 
 .p {
+  font-family: $font-secondary;
   font-size: rem-calc(16);
   line-height: rem-calc(24);
   font-weight: $regular;

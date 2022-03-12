@@ -1,6 +1,8 @@
 @import "../../../styles/baseline/_styles";
 
 .title {
+  font-family: $font-primary;
+  
   // Primary Color
   &.primary {
     color: $color-primary;
@@ -27,7 +29,7 @@
     font-size: rem-calc(48);
     line-height: rem-calc(60);
 
-    @include respond-to(md) {
+    @include respond-to($bp-md) {
       font-size: rem-calc(40);
       line-height: rem-calc(52);
     }
@@ -38,7 +40,7 @@
     font-size: rem-calc(56);
     line-height: rem-calc(61);
 
-    @include respond-to(md) {
+    @include respond-to($bp-md) {
       font-size: rem-calc(48);
       line-height: rem-calc(62);
     }
@@ -49,7 +51,7 @@
     font-size: rem-calc(60);
     line-height: rem-calc(66);
 
-    @include respond-to(md) {
+    @include respond-to($bp-md) {
       font-size: rem-calc(48);
       line-height: rem-calc(62);
     }
