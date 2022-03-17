@@ -1,0 +1,17 @@
+@import "../../../styles/baseline/_styles";
+
+.title {
+  margin-bottom: 32px;
+
+  @include respond-to($bp-md) {
+    margin-bottom: 25px;
+  }
+}
+
+.description {
+  font-family: $font-secondary;
+  font-size: rem-calc(16);
+  line-height: rem-calc(24);
+  font-weight: $regular;
+  color: $color-primary;
+}
