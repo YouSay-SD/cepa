@@ -1,0 +1,68 @@
+@import "../../../styles/baseline/_styles";
+
+.footer {
+  background-color: $color-dark-blue;
+  padding: 65px 0 35px;
+  background-size: contain;
+
+  @include respond-to($bp-xl) {
+    background-size: initial;
+  }
+
+  @include respond-to($bp-md) {
+    padding: 60px 0 40px;
+  }
+}
+
+.content {
+  padding-bottom: 40px;
+
+  @include respond-to($bp-md) {
+    padding-bottom: 49px;
+  }
+}
+
+.logo {
+  margin-bottom: 24px;
+
+  @include respond-to($bp-md) {
+    text-align: center;
+  }
+}
+
+.description {
+  max-width: 871px;
+  font-size: rem-calc(13);
+  line-height: rem-calc(16.9);
+}
+
+.bottom-container {
+  border-top: 1px solid rgba(204, 204, 204, 0.5);
+  padding-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include respond-to($bp-md) {
+    flex-direction: column;
+    padding-top: 31px;
+  }
+}
+
+.mail-container {
+  display: flex;
+  align-items: center;
+
+  @include respond-to($bp-md) {
+    order: 2;
+    margin-top: 42px;
+    flex-direction: column;
+  }
+}
+
+.mailto {
+  font-size: rem-calc(16);
+  line-height: rem-calc(60);
+  color: $color-white;
+  margin-left: 18px;
+}
