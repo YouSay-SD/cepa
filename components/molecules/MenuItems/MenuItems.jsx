@@ -4,10 +4,10 @@ import styles from './MenuItems.module.scss'
 const MenuItems = () => {
   return (
     <div className={styles['menu-items']}>
-      <LinkSection to='hero'>Progresividad y Presión fiscal</LinkSection>
-      <LinkSection to='alicuota'>Alícuota máxima</LinkSection>
-      <LinkSection to='impuestos'>Impuestos a la riqueza</LinkSection>
-      <LinkSection to='paraisos'>Paraísos fiscales</LinkSection>
+      <LinkSection to='progressivity'>Progresividad y Presión fiscal</LinkSection>
+      <LinkSection to='aliquot'>Alícuota máxima</LinkSection>
+      <LinkSection to='proposal-map'>Impuestos a la riqueza</LinkSection>
+      <LinkSection to='tax-havens'>Paraísos fiscales</LinkSection>
     </div>
   )
 }

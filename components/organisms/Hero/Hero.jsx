@@ -12,7 +12,7 @@ const Hero = () => {
             A partir de ello construimos un indicador que sintetiza el grado de progresividad que posee cada sistema tributario.</P>
 
           <div className={styles['button-container']}>
-            <Button type='outline' color='primary'>Ver Informe Completo</Button>
+            <Button type='outline-white' color='primary'>Ver Informe Completo</Button>
             <Button type='solid' color='tertiary'>Explorar Resultados</Button>
           </div>
         </div>

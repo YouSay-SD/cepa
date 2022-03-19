@@ -1,21 +1,26 @@
+import styles from './Menu.module.scss'
 import Image from 'next/image'
 import { useState } from 'react'
+import Link from 'next/link'
 import { Container } from '../../atoms'
 import { MenuItems } from '../../molecules'
-import styles from './Menu.module.scss'
 
-export const Menu = () => {
+export const Menu = ({ color = 'primary' }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className={`${styles.menu} ${isOpen && styles.active}`}>
+    <nav className={`${styles.menu} ${isOpen && styles.active} ${styles[color]}`}>
       <Container className={styles.container}>
-        <Image
-          src='/img/logo.svg'
-          alt='CEPA'
-          width={109}
-          height={64}
-        />
+        <Link href='/'>
+          <a>
+            <Image
+              src='/img/logo.svg'
+              alt='CEPA'
+              width={109}
+              height={64}
+            />
+          </a>
+        </Link>
 
         <div className={styles.btn} onClick={() => setIsOpen(!isOpen)}>
           <Image

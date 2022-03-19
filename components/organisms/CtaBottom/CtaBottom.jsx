@@ -30,7 +30,7 @@ const CtaBottom = () => {
 
           <div className={styles['cta-container']}>
             <Button
-              type='outline'
+              type='outline-white'
               color='tertiary'
             >
               Ver Más Informes
