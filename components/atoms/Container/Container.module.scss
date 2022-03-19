@@ -7,6 +7,19 @@
   width: 100%;
 
   @include respond-to($bp-md) {
-    padding: 0 25px;
+    padding: 0 16px;
+  }
+
+  &.right {
+    max-width: calc(((100% - 1260px) / 2) + 1260px);
+    margin-right: 0;
+    padding-right: initial;
+  }
+
+  &.left {
+    max-width: calc(((100% - 1260px) / 2) + 1260px);
+    margin-left: 0;
+    padding-left: initial;
   }
 }
+

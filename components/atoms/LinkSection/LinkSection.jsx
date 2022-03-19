@@ -9,7 +9,7 @@ const LinkSection = ({children, to }) => {
       to={to} 
       spy={true} 
       smooth={true} 
-      offset={0} 
+      offset={-95} 
       duration={500}
     >
       {children}

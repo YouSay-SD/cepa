@@ -57,14 +57,86 @@
 
   // Outline
   &.outline {
+    &.primary {
+      color: $color-primary;
+      border: 1px solid rgba(168, 214, 255, 0.4);
+
+      svg {
+        path {
+          fill: $color-primary;
+        }
+      }
+
+      &:hover {
+        background-color: $color-primary;
+        border-color: $color-primary;
+        color: $color-white;
+  
+        svg {
+          path {
+            fill: $color-white;
+          }
+        }
+      }
+    }
+
+    &.secondary {
+      color: $color-secondary;
+      border: 1px solid $color-secondary;
+
+      svg {
+        path {
+          fill: $color-secondary;
+        }
+      }
+
+      &:hover {
+        background-color: $color-secondary;
+        border-color: $color-secondary;
+        color: $color-white;
+  
+        svg {
+          path {
+            fill: $color-white;
+          }
+        }
+      }
+    }
+
+    &.tertiary {
+      color: $color-tertiary;
+      border: 1px solid $color-tertiary;
+
+      svg {
+        path {
+          fill: $color-tertiary;
+        }
+      }
+
+      &:hover {
+        background-color: $color-tertiary;
+        border-color: $color-tertiary;
+        color: $color-white;
+  
+        svg {
+          path {
+            fill: $color-white;
+          }
+        }
+      }
+    }
+  }
+  
+  // Outline white
+  &.outline-white {
     border: 1px solid $color-white;
     color: $color-white;
-
+  
     &.primary {
       &:hover {
         background-color: $color-white;
         color: $color-primary;
-
+  
         svg {
           path {
             fill: $color-primary;
@@ -72,12 +144,12 @@
         }
       }
     }
-
+  
     &.secondary {
       &:hover {
         background-color: $color-white;
         color: $color-secondary;
-
+  
         svg {
           path {
             fill: $color-secondary;
@@ -85,12 +157,12 @@
         }
       }
     }
-
+  
     &.tertiary {
       &:hover {
         background-color: $color-white;
         color: $color-tertiary;
-
+  
         svg {
           path {
             fill: $color-tertiary;

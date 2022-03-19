@@ -1,5 +1,9 @@
 export { default as P } from './P/P';
 export { default as Title } from './Title/Title';
 export { default as Button } from './Button/Button';
+export { default as Switch } from './Switch/Switch';
+export { default as Pagination } from './Pagination/Pagination';
 export { default as LinkSection } from './LinkSection/LinkSection';
 export { default as Container } from './Container/Container';
+export { default as CountryCard } from './CountryCard/CountryCard';
+export { default as AliquotBox } from './AliquotBox/AliquotBox';
