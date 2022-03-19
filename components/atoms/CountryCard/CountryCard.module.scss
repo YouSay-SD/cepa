@@ -1,0 +1,58 @@
+@import "../../../styles/baseline/_styles";
+
+.country-card {
+  padding: 16px;
+  border-radius: 10px;
+  transition: $global-transition;
+
+  @include respond-to($bp-md) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+.name {
+  font-size: rem-calc(14);
+  line-height: rem-calc(18.2);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: $color-blue-light-3;
+  font-weight: $bold;
+}
+
+.number {
+  font-size: rem-calc(32);
+  line-height: rem-calc(48);
+  letter-spacing: 1px;
+  font-weight: $light;
+  color: $color-blue-light-3;
+}
+
+// Primary
+.primary {
+  cursor: pointer;
+  background-color: $color-white;
+
+  &:hover {
+    background-color: $color-blue-light-2;
+
+    .name,
+    .number {
+      color: $color-white;
+    }
+  }
+
+}
+
+// Secondary
+.secondary {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 6px;
+  border: 1px solid $color-blue-light-2;
+  background-color: rgba(255, 255, 255, 0.2);
+}

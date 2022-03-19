@@ -1,0 +1,37 @@
+@import "../../../styles/baseline/_styles";
+
+.pagination {
+  display: flex;
+}
+
+.index {
+  font-size: rem-calc(18);
+  line-height: rem-calc(27);
+  font-weight: $regular;
+  color: $color-secondary;
+  width: 30px;
+  height: 30px;
+  background-color: $color-white;
+  margin: 0 2px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  &:first-of-type {
+    margin-left: initial;
+  }
+}
+
+.active {
+  color: $color-white;
+  background-color: $color-secondary;
+}
+
+.next {
+  margin-left: 9px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
