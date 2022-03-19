@@ -1,0 +1,15 @@
+@import "../../../styles/baseline/_styles";
+
+.social-media {}
+
+.link {
+  margin: 0 8px;
+
+  &:first-of-type {
+    margin-left: initial;
+  }
+
+  &:last-of-type {
+    margin-right: initial;
+  }
+}

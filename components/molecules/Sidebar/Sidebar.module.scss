@@ -1,0 +1,97 @@
+@import "../../../styles/baseline/_styles";
+
+.sidebar {
+  background-color: $color-blue-light;
+  box-shadow: 4px 0px 8px rgba(22, 67, 119, 0.04);
+  border-radius: 10px 0px 0px 10px;
+  padding: 24px 14px 0 17px;
+  transition: $global-transition;
+
+  @include respond-to($bp-md) {
+    background-color: $color-white;
+    border-radius: 10px 10px 0px 0px;
+    max-height: 140px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+.btn {
+  background-color: $color-white;
+  border-radius: 50px;
+  padding: 16px 0;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  cursor: pointer;
+  
+  @include respond-to($bp-md) {
+    display: flex;
+  }
+
+  &:before {
+    background: $color-gray;
+    content: '';
+    width: 40px;
+    height: 6px;
+    position: absolute;
+  }
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-height: 490px;
+  margin-top: 32px;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    background: rgba(90, 137, 178, 0.25);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #5A89B3;
+    border-radius: 50px;
+  }
+
+  @include respond-to($bp-md) {
+    margin-top: initial;
+  }
+}
+
+.switch-desktop {
+  @include respond-to($bp-md) {
+    display: none;
+  }
+}
+
+// Active
+.active {
+  max-height: 560px;
+
+  .list {
+    overflow-y: scroll !important;
+    padding-right: 17px;
+  }
+}
+
+// Type: Switch
+.switch {
+  .list {
+    overflow-y: scroll;
+
+    @include respond-to($bp-md) {
+      overflow: hidden;
+    }
+  }
+}
+
+// Type: Select
+.select {
+  padding: 24px 14px 24px 16px;
+  min-height: 590px;
+}
