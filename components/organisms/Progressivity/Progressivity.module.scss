@@ -1,0 +1,48 @@
+@import "../../../styles/baseline/_styles";
+
+.progressivity {
+  padding: 70px 0 10px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 305px 1fr;
+  border-radius: 10px;
+  overflow: hidden;
+
+  @include respond-to($bp-lg) {
+    grid-template-columns: 250px 1fr;
+  }
+
+  @include respond-to($bp-md) {
+    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column-reverse;
+    padding: initial;
+    position: relative;
+  }
+}
+
+.heading-container {
+  margin-bottom: 40px;
+}
+
+.map {
+  background-color: $color-primary;
+  border-radius: 0 10px 10px 0;
+
+  @include respond-to($bp-md) {
+    max-height: 500px;
+    min-height: 500px;
+    margin-bottom: 140px;
+  }
+}
+
+.switch-mobile {
+  display: none;
+  margin-top: 40px;
+
+  @include respond-to($bp-md) {
+    display: flex;
+  }
+}

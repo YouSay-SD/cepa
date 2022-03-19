@@ -1,0 +1,58 @@
+@import "../../../styles/baseline/_styles";
+
+.aliquot {
+  padding: 70px 0;
+}
+
+.text-container {
+  margin-bottom: 68px;
+
+  @include respond-to($bp-md) {
+    margin-bottom: 40px;
+  }
+}
+
+.slider-container {
+  margin-bottom: 20px;
+}
+
+.slider-heading {
+  margin-bottom: 67px;
+}
+
+.slider-sections {
+  border-bottom: 1px solid #C8C8C8;
+  max-width: max-content;
+}
+
+.slider-section {
+  font-size: rem-calc(12);
+  line-height: rem-calc(18);
+  letter-spacing: 1px;
+  font-weight: $bold;
+  color: #959595;
+  padding: 8px 0;
+  margin: 0 16px;
+  display: inline-block;
+  cursor: pointer;
+  text-transform: uppercase;
+
+  &:first-of-type {
+    margin-left: initial;
+  }
+
+  &:last-of-type {
+    margin-right: initial;
+  }
+  
+  &.active {
+    color: $color-secondary;
+    border-bottom: 2px solid $color-secondary;
+  }
+}
+
+.cta-container {
+  @include respond-to($bp-md) {
+    text-align: center;
+  }
+}
