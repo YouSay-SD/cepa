@@ -1,0 +1,11 @@
+@import "../../../styles/baseline/_styles";
+
+.aliquot-archive {
+  padding: 40px 0 10px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}

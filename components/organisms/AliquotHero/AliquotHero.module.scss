@@ -1,0 +1,48 @@
+@import "../../../styles/baseline/_styles";
+
+.aliquot-hero {
+  background-color: $color-green;
+  padding: 105px 0 19px;
+
+  @include respond-to($bp-lg) {
+    padding: 200px 0 20px;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: $light;
+
+  strong {
+    font-weight: $heavy;
+  }
+}
+
+.cta-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 25px;
+}
+
+.cta {
+  font-size: rem-calc(15);
+  line-height: rem-calc(30);
+  font-weight: $bold;
+  color: $color-white;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  transition: $global-transition;
+
+  p {
+    margin-left: 10px;
+  }
+
+  &:hover {
+    border-bottom: 2px solid $color-white;
+  }
+}

@@ -1,0 +1,20 @@
+@import "../../../styles/baseline/_styles";
+
+.tax-havens {
+  padding: 40px 0 10px;
+}
+
+.heading-container {
+  margin-bottom: 32px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 305px 1fr;
+  border-radius: 10px;
+}
+
+.map {
+  background-color: $color-primary;
+  border-radius: 0 10px 10px 0;
+}
