@@ -131,3 +131,70 @@ h6 {
 p {
   margin: initial;
 }
+
+// React Modal
+.ReactModalPortal {
+	z-index: 99;
+	position: relative;
+}
+
+.ReactModal {
+	&__Content {
+		width: 100%;
+		max-width: 794px;
+		box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.08);
+		border-radius: 10px !important;
+		top: 50% !important; 
+    left: 50% !important; 
+    right: auto !important; 
+    bottom: auto !important; 
+    margin-right: -50% !important; 
+    transform: translate(-50%, -50%) !important; 
+		border: initial !important;
+		padding: initial !important;
+		overflow: initial !important;
+
+		@media screen and (max-width: 900px) {
+			max-width: calc(100% - 20px)
+		}
+	}
+
+	&__Overlay {
+		opacity: 0;
+		transition: opacity 200ms ease-in-out;
+		background-color: rgba(0, 0, 0, .6) !important;
+
+		&--after-open {
+			opacity: 1;
+		}
+
+		&--before-close {
+			opacity: 0;
+		}
+	}
+}
+
+// Swiper
+.swiper-button-next,
+.swiper-button-prev {
+	transform: translateY(50%);
+	background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+  width: 14.5px !important;
+  height: 24px !important;
+
+  &:after {
+    display: none !important;
+  }
+}
+
+.swiper-button-prev {
+  left: -50px !important;
+  background-image: url('/img/icons/prev-modal.svg');
+}
+
+.swiper-button-next {
+	right: -50px !important;
+  background-image: url('/img/icons/next-modal.svg');
+}

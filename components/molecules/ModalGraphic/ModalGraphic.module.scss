@@ -1,0 +1,48 @@
+@import "../../../styles/baseline/_styles";
+
+.modal-graphic {
+  padding: 59px 72px;
+
+  @include respond-to($bp-md) {
+    padding: 44px 24px;
+  }
+}
+
+.content {
+  background: rgba(168, 214, 255, 0.2);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 34px 23px;
+  align-items: center;
+
+  @include respond-to($bp-md) {
+    flex-direction: column;
+  }
+}
+
+.number {
+  font-size: rem-calc(42);
+  line-height: rem-calc(44);
+  color: $color-blue-light-2;
+  font-weight: $bold;
+  margin-bottom: 16px;
+}
+
+.name {
+  font-size: rem-calc(22);
+  line-height: rem-calc(24);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: $color-secondary;
+  font-weight: $medium;
+}
+
+.text-container {
+  padding-right: 20px;
+
+  @include respond-to($bp-md) {
+    padding-right: initial;
+    margin-bottom: 20px;
+  }
+}

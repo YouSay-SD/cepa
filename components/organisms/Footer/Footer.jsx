@@ -1,9 +1,10 @@
 import Image from 'next/image'
+import ReactMarkdown from 'react-markdown'
 import { Container, P } from '../../atoms'
 import { SocialMedia } from '../../molecules'
 import styles from './Footer.module.scss'
 
-const Footer = () => {
+const Footer = ({ description, email }) => {
   return (
     <footer className={styles.footer} style={{backgroundImage: 'url(img/icons/footer-lines.svg)'}}>
       <Container>
@@ -17,10 +18,8 @@ const Footer = () => {
             />
           </div>
 
-          <P className={styles.description} color='white'>El Centro de Economía Política (CEPA) se creó en​ ​2012 con el objetivo de​ intervenir en​ los debates económicos complejos, elaborando informes con un alto nivel de rigurosidad técnica y un lenguaje accesible al público en general, permitiendo así una democratización de la comprensión de las disputas político-sociales que emergen con relación a pujas económicas.  
-            <br />
-            <br />
-            Para CEPA, la economía debe ser política, ya que las decisiones de política económica están siempre mediadas por profundas disputas de poder. Este abordaje es clave para comprender la sucesión de los distintos patrones de acumulación que se han manifestado a lo largo de la historia argentina y que no necesariamente coinciden con los cambios de las administraciones gubernamentales.​
+          <P className={styles.description} color='white'>
+            <ReactMarkdown>{description}</ReactMarkdown>
           </P>
         </div>
 
@@ -32,7 +31,9 @@ const Footer = () => {
               width={24}
               height={18}
             />
-            <a className={styles.mailto} href='mailto:prensa@centrocepa.com.ar'>prensa@centrocepa.com.ar</a>
+            {email &&
+              <a className={styles.mailto} href={`mailto:${email}`}>{email}</a>
+            }
           </div>
 
           <SocialMedia />

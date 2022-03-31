@@ -6,13 +6,27 @@ import '../styles/globals.scss'
 import { Provider } from 'react-redux'
 import { AnimatePresence } from 'framer-motion'
 import { store } from '../store/store'
+import { ReactQueryDevtools } from 'react-query/devtools'
+import { QueryClient, QueryClientProvider, Hydrate } from 'react-query'
+import { useRef } from 'react'
+import mapboxgl from 'mapbox-gl'; 
+ 
+mapboxgl.accessToken = 'pk.eyJ1IjoiYXJpZWw1NTUiLCJhIjoiY2wxYmxuYzhhMWpiZzNpbnczYXQ4aHptciJ9.t24K9VtvEpFFHa3iTP25bQ';
 
 function MyApp({ Component, pageProps, router }) {
+  const queryClient = useRef(new QueryClient())
+
   return (
     <Provider store={ store }>
-      <AnimatePresence exitBeforeEnter>
-        <Component {...pageProps} key={router.asPath} />
-      </AnimatePresence>
+      <QueryClientProvider client={queryClient.current}>
+        <Hydrate state={pageProps.dehydratedState}>
+          <AnimatePresence exitBeforeEnter>
+            <div id="modal-graphic"></div>
+            <Component {...pageProps} key={router.asPath} />
+            <ReactQueryDevtools initialIsOpen={false} />
+          </AnimatePresence>
+        </Hydrate>
+      </QueryClientProvider>
     </Provider>
   )
 }

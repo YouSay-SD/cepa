@@ -6,6 +6,9 @@
   border-radius: 10px 0px 0px 10px;
   padding: 24px 14px 0 17px;
   transition: $global-transition;
+  position: relative;
+  z-index: 1;
+  // min-height: 590px;
 
   @include respond-to($bp-md) {
     background-color: $color-white;
@@ -75,7 +78,6 @@
 
   .list {
     overflow-y: scroll !important;
-    padding-right: 17px;
   }
 }
 
@@ -83,9 +85,11 @@
 .switch {
   .list {
     overflow-y: scroll;
+    padding-right: 17px;
 
     @include respond-to($bp-md) {
       overflow: hidden;
+      padding-right: initial;
     }
   }
 }
@@ -94,4 +98,8 @@
 .select {
   padding: 24px 14px 24px 16px;
   min-height: 590px;
+
+  @include respond-to($bp-md) {
+    display: none;
+  }
 }

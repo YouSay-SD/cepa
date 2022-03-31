@@ -1,9 +1,61 @@
 @import "../../../styles/baseline/_styles";
 
-.menu {
+.header {
   position: sticky;
+  width: 100%;
   top: 0;
   left: 0;
+  z-index: 9999999;
+  transition: $global-transition;
+  
+  @include respond-to($bp-lg) {
+    position: fixed;
+  }
+  
+  &:after {
+    content: '';
+    background-color: rgba($color-black, .55);
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    opacity: 0;
+  }
+  
+  &.active {
+    height: 100%;
+
+    &:after {
+      display: block;
+      opacity: 1;
+    }
+
+    .menu {
+      &.primary {
+        background-color: $color-dark-blue;
+      }
+
+      &.tertiary {
+        background-color: $color-dark-green;
+      }
+
+      @include respond-to($bp-lg) {
+        max-height: 420px;
+      }
+  
+      .menu-items {
+        @include respond-to($bp-lg) {
+          transform: initial;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.menu {
   width: 100%;
   z-index: 10;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
@@ -25,19 +77,6 @@
     height: 100vh;
     border-bottom: initial;
     padding: 30px 0;
-  }
-
-  &.active {
-    @include respond-to($bp-lg) {
-      max-height: 100vh;
-    }
-
-    .menu-items {
-      @include respond-to($bp-lg) {
-        transform: initial;
-        opacity: 1;
-      }
-    }
   }
 }
 

@@ -1,10 +1,10 @@
 import styles from './Aliquot.module.scss'
-import { Container, Button } from "../../atoms";
-import { Slider, ModalBullet, Heading } from '../../molecules';
+import { Container, Button } from "@/components/atoms";
+import { Slider, Heading } from '@/components/molecules';
 import { useState } from 'react';
 import Link from 'next/link';
 
-export const Aliquot = () => {
+export const Aliquot = ({ title, description }) => {
   const sections = [
     {
       id: 'personas-humanas',
@@ -25,9 +25,10 @@ export const Aliquot = () => {
   return (
     <section className={styles.aliquot}>
       <Container>
-        <Heading className={styles['text-container']}
-          title='Alicuotas máximas a los ingresos y a la propiedad.'
-          description={`<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. <br /> Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>`}
+        <Heading 
+          className={styles['text-container']}
+          title={title}
+          description={description}
         />
       </Container>
 
@@ -63,8 +64,6 @@ export const Aliquot = () => {
           </a>
         </Link>
       </Container>
-
-      <ModalBullet />
     </section>
   )
 }

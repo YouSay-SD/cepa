@@ -1,9 +1,9 @@
-import { CtaBottom, Footer, Hero, Menu, Progressivity, ProposalMap, TaxHavens } from "../../organisms"
+import { Aliquot, CtaBottom, Footer, Hero, Menu, Progressivity, MapProposal, MapTaxHavens } from "@/components/organisms"
+import { ModalGraphic, ModalBullet } from "@/components/molecules"
 import { Element } from 'react-scroll'
 import Layout from "../Layout/Layout"
-import Aliquot from "../../organisms/Aliquot/Aliquot"
 
-const LayoutHome = () => {
+const LayoutHome = ({ modules }) => {
   return (
     <Layout>
       <Menu />
@@ -13,20 +13,34 @@ const LayoutHome = () => {
         <Progressivity />
       </Element>
 
-      <Element name='aliquot'>
-        <Aliquot />
-      </Element>
+      {modules?.aliquots &&
+        <Element name='aliquot'>
+          <Aliquot {...modules.aliquots} />
+        </Element>
+      }
 
-      <Element name='proposal-map'>
-        <ProposalMap />
-      </Element>
+      {modules?.mapProposal &&
+        <Element name='proposal-map'>
+          <MapProposal {...modules.mapProposal} />
+        </Element>
+      }
 
-      <Element name='tax-havens'>
-        <TaxHavens />
-      </Element>
+      {modules?.mapTaxHavens &&
+        <Element name='tax-havens'>
+          <MapTaxHavens {...modules.mapTaxHavens} />
+        </Element>
+      }
 
-      <CtaBottom />
-      <Footer />
+      {modules?.ctaBottom &&
+        <CtaBottom {...modules.ctaBottom} />
+      }
+
+      {modules?.footer &&
+        <Footer {...modules.footer} />
+      }
+
+      <ModalGraphic />
+      <ModalBullet />
     </Layout>
   )
 }

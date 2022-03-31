@@ -1,6 +1,6 @@
 @import "../../../styles/baseline/_styles";
 
-.tax-havens {
+.map-tax-havens {
   padding: 40px 0 10px;
 }
 
@@ -12,9 +12,20 @@
   display: grid;
   grid-template-columns: 305px 1fr;
   border-radius: 10px;
+
+  @include respond-to($bp-md) {
+    grid-template-columns: 1fr;
+    padding: initial;
+  }
 }
 
 .map {
-  background-color: $color-primary;
   border-radius: 0 10px 10px 0;
+  overflow: hidden;
+
+  @include respond-to($bp-md) {
+    height: 500px;
+    width: 100%;
+    border-radius: initial;
+  }
 }

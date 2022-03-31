@@ -7,7 +7,7 @@ const Hero = () => {
     <section className={styles.hero}>
       <Container className={styles.container}>
         <div className={styles['text-container']}>
-          <Title className={styles.title} size='xlg' color='white'>Desigualdad tributaria en el mundo.</Title>
+          <Title className={styles.title} size='xlg' color='white'><strong>Desigualdad tributaria</strong> en el mundo.</Title>
           <P className={styles.description} color='white'>Investigación sobre estructuras tributarias de países de América y de Europa entre la crisis del 2008 y la de 2020.
             A partir de ello construimos un indicador que sintetiza el grado de progresividad que posee cada sistema tributario.</P>
 

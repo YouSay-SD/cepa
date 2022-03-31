@@ -7,3 +7,5 @@ export { default as LinkSection } from './LinkSection/LinkSection';
 export { default as Container } from './Container/Container';
 export { default as CountryCard } from './CountryCard/CountryCard';
 export { default as AliquotBox } from './AliquotBox/AliquotBox';
+export { default as Map } from './Map/Map';
+export { default as CloseModal } from './CloseModal/CloseModal';

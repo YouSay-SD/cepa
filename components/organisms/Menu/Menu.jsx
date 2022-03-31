@@ -9,33 +9,35 @@ export const Menu = ({ color = 'primary' }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className={`${styles.menu} ${isOpen && styles.active} ${styles[color]}`}>
-      <Container className={styles.container}>
-        <Link href='/'>
-          <a>
+    <header className={`${styles.header} ${isOpen && styles.active} `}>
+      <nav className={`${styles.menu} ${isOpen && styles.active} ${styles[color]}`}>
+        <Container className={styles.container}>
+          <Link href='/'>
+            <a>
+              <Image
+                src='/img/logo.svg'
+                alt='CEPA'
+                width={109}
+                height={64}
+              />
+            </a>
+          </Link>
+
+          <div className={styles.btn} onClick={() => setIsOpen(!isOpen)}>
             <Image
-              src='/img/logo.svg'
-              alt='CEPA'
-              width={109}
-              height={64}
+              src={`/img/icons/${isOpen ? 'hamburger-close' : 'hamburger'}.svg`}
+              alt='Hamburger'
+              width={32}
+              height={28}
             />
-          </a>
-        </Link>
+          </div>
 
-        <div className={styles.btn} onClick={() => setIsOpen(!isOpen)}>
-          <Image
-            src='/img/icons/hamburger.svg'
-            alt='Hamburger'
-            width={32}
-            height={28}
-          />
-        </div>
-
-        <div className={styles['menu-items']}>
-          <MenuItems />
-        </div>
-      </Container>
-    </nav>
+          <div className={styles['menu-items']}>
+            <MenuItems />
+          </div>
+        </Container>
+      </nav>
+    </header>
   )
 }
 

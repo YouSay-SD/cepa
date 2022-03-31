@@ -1,34 +1,10 @@
 import styles from './Progressivity.module.scss'
-import { Container, Switch } from "../../atoms"
+import { Container, Switch, Map } from "../../atoms"
 import { Heading, Sidebar } from "../../molecules"
+import { useSelector } from 'react-redux'
 
 const Progressivity = () => {
-  const items = [
-    {
-      name: 'chile',
-      number: '44,3%'
-    },
-    {
-      name: 'argentina',
-      number: '44,3%'
-    },
-    {
-      name: 'chile',
-      number: '44,3%'
-    },
-    {
-      name: 'chile',
-      number: '44,3%'
-    },
-    {
-      name: 'chile',
-      number: '44,3%'
-    },
-    {
-      name: 'chile',
-      number: '44,3%'
-    },
-  ]
+  const { countries } = useSelector(state => state.country)
 
   return (
     <section className={styles.progressivity}>
@@ -44,8 +20,11 @@ const Progressivity = () => {
       </Container>
 
       <Container className={styles.content}>
-        <Sidebar items={items} />
-        <div className={styles.map} />
+        <Sidebar items={countries} />
+
+        <div className={styles.map}>
+          <Map />
+        </div>
       </Container>
     </section>
   )

@@ -34,6 +34,14 @@
   max-width: 871px;
   font-size: rem-calc(13);
   line-height: rem-calc(16.9);
+
+  p {
+    margin-bottom: 16px;
+
+    &:last-of-type {
+      margin-bottom: initial;
+    }
+  }
 }
 
 .bottom-container {

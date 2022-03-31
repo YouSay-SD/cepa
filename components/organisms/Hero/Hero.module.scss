@@ -11,7 +11,8 @@
 
 .container {
   display: grid;
-  grid-template-columns: 50% 45%;
+  grid-template-columns: 602px 1fr;
+  gap: 90px;
   justify-content: space-between;
   align-items: center;
 
@@ -22,6 +23,11 @@
 
 .title {
   margin-bottom: 24px;
+  font-weight: $light;
+
+  strong {
+    font-weight: $heavy;
+  }
 
   @include respond-to($bp-lg) {
     text-align: center;
@@ -31,6 +37,7 @@
 
 .description {
   margin-bottom: 60px;
+  font-weight: $regular;
 
   @include respond-to($bp-lg) {
     text-align: center;

@@ -1,0 +1,22 @@
+@import "../../../styles/baseline/_styles";
+
+.modal-bullet {
+  padding: 60px 40px 40px;
+}
+
+.title {
+  margin-bottom: 32px;
+  text-transform: uppercase;
+}
+
+.markdown {
+  font-family: $font-primary;
+
+  p {
+    margin-bottom: 24px;
+
+    &:last-of-type {
+      margin-bottom: initial;
+    }
+  }
+}

@@ -1,12 +1,16 @@
 import styles from './Heading.module.scss'
-import { P, Title } from '../../atoms'
+import { Title, P } from '../../atoms'
+import ReactMarkdown from 'react-markdown'
 
 const Heading = ({ title, description, className = '' }) => {
-  console.log('des', description)
   return (
     <div className={className}>
-      <Title className={styles.title} size='md'>{title}</Title>
-      <div className={styles.description} dangerouslySetInnerHTML={{__html: description}} />
+      <Title className={styles.title} size='md'>
+        <ReactMarkdown>{title}</ReactMarkdown>
+      </Title>
+      <P className={styles.description}>
+        <ReactMarkdown>{description}</ReactMarkdown>
+      </P>
     </div>
   )
 }

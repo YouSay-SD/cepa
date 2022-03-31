@@ -1,25 +1,12 @@
 import styles from './Grid.module.scss'
 import { AliquotBox } from "../../atoms";
 
-export const Grid = () => {
+export const Grid = ({ items }) => {
   return (
     <div className={styles.grid}>
-      <AliquotBox />
-      <AliquotBox />
-      <AliquotBox />
-      <AliquotBox />
-      <AliquotBox />
-      <AliquotBox />
-      <AliquotBox />
-      <AliquotBox />
-      <AliquotBox />
-      <AliquotBox />
-      <AliquotBox />
-      <AliquotBox />
-      <AliquotBox />
-      <AliquotBox />
-      <AliquotBox />
-      <AliquotBox />
+      {items.map(({ attributes, id }) => {
+        return <AliquotBox key={id} id={id} {...attributes} />
+      })}
     </div>
   )
 }

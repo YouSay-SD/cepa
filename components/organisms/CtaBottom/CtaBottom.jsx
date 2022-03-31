@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { Container, P, Title, Button } from '../../atoms';
 import styles from './CtaBottom.module.scss'
 
-const CtaBottom = () => {
+const CtaBottom = ({ title, description, ctaText, ctaLink}) => {
   return (
     <section className={styles['cta-bottom']}>
       <Container>
@@ -22,19 +22,23 @@ const CtaBottom = () => {
               size='sm'
               color='white'
             >
-              Descubre nuevos informes ecónomicos realizados por CEPA.
+              {title}
             </Title>
 
-            <P color='white'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</P>
+            <P color='white'>{description}</P>
           </div>
 
           <div className={styles['cta-container']}>
-            <Button
-              type='outline-white'
-              color='tertiary'
-            >
-              Ver Más Informes
-            </Button>
+            {ctaLink &&
+              <a href={ctaLink}>
+                <Button
+                  type='outline-white'
+                  color='tertiary'
+                >
+                  {ctaText}
+                </Button>
+              </a>
+            }
           </div>
         </div>
       </Container>

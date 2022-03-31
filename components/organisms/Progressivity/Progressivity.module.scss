@@ -19,6 +19,7 @@
     display: flex;
     flex-direction: column-reverse;
     padding: initial;
+    border-radius: initial;
     position: relative;
   }
 }
@@ -28,13 +29,18 @@
 }
 
 .map {
-  background-color: $color-primary;
+  height: 100%;
+  width: 100%;
   border-radius: 0 10px 10px 0;
+  overflow: hidden;
+  z-index: 1;
 
   @include respond-to($bp-md) {
     max-height: 500px;
     min-height: 500px;
+    height: 500px !important;
     margin-bottom: 140px;
+    border-radius: initial;
   }
 }
 
