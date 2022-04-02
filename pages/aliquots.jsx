@@ -1,18 +1,20 @@
 import { useEffect } from 'react'
 import { dehydrate, QueryClient, useQuery } from 'react-query'
 import { useDispatch } from 'react-redux'
-import { setCountries } from '../actions/countries'
+import { setAliquotCategories, setAliquots } from '../actions/countries'
 import { HeadSeo, LayoutAliquots } from '../components/templates'
-import { countries, modules } from './api'
+import { aliquotCategories, aliquots, modules } from './api'
 
 export default function Aliquots() {
-  const { data: { data } } = useQuery('countries', () => countries.getAll())
+  const { data: { data } } = useQuery('aliquots', () => aliquots.getAll())
   const { data: dataModules } = useQuery('modules', () => modules?.getAll())
+  const { data: dataAliquotCategories } = useQuery('aliquotCategories', () => aliquotCategories?.getAll());
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(setCountries(data))
-  }, [dispatch, data])
+    dispatch(setAliquots(data))
+    dispatch(setAliquotCategories(dataAliquotCategories?.data))
+  }, [dispatch, data, dataAliquotCategories])
 
   return (
     <div>
@@ -25,8 +27,9 @@ export default function Aliquots() {
 // Static Props
 export const getStaticProps = async () => {
   const queryClient = new QueryClient();
-  await queryClient.prefetchQuery('countries', () => countries.getAll());
+  await queryClient.prefetchQuery('aliquots', () => aliquots.getAll());
   await queryClient.prefetchQuery('modules', () => modules?.getAll());
+  await queryClient.prefetchQuery('aliquotCategories', () => aliquotCategories?.getAll());
 
   return {
     props: {

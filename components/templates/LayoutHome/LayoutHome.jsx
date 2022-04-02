@@ -1,17 +1,20 @@
 import { Aliquot, CtaBottom, Footer, Hero, Menu, Progressivity, MapProposal, MapTaxHavens } from "@/components/organisms"
-import { ModalGraphic, ModalBullet } from "@/components/molecules"
+import { ModalGraphic, ModalBullet, ModalProposal } from "@/components/molecules"
 import { Element } from 'react-scroll'
 import Layout from "../Layout/Layout"
 
 const LayoutHome = ({ modules }) => {
+  console.log('m', modules)
   return (
     <Layout>
       <Menu />
       <Hero />
 
-      <Element name='progressivity'>
-        <Progressivity />
-      </Element>
+      {modules?.mapProgressivity && 
+        <Element name='progressivity'>
+          <Progressivity {...modules.mapProgressivity} />
+        </Element>
+      }
 
       {modules?.aliquots &&
         <Element name='aliquot'>
@@ -41,6 +44,7 @@ const LayoutHome = ({ modules }) => {
 
       <ModalGraphic />
       <ModalBullet />
+      <ModalProposal />
     </Layout>
   )
 }

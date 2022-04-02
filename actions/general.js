@@ -20,11 +20,11 @@ export const setOpenModalGraphic = () => {
 }
 
 // Set Modal Graphic
-export const setModalGraphic = (content) => {
+export const setModalGraphic = (id) => {
   return async (dispatch) => {
     await dispatch({
       type: types.SET_MODAL_GRAPHIC,
-      payload: content
+      payload: id
     })
   }
 }
@@ -39,11 +39,40 @@ export const setOpenModalBullet = () => {
 }
 
 // Set Modal Bullet
-export const setModalBullet = (content) => {
+export const setModalBullet = (id) => {
   return async (dispatch) => {
     await dispatch({
       type: types.SET_MODAL_BULLET,
-      payload: content
+      payload: id
+    })
+  }
+}
+
+// Set Open Modal Bullet
+export const setOpenModalProposal = () => {
+  return async (dispatch) => {
+    await dispatch({
+      type: types.SET_OPEN_MODAL_PROPOSAL,
+    })
+  }
+}
+
+// Set Modal Proposal
+export const setModalProposal = (id) => {
+  return async (dispatch) => {
+    await dispatch({
+      type: types.SET_MODAL_PROPOSAL,
+      payload: id
+    })
+  }
+}
+
+// Set Current Page
+export const setCurrentPage = (currentPage) => {
+  return async (dispatch) => {
+    await dispatch({
+      type: types.SET_CURRENT_PAGE,
+      payload: currentPage
     })
   }
 }

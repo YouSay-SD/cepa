@@ -1,13 +1,8 @@
 import styles from './MapProposal.module.scss'
 import { Container, Map } from "../../atoms"
-import { Heading, Sidebar } from '../../molecules'
-import { useSelector } from 'react-redux'
+import { Heading } from '../../molecules'
 
-// const MapNoSSR = dynamic(() => import("../../../components/atoms/Map/Map"), { ssr: false })
-
-const ProposalMap = ({ title, description}) => {
-  const { countries } = useSelector(state => state.country)
-
+const ProposalMap = ({ title, description, countries }) => {
   const mapProps = {
     defaultCenter: {
       lat: 8.7129179,
@@ -27,7 +22,12 @@ const ProposalMap = ({ title, description}) => {
 
       <Container className={styles['map-container']}>        
         <div className={styles.map}>
-          <Map {...mapProps} />
+          <div className={styles.bar}>
+            <p className={`${styles['bar-text']} ${styles['circle-yellow']}`}>PROPUESTO</p>
+            <p className={`${styles['bar-text']} ${styles['circle-green']}`}>APROBADO</p>
+          </div>
+
+          <Map {...mapProps} type='proposal' countries={countries?.data} />
         </div>
       </Container>
 

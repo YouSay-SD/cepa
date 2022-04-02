@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { CountryCard, Switch } from "../../atoms";
 import { useSelector } from 'react-redux';
 
-const Sidebar = ({ items, type = 'switch' }) => {
+const Sidebar = ({ items, type = 'switch', modal = true }) => {
   const { switchDirection } = useSelector(state => state.general)
   const [isOpen, setIsOpen] = useState(false);
   const switchDirectionProp = switchDirection === 'left' ? 'progressiveness' : 'taxPressure'
@@ -23,7 +23,8 @@ const Sidebar = ({ items, type = 'switch' }) => {
               id={id} 
               name={attributes.name}
               number={attributes[switchDirectionProp]}
-              type={countryCardType} 
+              type={countryCardType}
+              modal={modal}
             />
           )
         })}

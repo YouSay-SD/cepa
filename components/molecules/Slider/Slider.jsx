@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import { useSelector } from 'react-redux'
 
 export const Slider = () => {
-  const { countries } = useSelector(state => state.country)
+  const { aliquots } = useSelector(state => state.country)
 
   return (
     <Swiper
@@ -14,7 +14,7 @@ export const Slider = () => {
       spaceBetween={21}
       className={`mySwiper ${styles.slider}`}
     >
-      {countries.map(({ attributes, id }) => {
+      {aliquots && aliquots.map(({ attributes, id }) => {
         return (
           <SwiperSlide key={id} className={styles.slide}>
             <AliquotBox id={id} {...attributes} />

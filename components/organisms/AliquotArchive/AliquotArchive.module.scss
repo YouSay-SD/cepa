@@ -9,3 +9,24 @@
   grid-template-columns: 1fr;
   gap: 40px;
 }
+
+.categories-container {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 42px;
+}
+
+.category {
+  font-size: rem-calc(12);
+  line-height: rem-calc(18);
+  letter-spacing: 1px;
+  color: #959595;
+  text-transform: uppercase;
+  font-weight: $bold;
+  cursor: pointer;
+}
+
+.active {
+  color: $color-secondary;
+
+}

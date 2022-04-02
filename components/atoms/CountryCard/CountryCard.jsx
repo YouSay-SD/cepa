@@ -3,12 +3,14 @@ import { useDispatch } from 'react-redux'
 import { setModalGraphic, setOpenModalGraphic } from 'actions/general'
 import styles from './CountryCard.module.scss'
 
-const CountryCard = ({ id, name, number, type = 'primary' }) => {
+const CountryCard = ({ id, name, number, type = 'primary', modal = true }) => {
   const dispatch = useDispatch()
 
   const openModal = () => {
-    dispatch(setOpenModalGraphic());
-    dispatch(setModalGraphic(id));
+    if (modal) {
+      dispatch(setOpenModalGraphic());
+      dispatch(setModalGraphic(id));
+    }
   }
 
   return (

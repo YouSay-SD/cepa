@@ -1,0 +1,82 @@
+@import "../../../styles/baseline/_styles";
+
+.modal-proposal {
+  
+}
+
+.modal-heading {
+  padding: 50px 40px 15px;
+  border-bottom: 1px solid rgba(168, 214, 255, 0.4);
+
+  @include respond-to($bp-md) {
+    padding: 30px 23px 15px;
+  }
+
+  p {
+    font-size: rem-calc(22);
+    line-height: rem-calc(26);
+    font-weight: $medium;
+    color: $color-secondary;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+}
+
+.modal-content {
+  padding: 31px 40px 40px;
+  
+  @include respond-to($bp-md) {
+    padding: 30px 23px 40px;
+  }
+}
+
+.proposal-content {
+  margin-bottom: 28px;
+
+  &:last-of-type {
+    margin-bottom: 32px;
+  }
+}
+
+.proposal-title {
+  font-family: $font-primary;
+  margin-bottom: 8px;
+  font-weight: $bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: rem-calc(16);
+  line-height: rem-calc(18);
+  gap: 10px;
+  display: grid;
+  grid-template-columns: 16px 1fr;
+
+  &:before {
+    content: '';
+    background-image: url('/img/icons/proposal-icon.svg');
+    display: block;
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.proposal-description {
+  font-family: $font-primary;
+  padding-left: 26px;
+}
+
+.result-content {
+  padding: 14.5px 16px;
+  background-color: rgba(168, 214, 255, 0.2);
+  border-radius: 10px;
+}
+
+.result-title {
+  font-weight: $bold;
+  font-family: $font-primary;
+  letter-spacing: 2px;
+  margin-bottom: 13px;
+}
+
+.result-text {
+  font-family: $font-primary;
+}

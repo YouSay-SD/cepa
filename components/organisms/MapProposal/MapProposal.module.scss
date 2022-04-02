@@ -34,9 +34,58 @@
   width: 100%;
   border-radius: 10px;
   overflow: hidden;
+  position: relative;
 
   @include respond-to($bp-md) {
     border-radius: initial;
     height: 500px;
+  }
+}
+
+.bar {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 500;
+  background-color: rgba($color-white, 0.8);
+  padding: 15.5px 21px;
+  border-radius: 10px;
+  border: 1px solid #A7CBEC;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.bar-text {
+  font-size: rem-calc(12);
+  line-height: rem-calc(18);
+  letter-spacing: 1px;
+  font-weight: $medium;
+  color: $color-blue-light-2;
+  display: flex;
+  align-items: center;
+}
+
+.circle-yellow,
+.circle-green {
+  &:before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+  }
+}
+
+.circle-yellow {
+  &:before {
+    background-color: $color-yellow;
+  }
+}
+
+.circle-green {
+  &:before {
+    background-color: $color-green;
   }
 }

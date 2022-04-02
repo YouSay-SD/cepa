@@ -9,14 +9,14 @@ import ReactMarkdown from 'react-markdown';
 import { CloseModal, P, Title } from '@/components/atoms';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, Navigation } from 'swiper';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 const ModalBullet = () => {
   const { isOpenModalBullet, modalBulletId } = useSelector(state => state.general)
   const [swiperInstance, setSwiperInstance] = useState();
-  const { countries } = useSelector(state => state.country)
-  const areThereCountries = countries.length !== 0;
+  const { aliquots } = useSelector(state => state.country)
+  const areThereAliquots = aliquots.length !== 0;
   const dispatch = useDispatch()
 
   const closeModal = () => {
@@ -51,18 +51,18 @@ const ModalBullet = () => {
       onRequestClose={closeModal}
       contentLabel="Example Modal"
     >
-      {areThereCountries &&
+      {areThereAliquots &&
         <div className={styles['modal-bullet']}>
           <CloseModal onClick={closeModal} />
 
           <Swiper {...swiperProps} onSwiper={setSwiperInstance}>
-            {countries.map(({id, attributes: {name, aliquotText}}) => {
+            {aliquots.map(({id, attributes: {name, description}}) => {
               return (
               <SwiperSlide key={id} className={styles.content}>
                 <Title className={styles.title} size='xs'>{name}</Title>
                 <P>
                   <ReactMarkdown className={styles.markdown}>
-                    {aliquotText}
+                    {description}
                   </ReactMarkdown>
                 </P>
               </SwiperSlide>

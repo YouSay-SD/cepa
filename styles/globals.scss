@@ -198,3 +198,19 @@ p {
 	right: -50px !important;
   background-image: url('/img/icons/next-modal.svg');
 }
+
+// Leaftel
+.leaflet-control-zoom {
+	background: #ffffff;
+	box-shadow: 1px 8px 16px 4px rgba(17, 95, 172, 0.08) !important;
+	border-radius: 10px !important;
+	border: initial !important;
+	overflow: hidden !important;
+	margin-top: 24px !important;
+	margin-left: 36px !important;
+
+	.leaflet-control-zoom-in,
+	.leaflet-control-zoom-out {
+		color: #115FAC !important;
+	}
+}

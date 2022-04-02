@@ -2,6 +2,8 @@ import { types } from "../types/types"
 
 const initState = {
   countries: [],
+  aliquots: [],
+  aliquotCategories: [],
 }
 
 export const countryReducer = (state = initState, action) => {
@@ -12,6 +14,18 @@ export const countryReducer = (state = initState, action) => {
         countries: action.payload
       }
 
+    case types.SET_ALIQUOTS:
+      return {
+        ...state,
+        aliquots: action.payload
+      }
+
+    case types.SET_ALIQUOT_CATEGORIES:
+      return {
+        ...state,
+        aliquotCategories: action.payload
+      }
+    
     default:
       return state
   }

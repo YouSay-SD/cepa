@@ -1,11 +1,8 @@
 import styles from './Progressivity.module.scss'
 import { Container, Switch, Map } from "../../atoms"
 import { Heading, Sidebar } from "../../molecules"
-import { useSelector } from 'react-redux'
 
-const Progressivity = () => {
-  const { countries } = useSelector(state => state.country)
-
+const Progressivity = ({ countries }) => {
   return (
     <section className={styles.progressivity}>
       <Container className={styles['heading-container']}>
@@ -20,10 +17,10 @@ const Progressivity = () => {
       </Container>
 
       <Container className={styles.content}>
-        <Sidebar items={countries} />
+        <Sidebar items={countries?.data} />
 
         <div className={styles.map}>
-          <Map />
+          <Map countries={countries?.data} />
         </div>
       </Container>
     </section>
