@@ -1,4 +1,4 @@
-const SERVER_URL = process.env.STRAPI_API
+const SERVER_URL = 'https://progresividadtributaria.tk/api'
 
 class Request {
   constructor(resource) {

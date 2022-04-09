@@ -2,19 +2,21 @@ import Image from 'next/image';
 import { Container, P, Title, Button } from '../../atoms';
 import styles from './CtaBottom.module.scss'
 
-const CtaBottom = ({ title, description, ctaText, ctaLink}) => {
+const CtaBottom = ({ title, description, ctaText, ctaLink, image }) => {
   return (
     <section className={styles['cta-bottom']}>
       <Container>
         <div className={styles.content}>
-          <div className={styles['img-container']}>
-            <Image
-              src='/img/icons/cta-bottom.svg'
-              alt='Cta Bottom'
-              width={80}
-              height={76}
-            />
-          </div>
+          {image?.data ?
+            <div className={styles['img-container']}>
+              <Image
+                src={image.data.attributes.url}
+                alt={image.data.attributes.alternativeText}
+                width={80}
+                height={76}
+              />
+            </div>
+          : null}
 
           <div className={styles['text-container']}>
             <Title 

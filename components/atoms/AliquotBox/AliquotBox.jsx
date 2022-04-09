@@ -31,7 +31,7 @@ export const AliquotBox = ({name, earnings, ownership, flag, index}) => {
       <div className={styles['box-heading']}>
         {flag?.data && 
           <Image
-            src={`${STRAPI_URL}${flag.data.attributes.url}`}
+            src={flag.data.attributes.url}
             alt={flag.data.attributes.alternativeText}
             width={50}
             height={40}

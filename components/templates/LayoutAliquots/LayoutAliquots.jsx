@@ -9,12 +9,16 @@ const LayoutAliquots = ({ modules }) => {
   return (
     <Layout>
       <Menu color='tertiary' {...modules.header} />
-      <AliquotHero />
+
+      {modules.heroAliquot ? 
+        <AliquotHero {...modules.heroAliquot} />
+      : null}
+
       <AliquotArchive />
 
-      {modules?.ctaBottom &&
+      {modules?.ctaBottom.id ?
         <CtaBottom {...modules.ctaBottom} />
-      }
+      : null}
 
       {modules?.footer &&
         <Footer {...modules.footer} logo={modules.header.logo} />

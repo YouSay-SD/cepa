@@ -3,15 +3,17 @@ import { dehydrate, QueryClient, useQuery } from 'react-query'
 import { useDispatch } from 'react-redux';
 import { setCountries } from 'actions/countries';
 import { HeadSeo, LayoutHome } from 'components/templates'
-import { aliquotCategories, aliquots, countries, header, heroResp, mapProgressivityResp, mapProposalResp, mapTaxHavensResp, modules } from './api';
+import { aliquotCategories, aliquots, countries, header, footer, heroResp, mapProgressivityResp, mapProposalResp, mapTaxHavensResp, modules, ctaBottomResp } from './api';
 import { setAliquotCategories, setAliquots, setCategory } from 'actions/aliquots';
 
 export default function Home() {
   const { data: dataHeader } = useQuery('header', () => header?.getAll())
+  const { data: dataFooter } = useQuery('footer', () => footer?.getAll())
   const { data: dataCountries } = useQuery('countries', () => countries?.getAll())
   const { data: dataAliquots } = useQuery('aliquots', () => aliquots?.getAll())
   const { data: dataModules } = useQuery('modules', () => modules?.getAll())
   const { data: dataHero } = useQuery('heroResp', () => heroResp?.getAll())
+  const { data: dataCtaBottom } = useQuery('ctaBottomResp', () => ctaBottomResp?.getAll())
   const { data: dataMapProposal } = useQuery('mapProposalResp', () => mapProposalResp?.getAll())
   const { data: dataMapProgressivity } = useQuery('mapProgressivityResp', () => mapProgressivityResp?.getAll())
   const { data: dataMapTaxHavens } = useQuery('mapTaxHavensResp', () => mapTaxHavensResp?.getAll())
@@ -41,6 +43,7 @@ export default function Home() {
 
   const allData = {
     header: dataHeader?.data?.attributes,
+    footer: dataFooter?.data?.attributes,
     ...dataModules?.data?.attributes,
     hero: {
       ...dataHeroWithImage
@@ -61,7 +64,10 @@ export default function Home() {
     mapTaxHavens: {
       ...dataModules?.data?.attributes.mapTaxHavens,
       countries: { ...dataMapTaxHavensCountries }
-    }
+    },
+    ctaBottom: {
+      ...dataCtaBottom?.data.attributes.ctaBottom
+    },
   }
 
   return (
@@ -73,13 +79,15 @@ export default function Home() {
 }
 
 // Static Props
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery('header', () => header.getAll());
+  await queryClient.prefetchQuery('footer', () => footer.getAll());
   await queryClient.prefetchQuery('countries', () => countries.getAll());
   await queryClient.prefetchQuery('aliquots', () => aliquots.getAll());
   await queryClient.prefetchQuery('modules', () => modules?.getAll());
   await queryClient.prefetchQuery('heroResp', () => heroResp?.getAll());
+  await queryClient.prefetchQuery('ctaBottomResp', () => ctaBottomResp?.getAll());
   await queryClient.prefetchQuery('mapProposalResp', () => mapProposalResp?.getAll());
   await queryClient.prefetchQuery('mapProgressivityResp', () => mapProgressivityResp?.getAll());
   await queryClient.prefetchQuery('mapTaxHavensResp', () => mapTaxHavensResp?.getAll());

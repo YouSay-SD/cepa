@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { Container } from '../../atoms'
 import { MenuItems } from '../../molecules'
 
-export const Menu = ({ color = 'primary', logo }) => {
+export const Menu = ({ color = 'primary', logo, firstTextLink, secondTextLink, thirdTextLink, fourthTextLink }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -36,7 +36,12 @@ export const Menu = ({ color = 'primary', logo }) => {
           </div>
 
           <div className={styles['menu-items']}>
-            <MenuItems />
+            <MenuItems
+              firstTextLink={firstTextLink} 
+              secondTextLink={secondTextLink} 
+              thirdTextLink={thirdTextLink} 
+              fourthTextLink={fourthTextLink}
+            />
           </div>
         </Container>
       </nav>

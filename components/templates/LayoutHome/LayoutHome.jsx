@@ -15,11 +15,11 @@ const LayoutHome = ({ modules }) => {
         <Hero {...modules.hero} />
       }
 
-      {modules?.mapProgressivity && 
+      {modules?.mapProgressivity.id ?
         <Element name='progressivity'>
           <Progressivity {...modules.mapProgressivity} />
         </Element>
-      }
+      : null}
 
       {modules?.aliquots &&
         <Element name='aliquot'>
@@ -27,21 +27,21 @@ const LayoutHome = ({ modules }) => {
         </Element>
       }
 
-      {modules?.mapProposal &&
+      {modules?.mapProposal.id ?
         <Element name='proposal-map'>
           <MapProposal {...modules.mapProposal} />
         </Element>
-      }
+      : null}
 
-      {modules?.mapTaxHavens &&
+      {modules?.mapTaxHavens.id ?
         <Element name='tax-havens'>
           <MapTaxHavens {...modules.mapTaxHavens} />
         </Element>
-      }
+      : null}
 
-      {modules?.ctaBottom &&
+      {modules?.ctaBottom.id ?
         <CtaBottom {...modules.ctaBottom} />
-      }
+      : null}
 
       {modules?.footer &&
         <Footer {...modules.footer} logo={modules.header.logo} />

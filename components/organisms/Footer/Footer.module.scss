@@ -73,4 +73,9 @@
   line-height: rem-calc(60);
   color: $color-white;
   margin-left: 18px;
+  text-decoration: underline;
+
+  @include respond-to($bp-md) {
+    margin-left: initial;
+  }
 }

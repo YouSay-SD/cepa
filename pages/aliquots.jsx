@@ -3,12 +3,13 @@ import { dehydrate, QueryClient, useQuery } from 'react-query'
 import { useDispatch } from 'react-redux'
 import { setAliquotCategories, setAliquots, setCategory } from '../actions/aliquots'
 import { HeadSeo, LayoutAliquots } from '../components/templates'
-import { aliquotCategories, aliquots, modules, header } from './api'
+import { aliquotCategories, aliquots, header, aliquotsPage, footer } from './api'
 
 export default function Aliquots() {
   const { data: dataHeader } = useQuery('header', () => header?.getAll())
+  const { data: dataFooter } = useQuery('footer', () => footer?.getAll())
   const { data: { data } } = useQuery('aliquots', () => aliquots.getAll())
-  const { data: dataModules } = useQuery('modules', () => modules?.getAll())
+  const { data: dataAliquotsPage } = useQuery('aliquotsPage', () => aliquotsPage?.getAll())
   const { data: dataAliquotCategories } = useQuery('aliquotCategories', () => aliquotCategories?.getAll());
   const dispatch = useDispatch()
 
@@ -26,7 +27,8 @@ export default function Aliquots() {
   
   const allData = {
     header: dataHeader?.data.attributes,
-    ...dataModules?.data?.attributes,
+    footer: dataFooter?.data?.attributes,
+    ...dataAliquotsPage?.data?.attributes,
   }
 
   return (
@@ -38,11 +40,12 @@ export default function Aliquots() {
 }
 
 // Static Props
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery('header', () => header.getAll());
+  await queryClient.prefetchQuery('footer', () => footer.getAll());
   await queryClient.prefetchQuery('aliquots', () => aliquots.getAll());
-  await queryClient.prefetchQuery('modules', () => modules?.getAll());
+  await queryClient.prefetchQuery('aliquotsPage', () => aliquotsPage?.getAll());
   await queryClient.prefetchQuery('aliquotCategories', () => aliquotCategories?.getAll());
 
   return {

@@ -1,13 +1,24 @@
 import { LinkSection } from '../../atoms'
 import styles from './MenuItems.module.scss'
 
-const MenuItems = () => {
+const MenuItems = ({ firstTextLink, secondTextLink, thirdTextLink, fourthTextLink }) => {
   return (
     <div className={styles['menu-items']}>
-      <LinkSection to='progressivity'>Progresividad y Presión fiscal</LinkSection>
-      <LinkSection to='aliquot'>Alícuota máxima</LinkSection>
-      <LinkSection to='proposal-map'>Impuestos a la riqueza</LinkSection>
-      <LinkSection to='tax-havens'>Paraísos fiscales</LinkSection>
+      {firstTextLink ? 
+        <LinkSection to='progressivity'>{firstTextLink}</LinkSection>
+      : null}
+
+      {secondTextLink ? 
+        <LinkSection to='aliquot'>{secondTextLink}</LinkSection>
+      : null}
+
+      {thirdTextLink ?
+        <LinkSection to='proposal-map'>{thirdTextLink}</LinkSection>
+      : null}
+
+      {fourthTextLink ?
+        <LinkSection to='tax-havens'>{fourthTextLink}</LinkSection>
+      : null}
     </div>
   )
 }
