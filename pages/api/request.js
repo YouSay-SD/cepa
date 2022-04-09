@@ -1,4 +1,4 @@
-const SERVER_URL = 'http://localhost:1337/api'
+const SERVER_URL = process.env.STRAPI_API
 
 class Request {
   constructor(resource) {

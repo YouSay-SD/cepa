@@ -1,7 +1,8 @@
 import axios from 'axios'
+import { STRAPI_URL } from 'constants'
 
 const client = axios.create({
-  baseURL: 'http://localhost:1337'
+  baseURL: STRAPI_URL
 })
 
 export const request = ({ ...options }) => {
