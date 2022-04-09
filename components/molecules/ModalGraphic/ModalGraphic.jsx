@@ -16,8 +16,8 @@ const ModalGraphic = ({ countries }) => {
   const { isOpenModalGraphic, modalGraphicId, switchDirection } = useSelector(state => state.general)
   const [swiperInstance, setSwiperInstance] = useState();
   // const { countries } = useSelector(state => state.country)
-  const areThereCountries = countries.length !== 0;
-  const isCarousel = countries.length !== 1;
+  const areThereCountries = countries?.length !== 0;
+  const isCarousel = countries?.length !== 1;
   const dispatch = useDispatch()
 
   const closeModal = () => {
@@ -57,7 +57,7 @@ const ModalGraphic = ({ countries }) => {
           <CloseModal onClick={closeModal} />
           
           <Swiper {...swiperProps} onSwiper={setSwiperInstance}>
-            {countries.map(({id, attributes: {name, progressiveness, taxPressure, graphic}}) => {
+            {countries?.map(({id, attributes: {name, progressiveness, taxPressure, graphic}}) => {
               return (
                 <SwiperSlide key={id} className={styles.content}>
                   <div className={styles['text-container']}>

@@ -19,8 +19,10 @@ const LayoutAliquots = ({ modules }) => {
       {modules?.footer &&
         <Footer {...modules.footer} logo={modules.header.logo} />
       }
-
-      <ModalBullet items={filteredAliquots} />
+      
+      {filteredAliquots &&
+        <ModalBullet items={filteredAliquots} />
+      }
     </Layout>
   )
 }

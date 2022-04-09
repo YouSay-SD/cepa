@@ -16,7 +16,7 @@ const Sidebar = ({ items, type = 'switch', modal = true }) => {
       <Switch className={styles['switch-desktop']} />
       <div className={styles.btn} onClick={() => setIsOpen(!isOpen)} />
       <div className={styles.list}>
-        {items.map(({ attributes, id }) => {
+        {items && items.map(({ attributes, id }) => {
           return (
             <CountryCard 
               key={id}

@@ -46,9 +46,14 @@ const LayoutHome = ({ modules }) => {
       {modules?.footer &&
         <Footer {...modules.footer} logo={modules.header.logo} />
       }
+  
+      {modules?.mapProgressivity && 
+        <ModalGraphic countries={modules.mapProgressivity?.countries?.data} /> 
+      }
 
-      <ModalGraphic countries={modules.mapProgressivity?.countries?.data} />
-      <ModalBullet items={filteredAliquots} />
+      {filteredAliquots &&
+        <ModalBullet items={filteredAliquots} />
+      }
       <ModalProposal />
     </Layout>
   )

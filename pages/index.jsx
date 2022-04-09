@@ -22,7 +22,7 @@ export default function Home() {
   const dataMapTaxHavensCountries = dataMapTaxHavens?.data?.attributes.mapTaxHavens?.countries;
   const dataMapProgressivityCountriesWithGraphics = dataMapProgressivityCountries?.data.map(({ id: idCountry }) => dataCountries.data.find(({ id }) => idCountry === id ));
   const dispatch = useDispatch()
-  
+
   useEffect(() => {
     dispatch(setCountries(dataCountries?.data))
   }, [dispatch, dataCountries])
@@ -52,11 +52,11 @@ export default function Home() {
     mapProgressivity: {
       ...dataModules?.data?.attributes.mapProgressivity,
       // countries: { ...dataMapProgressivityCountries }
-      countries: {
+      countries: dataMapProgressivityCountriesWithGraphics ? {
         data: [
           ...dataMapProgressivityCountriesWithGraphics
         ]
-      }
+      } : null
     },
     mapTaxHavens: {
       ...dataModules?.data?.attributes.mapTaxHavens,
