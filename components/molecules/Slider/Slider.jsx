@@ -3,21 +3,18 @@ import 'swiper/css'
 import 'swiper/css/effect-fade'
 import { AliquotBox } from "../../atoms"
 import { Swiper, SwiperSlide } from "swiper/react"
-import { useSelector } from 'react-redux'
 
-export const Slider = () => {
-  const { aliquots } = useSelector(state => state.country)
-
+export const Slider = ({ items }) => {
   return (
     <Swiper
       slidesPerView={"auto"}
       spaceBetween={21}
       className={`mySwiper ${styles.slider}`}
     >
-      {aliquots && aliquots.map(({ attributes, id }) => {
+      {items && items.map(({ attributes, id }, index) => {
         return (
           <SwiperSlide key={id} className={styles.slide}>
-            <AliquotBox id={id} {...attributes} />
+            <AliquotBox index={index + 1} {...attributes} />
           </SwiperSlide>
         )
       })}

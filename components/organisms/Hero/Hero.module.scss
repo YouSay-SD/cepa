@@ -53,6 +53,10 @@
   @include respond-to($bp-lg) {
     justify-content: center;
   }
+
+  a {
+    padding: initial !important;
+  }
 }
 
 .img-container {

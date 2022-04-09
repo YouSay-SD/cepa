@@ -2,13 +2,14 @@ import styles from './AliquoteBox.module.scss'
 import { setModalBullet, setOpenModalBullet } from 'actions/general';
 import Image from 'next/image'
 import { useDispatch } from 'react-redux';
+import { STRAPI_URL } from 'constants';
 
-export const AliquotBox = ({id, name, earnings, ownership}) => {
+export const AliquotBox = ({name, earnings, ownership, flag, index}) => {
   const dispatch = useDispatch();
 
   const openModal = () => {
     dispatch(setOpenModalBullet());
-    dispatch(setModalBullet(id));
+    dispatch(setModalBullet(index));
   }
 
   return (
@@ -28,12 +29,14 @@ export const AliquotBox = ({id, name, earnings, ownership}) => {
       </div>
 
       <div className={styles['box-heading']}>
-        <Image
-          src='/img/icons/country-flag.svg'
-          alt='Country Flag'
-          width={50}
-          height={40}
-        />
+        {flag?.data && 
+          <Image
+            src={`${STRAPI_URL}${flag.data.attributes.url}`}
+            alt={flag.data.attributes.alternativeText}
+            width={50}
+            height={40}
+          />
+        }
 
         <p className={styles['country-name']}>{name}</p>
       </div>

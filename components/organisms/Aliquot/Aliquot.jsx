@@ -1,10 +1,15 @@
 import styles from './Aliquot.module.scss'
-import { Container, Button } from "@/components/atoms";
+import { Container, Button, SelectCategory } from "@/components/atoms";
 import { Slider, Heading } from '@/components/molecules';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useDispatch, useSelector } from 'react-redux';
+import { filterAliquotsByCategory } from 'actions/aliquots';
 
 export const Aliquot = ({ title, description }) => {
+  const dispatch = useDispatch()
+  const { aliquots, aliquotCategories, selectedCategory, filteredAliquots } = useSelector(state => state.aliquot)
+
   const sections = [
     {
       id: 'personas-humanas',
@@ -21,6 +26,10 @@ export const Aliquot = ({ title, description }) => {
   const handleClick = (section) => {
     setSectionSelected(section)
   }
+
+  useEffect(() => {
+    dispatch(filterAliquotsByCategory(selectedCategory))
+  }, [dispatch, selectedCategory])
 
   return (
     <section className={styles.aliquot}>
@@ -48,12 +57,15 @@ export const Aliquot = ({ title, description }) => {
                 )
               })}
             </div>
-
+            
+            <div className={styles['select-category']}>
+              <SelectCategory />
+            </div>
           </div>
         </Container>
 
         <Container side='right'>
-          <Slider />
+          <Slider items={filteredAliquots} />
         </Container>
       </div>
 

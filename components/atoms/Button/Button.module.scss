@@ -131,6 +131,11 @@
   &.outline-white {
     border: 1px solid $color-white;
     color: $color-white;
+
+    a {
+      color: $color-white;
+      transition: $global-transition;
+    }
   
     &.primary {
       &:hover {
@@ -141,6 +146,10 @@
           path {
             fill: $color-primary;
           }
+        }
+
+        a {
+          color: $color-primary;
         }
       }
     }

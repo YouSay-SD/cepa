@@ -1,21 +1,24 @@
+import { STRAPI_URL } from 'constants'
 import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
 import { Container, P } from '../../atoms'
 import { SocialMedia } from '../../molecules'
 import styles from './Footer.module.scss'
 
-const Footer = ({ description, email }) => {
+const Footer = ({ description, email, logo }) => {
   return (
     <footer className={styles.footer} style={{backgroundImage: 'url(img/icons/footer-lines.svg)'}}>
       <Container>
         <div className={styles.content}>
           <div className={styles.logo}>
-            <Image
-              src='/img/logo.svg'
-              alt='CEPA'
-              width={109}
-              height={64}
-            />
+            {logo?.data &&
+              <Image
+                src={logo.data?.attributes.url}
+                alt={logo?.data.attributes.alternativeText}
+                width={109}
+                height={64}
+              />
+            }
           </div>
 
           <P className={styles.description} color='white'>

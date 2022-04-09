@@ -2,6 +2,7 @@ import styles from './Pagination.module.scss'
 import Image from 'next/image'
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentPage } from 'actions/general';
+import { useEffect } from 'react';
 
 const Pagination = ({page, items, itemsPerPage, setPage}) => {
   const { currentPage } = useSelector(state => state.general)
@@ -11,6 +12,10 @@ const Pagination = ({page, items, itemsPerPage, setPage}) => {
   const handleCurrentPage = (id) => {
     dispatch(setCurrentPage(id))
   }
+
+  useEffect(() => {
+    dispatch(setCurrentPage(0))
+  }, [dispatch])
 
   return (
     (

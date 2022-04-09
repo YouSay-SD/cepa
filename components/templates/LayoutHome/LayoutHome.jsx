@@ -2,13 +2,18 @@ import { Aliquot, CtaBottom, Footer, Hero, Menu, Progressivity, MapProposal, Map
 import { ModalGraphic, ModalBullet, ModalProposal } from "@/components/molecules"
 import { Element } from 'react-scroll'
 import Layout from "../Layout/Layout"
+import { useSelector } from "react-redux"
 
 const LayoutHome = ({ modules }) => {
-  console.log('m', modules)
+  const { filteredAliquots } = useSelector(state => state.aliquot)
+
   return (
     <Layout>
-      <Menu />
-      <Hero />
+      <Menu {...modules.header} />
+
+      {modules?.hero && 
+        <Hero {...modules.hero} />
+      }
 
       {modules?.mapProgressivity && 
         <Element name='progressivity'>
@@ -39,11 +44,11 @@ const LayoutHome = ({ modules }) => {
       }
 
       {modules?.footer &&
-        <Footer {...modules.footer} />
+        <Footer {...modules.footer} logo={modules.header.logo} />
       }
 
-      <ModalGraphic />
-      <ModalBullet />
+      <ModalGraphic countries={modules.mapProgressivity?.countries?.data} />
+      <ModalBullet items={filteredAliquots} />
       <ModalProposal />
     </Layout>
   )

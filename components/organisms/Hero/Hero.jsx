@@ -1,29 +1,55 @@
 import styles from './Hero.module.scss'
-import { Container, Button, Title, P } from '../../atoms'
+import { Container, Button, Title, P, LinkSection } from '../../atoms'
 import Image from 'next/image'
+import ReactMarkdown from 'react-markdown'
+import Link from 'next/link'
 
-const Hero = () => {
+const Hero = ({ title, description, image, ctaTextPrimary, ctaLinkPrimary, ctaTextSecondary }) => {
   return (
     <section className={styles.hero}>
       <Container className={styles.container}>
         <div className={styles['text-container']}>
-          <Title className={styles.title} size='xlg' color='white'><strong>Desigualdad tributaria</strong> en el mundo.</Title>
-          <P className={styles.description} color='white'>Investigación sobre estructuras tributarias de países de América y de Europa entre la crisis del 2008 y la de 2020.
-            A partir de ello construimos un indicador que sintetiza el grado de progresividad que posee cada sistema tributario.</P>
+          <Title className={styles.title} size='xlg' color='white'>
+            <ReactMarkdown>
+              {title}
+            </ReactMarkdown>
+          </Title>
+
+          {description &&
+            <P className={styles.description} color='white'>
+              <ReactMarkdown>
+                {description}
+              </ReactMarkdown>
+            </P>
+          }
 
           <div className={styles['button-container']}>
-            <Button type='outline-white' color='primary'>Ver Informe Completo</Button>
-            <Button type='solid' color='tertiary'>Explorar Resultados</Button>
+            {ctaLinkPrimary &&
+              <Button type='outline-white' color='primary'>
+                <Link href={ctaLinkPrimary}>
+                  <a target='_blank'>{ctaTextPrimary}</a>
+                </Link>
+              </Button>
+            }
+
+            {ctaTextSecondary &&
+              <LinkSection to='progressivity'>
+                <Button type='solid' color='tertiary'>{ctaTextSecondary}</Button>
+              </LinkSection>
+            }
           </div>
         </div>
 
         <div className={styles['img-container']}>
-          <Image
-            src='/img/hero.png'
-            alt='Hero'
-            width={531}
-            height={524}
-          />
+          {image?.data &&
+            <Image
+              src={image.data?.attributes.url}
+              alt={image?.data.attributes.alternativeText}
+              width={531}
+              height={524}
+              priority
+            />
+          }
         </div>
       </Container>
     </section>

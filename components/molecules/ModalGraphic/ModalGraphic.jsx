@@ -10,12 +10,14 @@ import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useEffect, useState } from 'react';
 import { EffectFade, Navigation } from 'swiper';
+import { STRAPI_URL } from 'constants';
 
-const ModalGraphic = () => {
+const ModalGraphic = ({ countries }) => {
   const { isOpenModalGraphic, modalGraphicId, switchDirection } = useSelector(state => state.general)
   const [swiperInstance, setSwiperInstance] = useState();
-  const { countries } = useSelector(state => state.country)
+  // const { countries } = useSelector(state => state.country)
   const areThereCountries = countries.length !== 0;
+  const isCarousel = countries.length !== 1;
   const dispatch = useDispatch()
 
   const closeModal = () => {
@@ -23,7 +25,7 @@ const ModalGraphic = () => {
   }
   
   const swiperProps = {
-		loop: true,
+		loop: isCarousel,
 		slidesPerView: 1,
 		effect: 'fade',
 		modules: [EffectFade, Navigation],
@@ -37,8 +39,6 @@ const ModalGraphic = () => {
 			prevEl: '.swiper-button-prev',
 		},
 	};
-
-  console.log('countr', countries)
 
   useEffect(() => {
     swiperInstance?.slideTo(modalGraphicId, 0)
@@ -57,7 +57,7 @@ const ModalGraphic = () => {
           <CloseModal onClick={closeModal} />
           
           <Swiper {...swiperProps} onSwiper={setSwiperInstance}>
-            {countries.map(({id, attributes: {name, progressiveness, taxPressure}}) => {
+            {countries.map(({id, attributes: {name, progressiveness, taxPressure, graphic}}) => {
               return (
                 <SwiperSlide key={id} className={styles.content}>
                   <div className={styles['text-container']}>
@@ -67,7 +67,14 @@ const ModalGraphic = () => {
                     <p className={styles.name}>{name}</p>
                   </div>
                   <div className={styles['img-container']}>
-                    <Image src='/img/graph.png' alt='Graphic' width={388} height={103} />
+                    {graphic?.data && 
+                      <Image 
+                        src={`${STRAPI_URL}${graphic.data?.attributes.url}`} 
+                        alt={graphic.data?.attributes.alternativeText} 
+                        width={388} 
+                        height={103} 
+                      />
+                    }
                   </div>
                 </SwiperSlide>
               )

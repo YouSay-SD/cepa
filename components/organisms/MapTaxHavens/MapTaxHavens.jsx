@@ -23,7 +23,7 @@ const MapTaxHavens = ({ title, description, countries }) => {
       </Container>
 
       <Container className={styles.content}>
-        <Sidebar items={countries.data} type='select' modal={false} />
+        <Sidebar items={countries?.data} type='select' modal={false} />
         <div className={styles.map}>
           <Map {...mapProps} countries={countries?.data} type='tax-havens' />
         </div>

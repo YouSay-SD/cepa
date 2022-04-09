@@ -134,7 +134,7 @@ p {
 
 // React Modal
 .ReactModalPortal {
-	z-index: 99;
+	z-index: 999999999999999;
 	position: relative;
 }
 
@@ -212,5 +212,6 @@ p {
 	.leaflet-control-zoom-in,
 	.leaflet-control-zoom-out {
 		color: #115FAC !important;
+		width: 36px !important;
 	}
 }

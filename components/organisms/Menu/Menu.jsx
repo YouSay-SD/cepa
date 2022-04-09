@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { Container } from '../../atoms'
 import { MenuItems } from '../../molecules'
 
-export const Menu = ({ color = 'primary' }) => {
+export const Menu = ({ color = 'primary', logo }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -14,12 +14,15 @@ export const Menu = ({ color = 'primary' }) => {
         <Container className={styles.container}>
           <Link href='/'>
             <a>
-              <Image
-                src='/img/logo.svg'
-                alt='CEPA'
-                width={109}
-                height={64}
-              />
+              {logo?.data &&
+                <Image
+                  src={logo.data?.attributes.url}
+                  alt={logo?.data.attributes.alternativeText}
+                  width={109}
+                  height={64}
+                  priority
+                />
+              }
             </a>
           </Link>
 

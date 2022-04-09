@@ -27,7 +27,9 @@ const ProposalMap = ({ title, description, countries }) => {
             <p className={`${styles['bar-text']} ${styles['circle-green']}`}>APROBADO</p>
           </div>
 
-          <Map {...mapProps} type='proposal' countries={countries?.data} />
+          <div className={styles['map-content']}>
+            <Map {...mapProps} type='proposal' countries={countries?.data} />
+          </div>
         </div>
       </Container>
 

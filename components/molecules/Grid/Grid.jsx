@@ -5,14 +5,20 @@ export const Grid = ({ items, paginatedItems }) => {
   return (
     <div>
       <div className={styles.grid}>
-        {paginatedItems.map(({ attributes, id }) => {
-          return <AliquotBox key={id} id={id} {...attributes} />
+        {paginatedItems.map(({ attributes, id }, index) => {
+          return (
+            <AliquotBox 
+              key={id} 
+              index={index + 1} 
+              {...attributes}
+            />
+          )
         })}
       </div>
 
       <Pagination
         items={items}
-        itemsPerPage={3}
+        itemsPerPage={12}
       />
     </div>
   )

@@ -12,10 +12,10 @@ import { EffectFade, Navigation } from 'swiper';
 import { useEffect, useState } from 'react';
 
 
-const ModalBullet = () => {
+const ModalBullet = ({ items }) => {
   const { isOpenModalBullet, modalBulletId } = useSelector(state => state.general)
   const [swiperInstance, setSwiperInstance] = useState();
-  const { aliquots } = useSelector(state => state.country)
+  const { aliquots } = useSelector(state => state.aliquot)
   const areThereAliquots = aliquots.length !== 0;
   const dispatch = useDispatch()
 
@@ -56,7 +56,7 @@ const ModalBullet = () => {
           <CloseModal onClick={closeModal} />
 
           <Swiper {...swiperProps} onSwiper={setSwiperInstance}>
-            {aliquots.map(({id, attributes: {name, description}}) => {
+            {items && items.map(({id, attributes: {name, description}}) => {
               return (
               <SwiperSlide key={id} className={styles.content}>
                 <Title className={styles.title} size='xs'>{name}</Title>

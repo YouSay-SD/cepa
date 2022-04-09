@@ -1,11 +1,14 @@
 import { ModalBullet } from "@/components/molecules"
 import { CtaBottom, Footer, AliquotHero, Menu, AliquotArchive } from "@/components/organisms"
+import { useSelector } from "react-redux"
 import Layout from "../Layout/Layout"
 
 const LayoutAliquots = ({ modules }) => {
+  const { filteredAliquots } = useSelector(state => state.aliquot)
+
   return (
     <Layout>
-      <Menu color='tertiary' />
+      <Menu color='tertiary' {...modules.header} />
       <AliquotHero />
       <AliquotArchive />
 
@@ -14,10 +17,10 @@ const LayoutAliquots = ({ modules }) => {
       }
 
       {modules?.footer &&
-        <Footer {...modules.footer} />
+        <Footer {...modules.footer} logo={modules.header.logo} />
       }
 
-      <ModalBullet />
+      <ModalBullet items={filteredAliquots} />
     </Layout>
   )
 }

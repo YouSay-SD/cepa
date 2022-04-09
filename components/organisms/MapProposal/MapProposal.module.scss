@@ -5,6 +5,10 @@
   background-color: $color-blue-light-4;
   position: relative;
 
+  @include respond-to($bp-md) {
+    padding: 48px 0 30px;
+  }
+
   &:after {
     content: '';
     width: 100%;
@@ -17,7 +21,7 @@
 }
 
 .heading-container {
-  margin-bottom: 56px;
+  margin-bottom: 40px;
 }
 
 .map-container {  
@@ -30,7 +34,7 @@
 }
 
 .map {
-  height: 678px;
+  // height: 678px;
   width: 100%;
   border-radius: 10px;
   overflow: hidden;
@@ -38,6 +42,14 @@
 
   @include respond-to($bp-md) {
     border-radius: initial;
+    // height: 500px;
+  }
+}
+
+.map-content {
+  height: 678px;
+
+  @include respond-to($bp-md) {
     height: 500px;
   }
 }
@@ -54,6 +66,14 @@
   display: flex;
   justify-content: space-between;
   gap: 20px;
+
+  @include respond-to($bp-md) {
+    position: relative;
+    top: initial;
+    right: initial;
+    max-width: 265px;
+    margin: 0 auto 24px;
+  }
 }
 
 .bar-text {

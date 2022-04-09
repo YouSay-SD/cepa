@@ -18,6 +18,9 @@
 
 .slider-heading {
   margin-bottom: 67px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
 }
 
 .slider-sections {
@@ -55,4 +58,11 @@
   @include respond-to($bp-md) {
     text-align: center;
   }
+}
+
+.select-category {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
 }
