@@ -1,4 +1,4 @@
-const SERVER_URL = 'https://progresividadtributaria.tk/api'
+const SERVER_URL = 'http://localhost:1337/api'
 
 class Request {
   constructor(resource) {

@@ -3,8 +3,8 @@ import { dehydrate, QueryClient, useQuery } from 'react-query'
 import { useDispatch } from 'react-redux';
 import { setCountries } from 'actions/countries';
 import { HeadSeo, LayoutHome } from 'components/templates'
-import { aliquotCategories, aliquots, countries, header, footer, heroResp, mapProgressivityResp, mapProposalResp, mapTaxHavensResp, modules, ctaBottomResp } from './api';
-import { setAliquotCategories, setAliquots, setCategory } from 'actions/aliquots';
+import { aliquotCategories, aliquots, countries, header, footer, heroResp, mapProgressivityResp, mapProposalResp, mapTaxHavensResp, modules, ctaBottomResp, aliquotCategoriesType } from './api';
+import { setAliquotCategories, setAliquotCategoriesType, setAliquots, setCategory, setCategoryType } from 'actions/aliquots';
 
 export default function Home() {
   const { data: dataHeader } = useQuery('header', () => header?.getAll())
@@ -18,6 +18,7 @@ export default function Home() {
   const { data: dataMapProgressivity } = useQuery('mapProgressivityResp', () => mapProgressivityResp?.getAll())
   const { data: dataMapTaxHavens } = useQuery('mapTaxHavensResp', () => mapTaxHavensResp?.getAll())
   const { data: dataAliquotCategories } = useQuery('aliquotCategories', () => aliquotCategories?.getAll());
+  const { data: dataAliquotCategoriesType } = useQuery('aliquotCategoriesType', () => aliquotCategoriesType?.getAll());
   const dataHeroWithImage = dataHero?.data?.attributes.hero;
   const dataMapProposalCountries = dataMapProposal?.data?.attributes.mapProposal?.countries;
   const dataMapProgressivityCountries = dataMapProgressivity?.data?.attributes.mapProgressivity?.countries;
@@ -37,6 +38,16 @@ export default function Home() {
     dispatch(setAliquotCategories(dataAliquotCategories?.data))
   }, [dispatch, dataAliquotCategories])
 
+  useEffect(() => {
+    dispatch(setAliquotCategoriesType(dataAliquotCategoriesType?.data))
+  }, [dispatch, dataAliquotCategoriesType])
+
+  // Set Category Type
+  useEffect(() => {
+    dispatch(setCategoryType(dataAliquotCategoriesType?.data[0]?.id))
+  }, [dispatch, dataAliquotCategoriesType])
+
+  // Set Category Country
   useEffect(() => {
     dispatch(setCategory(dataAliquotCategories.data[0]?.id))
   }, [dispatch, dataAliquotCategories])
@@ -92,6 +103,7 @@ export const getServerSideProps = async () => {
   await queryClient.prefetchQuery('mapProgressivityResp', () => mapProgressivityResp?.getAll());
   await queryClient.prefetchQuery('mapTaxHavensResp', () => mapTaxHavensResp?.getAll());
   await queryClient.prefetchQuery('aliquotCategories', () => aliquotCategories?.getAll());
+  await queryClient.prefetchQuery('aliquotCategoriesType', () => aliquotCategoriesType?.getAll());
 
   return {
     props: {

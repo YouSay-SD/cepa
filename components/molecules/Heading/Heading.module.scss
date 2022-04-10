@@ -1,11 +1,7 @@
 @import "../../../styles/baseline/_styles";
 
 .title {
-  margin-bottom: 32px;
-
-  @include respond-to($bp-md) {
-    margin-bottom: 25px;
-  }
+  margin-bottom: 15px;
 }
 
 .description {

@@ -2,7 +2,6 @@ import styles from './AliquoteBox.module.scss'
 import { setModalBullet, setOpenModalBullet } from 'actions/general';
 import Image from 'next/image'
 import { useDispatch } from 'react-redux';
-import { STRAPI_URL } from 'constants';
 
 export const AliquotBox = ({name, earnings, ownership, flag, index}) => {
   const dispatch = useDispatch();

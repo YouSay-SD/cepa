@@ -4,8 +4,13 @@ export const types = {
   SET_COUNTRIES: '[Country] Set Countries',
   SET_ALIQUOTS: '[Country] Set Aliquots',
   SET_ALIQUOT_CATEGORIES: '[Country] Set Aliquots Categories',
+  SET_ALIQUOT_CATEGORIES_TYPE: '[Country] Set Aliquots Categories Type',
+
   SET_CATEGORY: '[Aliquot] Set Category',
+  SET_CATEGORY_TYPE: '[Aliquot] Set Category Type',
+  FILTER_ALIQUOTS: '[Aliquot] Filter Aliquots',
   FILTER_ALIQUOTS_BY_CATEGORY: '[Aliquot] Filter Aliquots By Category',
+  FILTER_ALIQUOTS_BY_CATEGORY_TYPE: '[Aliquot] Filter Aliquots By Category Type',
 
   SET_SWITCH_DIRECTION: '[General] Set Switch Direction',
   

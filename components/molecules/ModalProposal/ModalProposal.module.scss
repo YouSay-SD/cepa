@@ -1,15 +1,15 @@
 @import "../../../styles/baseline/_styles";
 
-.modal-proposal {
-  
-}
-
 .modal-heading {
   padding: 50px 40px 15px;
   border-bottom: 1px solid rgba(168, 214, 255, 0.4);
 
   @include respond-to($bp-md) {
     padding: 30px 23px 15px;
+  }
+
+  &--more-padding {
+    padding: 40px;
   }
 
   p {

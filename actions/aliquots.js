@@ -20,6 +20,16 @@ export const setAliquotCategories = (countries) => {
   }
 }
 
+// Set Aliquots Categories Type
+export const setAliquotCategoriesType = (categoriesType) => {
+  return async (dispatch) => {
+    await dispatch({
+      type: types.SET_ALIQUOT_CATEGORIES_TYPE,
+      payload: categoriesType
+    })
+  }
+}
+
 // Set Category
 export const setCategory = (idCategory) => {
   return async (dispatch) => {
@@ -30,12 +40,42 @@ export const setCategory = (idCategory) => {
   }
 }
 
-// Filter Aliquots By Category
+// Set Category Type
+export const setCategoryType = (idCategory) => {
+  return async (dispatch) => {
+    await dispatch({
+      type: types.SET_CATEGORY_TYPE,
+      payload: idCategory
+    })
+  }
+}
+
+// Filter Aliquots By Category Country
 export const filterAliquotsByCategory = (idCategory) => {
   return async (dispatch) => {
     await dispatch({
       type: types.FILTER_ALIQUOTS_BY_CATEGORY,
       payload: idCategory
+    })
+  }
+}
+
+// Filter Aliquots By Category Type
+export const filterAliquotsByCategoryType = (idCategory) => {
+  return async (dispatch) => {
+    await dispatch({
+      type: types.FILTER_ALIQUOTS_BY_CATEGORY_TYPE,
+      payload: idCategory
+    })
+  }
+}
+
+// Filter Aliquots
+export const filterAliquots = ({ idCategoryType, idCategoryCountry }) => {
+  return async (dispatch) => {
+    await dispatch({
+      type: types.FILTER_ALIQUOTS,
+      payload: { idCategoryType, idCategoryCountry }
     })
   }
 }

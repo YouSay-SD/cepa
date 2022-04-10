@@ -11,6 +11,7 @@ const ModalProposal = () => {
   const areThereCountries = countries.length !== 0;
   const country = countries.find(({id}) => id === modalProposalId)
   const dispatch = useDispatch()
+  const isThereContent = country?.attributes.resultProposal && country?.attributes.contentProposal
 
   const closeModal = () => {
     dispatch(setOpenModalProposal())
@@ -28,30 +29,33 @@ const ModalProposal = () => {
         <div className={styles['modal-proposal']}>
           <CloseModal onClick={closeModal} />
 
-          <div className={styles['modal-heading']}>
+          <div className={`${styles['modal-heading']} ${!isThereContent ? styles['modal-heading--more-padding'] : null}`}>
             <p>{country?.attributes.name}</p>
           </div>
 
-          <div className={styles['modal-content']}>
-            {country && country?.attributes.contentProposal.map(({id, titleProposal, descriptionProposal}) => {
-              return (
-                <div key={id} className={styles['proposal-content']}>
-                  <P color='secondary' className={styles['proposal-title']}>{titleProposal}</P>
-                  <P color='secondary' className={styles['proposal-description']}>{descriptionProposal}</P>
+          {isThereContent ?
+            <div className={styles['modal-content']}>
+              {country?.attributes.contentProposal.map(({id, titleProposal, descriptionProposal}) => {
+                return (
+                  <div key={id} className={styles['proposal-content']}>
+                    <P color='secondary' className={styles['proposal-title']}>{titleProposal}</P>
+                    <P color='secondary' className={styles['proposal-description']}>{descriptionProposal}</P>
+                  </div>
+                )
+              })}
+
+              {country?.attributes.resultProposal ?
+                <div className={styles['result-content']}>
+                  <P className={styles['result-title']}>RESULTADO</P>
+                  <P className={styles['result-text']}>
+                    <ReactMarkdown>
+                      {country?.attributes.resultProposal}
+                    </ReactMarkdown>
+                  </P>                   
                 </div>
-              )
-            })}
-            {country?.attributes.resultProposal &&
-              <div className={styles['result-content']}>
-                <P className={styles['result-title']}>RESULTADO</P>
-                <P className={styles['result-text']}>
-                  <ReactMarkdown>
-                    {country?.attributes.resultProposal}
-                  </ReactMarkdown>
-                </P>                   
-              </div>
-            }
-          </div>
+              : null}
+            </div>
+          : null}
         </div>
       }
     </Modal>

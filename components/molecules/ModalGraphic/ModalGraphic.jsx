@@ -69,7 +69,7 @@ const ModalGraphic = ({ countries }) => {
                   <div className={styles['img-container']}>
                     {graphic?.data && 
                       <Image 
-                        src={`${STRAPI_URL}${graphic.data?.attributes.url}`} 
+                        src={graphic.data?.attributes.url} 
                         alt={graphic.data?.attributes.alternativeText} 
                         width={388} 
                         height={103} 

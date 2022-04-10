@@ -4,32 +4,25 @@ import { Slider, Heading } from '@/components/molecules';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
-import { filterAliquotsByCategory } from 'actions/aliquots';
+import { filterAliquots, filterAliquotsByCategoryType, setCategoryType } from 'actions/aliquots';
 
 export const Aliquot = ({ title, description }) => {
   const dispatch = useDispatch()
-  const { aliquots, aliquotCategories, selectedCategory, filteredAliquots } = useSelector(state => state.aliquot)
-
-  const sections = [
-    {
-      id: 'personas-humanas',
-      name: 'Personas Humanas'
-    },
-    {
-      id: 'empresas',
-      name: 'Empresas'
-    }
-  ]
+  const { aliquotCategoriesType, selectedCategoryType, filteredAliquots, selectedCategory } = useSelector(state => state.aliquot)
+  const [sectionSelected, setSectionSelected] = useState(aliquotCategoriesType[0]?.id);
   
-  const [sectionSelected, setSectionSelected] = useState(sections[0].id);
-
   const handleClick = (section) => {
     setSectionSelected(section)
+    dispatch(setCategoryType(section))
   }
 
   useEffect(() => {
-    dispatch(filterAliquotsByCategory(selectedCategory))
-  }, [dispatch, selectedCategory])
+    dispatch(filterAliquots({ idCategoryType: selectedCategoryType, idCategoryCountry: selectedCategory }))
+  }, [dispatch, selectedCategory, selectedCategoryType])
+
+  // useEffect(() => {
+  //   dispatch(filterAliquotsByCategoryType(selectedCategoryType))
+  // }, [dispatch, selectedCategoryType])
 
   return (
     <section className={styles.aliquot}>
@@ -45,17 +38,17 @@ export const Aliquot = ({ title, description }) => {
         <Container>
           <div className={styles['slider-heading']}>
             <div className={styles['slider-sections']}>
-              {sections.map(({ id, name }) => {
+              {aliquotCategoriesType?.length !== 0 ? aliquotCategoriesType.map(({ id, attributes }) => {
                 return (
                   <span 
                     key={id} 
                     className={`${styles['slider-section']} ${id === sectionSelected && styles['active']}`} 
                     onClick={() => handleClick(id)}
                   >
-                    {name}
+                    {attributes.name}
                   </span>
                 )
-              })}
+              }): null}
             </div>
             
             <div className={styles['select-category']}>
@@ -65,7 +58,11 @@ export const Aliquot = ({ title, description }) => {
         </Container>
 
         <Container side='right'>
-          <Slider items={filteredAliquots} />
+          {
+            filteredAliquots.length !== 0 
+            ? <Slider items={filteredAliquots} />
+            : 'No hay alicuotas para mostrar'
+          }
         </Container>
       </div>
 

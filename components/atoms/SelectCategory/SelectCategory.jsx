@@ -47,13 +47,13 @@ const SelectCategory = ({ className = '' }) => {
 
         })}
 
-        <p 
+        {/* <p 
           key={0}
           className={`${styles['option-unselected']} ${styles.option}`}
           onClick={() => handleCategory(0, 'otros')}
         >
           otros
-        </p>
+        </p> */}
       </ul>
     </div>
   )
