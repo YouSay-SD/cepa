@@ -50,6 +50,8 @@
   gap: 16px;
   max-height: 490px;
   margin-top: 32px;
+  overflow-y: scroll;
+  padding-right: 7px;
 
   &::-webkit-scrollbar {
     width: 4px;
@@ -96,7 +98,7 @@
 
 // Type: Select
 .select {
-  padding: 24px 14px 24px 16px;
+  padding: 24px 7px 24px 16px;
   min-height: 590px;
 
   @include respond-to($bp-md) {

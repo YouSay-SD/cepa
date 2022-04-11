@@ -21,11 +21,20 @@
   display: flex;
   justify-content: space-between;
   position: relative;
+
+  @include respond-to($bp-md) {
+    flex-direction: column;
+  }
 }
 
 .slider-sections {
   border-bottom: 1px solid #C8C8C8;
   max-width: max-content;
+
+  @include respond-to($bp-md) {
+    order: 2;
+    padding-top: 80px;
+  }
 }
 
 .slider-section {
@@ -65,4 +74,8 @@
   right: 0;
   top: 0;
   z-index: 2;
+
+  @include respond-to($bp-md) {
+    width: 100%;
+  }
 }

@@ -79,3 +79,12 @@ export const filterAliquots = ({ idCategoryType, idCategoryCountry }) => {
     })
   }
 }
+
+// Reset Filter Aliquots
+export const resetFilterAliquots = () => {
+  return async (dispatch) => {
+    await dispatch({
+      type: types.RESET_FILTER_ALIQUOTS,
+    })
+  }
+}

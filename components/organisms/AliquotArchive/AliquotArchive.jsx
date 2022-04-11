@@ -1,13 +1,13 @@
 import styles from './AliquotArchive.module.scss'
-import { Container } from "../../atoms"
+import { Container, SelectCategory } from "../../atoms"
 import { Grid } from "../../molecules"
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { setCurrentPage } from 'actions/general'
-import { filterAliquotsByCategory, setCategory } from 'actions/aliquots'
+import { filterAliquots, filterAliquotsByCategory, setCategory, setCategoryType } from 'actions/aliquots'
 
 const AliquotArchive = () => {
-  const { aliquotCategories, selectedCategory, filteredAliquots } = useSelector(state => state.aliquot)
+  const { aliquotCategories, aliquotCategoriesType, selectedCategory, selectedCategoryType, filteredAliquots } = useSelector(state => state.aliquot)
   const { currentPage } = useSelector(state => state.general)
 
   const itemsPerPage = 12
@@ -15,50 +15,58 @@ const AliquotArchive = () => {
   const dispatch = useDispatch()
 
   const handleCategory = (id) => {
-    dispatch(setCategory(id))
+    // dispatch(setCategory(id))
+    dispatch(setCategoryType(id))
     dispatch(setCurrentPage(0))
   }
 
+  // useEffect(() => {
+  //   dispatch(filterAliquotsByCategory(selectedCategory))
+  // }, [dispatch, selectedCategory])
+
   useEffect(() => {
-    dispatch(filterAliquotsByCategory(selectedCategory))
-  }, [dispatch, selectedCategory])
+    dispatch(filterAliquots({ idCategoryType: selectedCategoryType, idCategoryCountry: selectedCategory }))
+  }, [dispatch, selectedCategory, selectedCategoryType])
 
   // Dismmount
-  useEffect(() => {
-    return () => {
-      dispatch(filterAliquotsByCategory(aliquotCategories[0]?.id))
-    }
-  }, [])
+  // useEffect(() => {
+  //   return () => {
+  //     dispatch(filterAliquotsByCategory(aliquotCategories[0]?.id))
+  //   }
+  // }, [])
 
   return (
     <section className={styles['aliquot-archive']}>
       <Container className={styles.container}>
         <div className={styles['categories-container']}>
-          {aliquotCategories?.map(({ id, attributes }) => {
-            return (
-              <span 
-                key={id} 
-                className={`${styles.category} ${id === selectedCategory && styles.active}`} 
-                onClick={() => handleCategory(id)}
-              >
-                {attributes.name}
-              </span>
-            )
-          })}
+          <div className={styles['categories-type-container']}>
+            {aliquotCategoriesType?.map(({ id, attributes }) => {
+              return (
+                <span 
+                  key={id} 
+                  className={`${styles.category} ${id === selectedCategoryType && styles.active}`} 
+                  onClick={() => handleCategory(id)}
+                >
+                  {attributes.name}
+                </span>
+              )
+            })}
+          </div>
 
-          <span 
-            key={0} 
-            className={`${styles.category} ${0 === selectedCategory && styles.active}`} 
-            onClick={() => handleCategory(0)}
-          >
-            OTROS
-          </span>
+          <div className={styles['select-category']}>
+            <SelectCategory />
+          </div>
         </div>
-
-        <Grid 
-          items={filteredAliquots}
-          paginatedItems={paginatedItems}
-        />        
+        
+        {filteredAliquots.length !== 0
+          ? 
+            <Grid 
+              items={filteredAliquots}
+              paginatedItems={paginatedItems}
+            /> 
+          :
+            'No hay alicuotas para mostrar'      
+        }
       </Container>
     </section>
   )

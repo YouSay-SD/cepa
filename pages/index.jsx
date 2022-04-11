@@ -42,12 +42,12 @@ export default function Home() {
     dispatch(setAliquotCategoriesType(dataAliquotCategoriesType?.data))
   }, [dispatch, dataAliquotCategoriesType])
 
-  // Set Category Type
+  // Set Category Type by default
   useEffect(() => {
     dispatch(setCategoryType(dataAliquotCategoriesType?.data[0]?.id))
   }, [dispatch, dataAliquotCategoriesType])
 
-  // Set Category Country
+  // Set Category Country by default
   useEffect(() => {
     dispatch(setCategory(dataAliquotCategories.data[0]?.id))
   }, [dispatch, dataAliquotCategories])

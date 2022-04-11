@@ -1,28 +1,29 @@
 import styles from './Aliquot.module.scss'
 import { Container, Button, SelectCategory } from "@/components/atoms";
 import { Slider, Heading } from '@/components/molecules';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
-import { filterAliquots, filterAliquotsByCategoryType, setCategoryType } from 'actions/aliquots';
+import { filterAliquots, resetFilterAliquots, setCategoryType } from 'actions/aliquots';
 
 export const Aliquot = ({ title, description }) => {
   const dispatch = useDispatch()
   const { aliquotCategoriesType, selectedCategoryType, filteredAliquots, selectedCategory } = useSelector(state => state.aliquot)
-  const [sectionSelected, setSectionSelected] = useState(aliquotCategoriesType[0]?.id);
   
-  const handleClick = (section) => {
-    setSectionSelected(section)
-    dispatch(setCategoryType(section))
+  const handleClick = (idCategoryType) => {
+    dispatch(setCategoryType(idCategoryType))
   }
 
   useEffect(() => {
     dispatch(filterAliquots({ idCategoryType: selectedCategoryType, idCategoryCountry: selectedCategory }))
   }, [dispatch, selectedCategory, selectedCategoryType])
 
-  // useEffect(() => {
-  //   dispatch(filterAliquotsByCategoryType(selectedCategoryType))
-  // }, [dispatch, selectedCategoryType])
+  // Reset FilterAliquots
+  useEffect(() => {
+    return () => {
+      dispatch(resetFilterAliquots())
+    }
+  }, [dispatch])
 
   return (
     <section className={styles.aliquot}>
@@ -42,7 +43,7 @@ export const Aliquot = ({ title, description }) => {
                 return (
                   <span 
                     key={id} 
-                    className={`${styles['slider-section']} ${id === sectionSelected && styles['active']}`} 
+                    className={`${styles['slider-section']} ${id === selectedCategoryType && styles['active']}`} 
                     onClick={() => handleClick(id)}
                   >
                     {attributes.name}

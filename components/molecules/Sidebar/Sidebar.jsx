@@ -13,7 +13,9 @@ const Sidebar = ({ items, type = 'switch', modal = true }) => {
 
   return (
     <aside className={`${styles.sidebar} ${isOpen && styles.active} ${styles[type]}`}>
-      <Switch className={styles['switch-desktop']} />
+      {type === 'switch' ?
+        <Switch className={styles['switch-desktop']} />
+      : null}
       <div className={styles.btn} onClick={() => setIsOpen(!isOpen)} />
       <div className={styles.list}>
         {items && items.map(({ attributes, id }) => {

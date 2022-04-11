@@ -11,6 +11,7 @@ export const types = {
   FILTER_ALIQUOTS: '[Aliquot] Filter Aliquots',
   FILTER_ALIQUOTS_BY_CATEGORY: '[Aliquot] Filter Aliquots By Category',
   FILTER_ALIQUOTS_BY_CATEGORY_TYPE: '[Aliquot] Filter Aliquots By Category Type',
+  RESET_FILTER_ALIQUOTS: '[Aliquot] Reset Filter Aliquots',
 
   SET_SWITCH_DIRECTION: '[General] Set Switch Direction',
   

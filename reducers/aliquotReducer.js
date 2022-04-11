@@ -43,8 +43,6 @@ export const aliquotReducer = (state = initState, action) => {
       }
 
     case types.FILTER_ALIQUOTS:
-      console.log('IDDDD TYPE', action.payload.idCategoryType)
-      console.log('IDDDD COUNTRY', action.payload.idCategoryCountry)
 
       if(action.payload.idCategoryCountry) {
         const filteredByCategoryType = state.aliquots.filter(({ attributes }) => attributes?.categoryType?.data?.id === action.payload.idCategoryType)
@@ -61,6 +59,12 @@ export const aliquotReducer = (state = initState, action) => {
           ...state,
           filteredAliquots: filteredByCategoryType
         }
+      }
+
+    case types.RESET_FILTER_ALIQUOTS: 
+      return {
+        ...state,
+        filteredAliquots: state.aliquots
       }
 
     case types.FILTER_ALIQUOTS_BY_CATEGORY: 
