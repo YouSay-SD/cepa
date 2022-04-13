@@ -8,7 +8,7 @@ const Heading = ({ title, description, className = '' }) => {
       <Title className={styles.title} size='md'>
         <ReactMarkdown>{title}</ReactMarkdown>
       </Title>
-      <P className={styles.description}>
+      <P as="div" className={styles.description}>
         <ReactMarkdown>{description}</ReactMarkdown>
       </P>
     </div>

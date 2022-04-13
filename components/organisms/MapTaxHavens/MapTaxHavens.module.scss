@@ -12,6 +12,7 @@
   display: grid;
   grid-template-columns: 305px 1fr;
   border-radius: 10px;
+  min-height: 590px;
 
   @include respond-to($bp-md) {
     grid-template-columns: 1fr;
@@ -27,5 +28,21 @@
     height: 500px;
     width: 100%;
     border-radius: initial;
+  }
+}
+
+.select-container {
+  @include respond-to($bp-md) {
+    position: relative;
+    padding-bottom: 50px;
+    margin-top: 30px;
+  }
+}
+
+.sidebar-container {
+  height: 100%;
+
+  @include respond-to($bp-md) {
+    display: none;
   }
 }

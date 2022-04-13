@@ -4,7 +4,9 @@ export const types = {
   SET_COUNTRIES: '[Country] Set Countries',
   SET_ALIQUOTS: '[Country] Set Aliquots',
   SET_ALIQUOT_CATEGORIES: '[Country] Set Aliquots Categories',
-  SET_ALIQUOT_CATEGORIES_TYPE: '[Country] Set Aliquots Categories Type',
+  SET_ALIQUOT_CATEGORIES_TYPE: '[Aliquot] Set Aliquots Categories Type',
+  SET_COUNTRY_CATEGORIES_TAX_HAVENS: '[Country] Set Aliquots Categories Tax Havens',
+  SET_CATEGORY_TAX_HAVEN: '[Country] Set Category Tax Haven',
 
   SET_CATEGORY: '[Aliquot] Set Category',
   SET_CATEGORY_TYPE: '[Aliquot] Set Category Type',

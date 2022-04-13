@@ -11,6 +11,8 @@ const LinkSection = ({children, to }) => {
       smooth={true} 
       offset={-95} 
       duration={500}
+      // hashSpy={true}
+      // containerId="ContainerElementID"
     >
       {children}
     </Link>

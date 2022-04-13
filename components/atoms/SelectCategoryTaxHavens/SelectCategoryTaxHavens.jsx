@@ -1,12 +1,12 @@
-import { setCategory } from 'actions/aliquots';
+import { setCategoryTaxHaven } from 'actions/countries';
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import styles from './SelectCategory.module.scss'
+import styles from './SelectCategoryTaxHavens.module.scss'
 
-const SelectCategory = ({ className = '' }) => {
-  const { aliquotCategories } = useSelector(state => state.aliquot)
+const SelectCategoryTaxHavens = ({ className = '' }) => {
+  const { countryCategoriesTaxHavens } = useSelector(state => state.country)
   const [isOpen, setIsOpen] = useState(false);
-  const [categoryName, setCategoryName] = useState(aliquotCategories[0]?.attributes.name);
+  const [categoryName, setCategoryName] = useState(countryCategoriesTaxHavens[0]?.attributes.name);
   const dispatch = useDispatch()
 
   const handleClick = () => {
@@ -14,13 +14,13 @@ const SelectCategory = ({ className = '' }) => {
   }
 
   const handleCategory = (id, name) => {
-    dispatch(setCategory(id))
+    dispatch(setCategoryTaxHaven(id))
     setCategoryName(name)
   }
 
   useEffect(() => {
-    setCategoryName(aliquotCategories[0]?.attributes.name)
-  }, [setCategoryName, aliquotCategories])
+    setCategoryName(countryCategoriesTaxHavens[0]?.attributes.name)
+  }, [setCategoryName, countryCategoriesTaxHavens])
 
   return (
     <div 
@@ -30,11 +30,11 @@ const SelectCategory = ({ className = '' }) => {
       <p 
         className={`${styles['option-selected']} ${styles.option}`}
       >
-        <b>Mostrar por:</b> {categoryName}
+        {categoryName}
       </p>
 
       <ul className={styles.list}>
-        {aliquotCategories.map(({ id, attributes }) => {
+        {countryCategoriesTaxHavens.map(({ id, attributes }) => {
           return (
             <p 
               key={id}
@@ -50,4 +50,4 @@ const SelectCategory = ({ className = '' }) => {
   )
 }
 
-export default SelectCategory
+export default SelectCategoryTaxHavens

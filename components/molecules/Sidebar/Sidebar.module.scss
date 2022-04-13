@@ -8,6 +8,7 @@
   transition: $global-transition;
   position: relative;
   z-index: 9;
+  height: 100%;
   // min-height: 590px;
 
   @include respond-to($bp-md) {
@@ -104,4 +105,9 @@
   @include respond-to($bp-md) {
     display: none;
   }
+}
+
+.select-container {
+  position: relative;
+  padding-bottom: 50px;
 }

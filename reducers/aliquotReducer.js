@@ -4,10 +4,12 @@ const initState = {
   aliquots: [],
   aliquotCategories: [],
   aliquotCategoriesType: [],
+  // aliquotCategoriesTaxHavens: [],
   filteredAliquots: [],
-  selectedCategory: null,
   filteredAliquotsByCategoryType: [],
+  selectedCategory: null,
   selectedCategoryType: null,
+  // selectedCategoryTaxHaven: null,
 }
 
 export const aliquotReducer = (state = initState, action) => {
@@ -30,6 +32,12 @@ export const aliquotReducer = (state = initState, action) => {
         aliquotCategoriesType: action.payload
       }
 
+    // case types.SET_ALIQUOT_CATEGORIES_TAX_HAVENS:
+    //   return {
+    //     ...state,
+    //     aliquotCategoriesTaxHavens: action.payload
+    //   }
+
     case types.SET_CATEGORY:
       return {
         ...state,
@@ -41,6 +49,12 @@ export const aliquotReducer = (state = initState, action) => {
         ...state,
         selectedCategoryType: action.payload
       }
+
+    // case types.SET_CATEGORY_TAX_HAVEN:
+    //   return {
+    //     ...state,
+    //     selectedCategoryTaxHaven: action.payload
+    //   }
 
     case types.FILTER_ALIQUOTS:
 

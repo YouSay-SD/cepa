@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { setModalGraphic, setOpenModalGraphic } from 'actions/general'
 import styles from './CountryCard.module.scss'
 
-const CountryCard = ({ id, name, number, type = 'primary', modal = true }) => {
+const CountryCard = ({ id, name, number, type = 'primary', modal = true, flag }) => {
   const dispatch = useDispatch()
 
   const openModal = () => {
@@ -21,7 +21,7 @@ const CountryCard = ({ id, name, number, type = 'primary', modal = true }) => {
       <p className={styles.name}>{name}</p>
       {type === 'primary' 
         ? <p className={styles.number}>{number}%</p>
-        : <Image src='/img/icons/country-flag.svg' alt='Country Flag' width={18} height={12} />
+        : flag?.data &&  <Image src={flag.data.attributes.url} alt='Country Flag' width={18} height={12} /> 
       }
     </div>
   )

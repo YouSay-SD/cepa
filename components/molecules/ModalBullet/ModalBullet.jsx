@@ -15,8 +15,7 @@ import { useEffect, useState } from 'react';
 const ModalBullet = ({ items }) => {
   const { isOpenModalBullet, modalBulletId } = useSelector(state => state.general)
   const [swiperInstance, setSwiperInstance] = useState();
-  const { aliquots } = useSelector(state => state.aliquot)
-  const areThereAliquots = aliquots.length !== 0;
+  const areThereAliquots = items.length !== 1;
   const dispatch = useDispatch()
 
   const closeModal = () => {
@@ -24,7 +23,7 @@ const ModalBullet = ({ items }) => {
   }
 
   const swiperProps = {
-		loop: true,
+		loop: areThereAliquots,
 		slidesPerView: 1,
 		effect: 'fade',
 		modules: [EffectFade, Navigation],
@@ -34,8 +33,8 @@ const ModalBullet = ({ items }) => {
 			crossFade: true,
 		},
 		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
+			nextEl: '.swiper-bullet-button-next',
+			prevEl: '.swiper-bullet-button-prev',
 		},
 	};
 
@@ -43,7 +42,7 @@ const ModalBullet = ({ items }) => {
     swiperInstance?.slideTo(modalBulletId, 0)
   }, [swiperInstance, modalBulletId])
 
-  Modal.setAppElement('#__next');
+  Modal.setAppElement('#modal-bullet');
   
   return (
     <Modal
@@ -51,7 +50,7 @@ const ModalBullet = ({ items }) => {
       onRequestClose={closeModal}
       contentLabel="Example Modal"
     >
-      {areThereAliquots &&
+      {items.length !== 0 &&
         <div className={styles['modal-bullet']}>
           <CloseModal onClick={closeModal} />
 
@@ -60,7 +59,7 @@ const ModalBullet = ({ items }) => {
               return (
               <SwiperSlide key={id} className={styles.content}>
                 <Title className={styles.title} size='xs'>{name}</Title>
-                <P>
+                <P as="div">
                   <ReactMarkdown className={styles.markdown}>
                     {description}
                   </ReactMarkdown>
@@ -70,8 +69,8 @@ const ModalBullet = ({ items }) => {
             })}
           </Swiper>
 
-          <div className='swiper-button-prev' />
-          <div className='swiper-button-next' />
+          <div className='swiper-button-prev swiper-bullet-button-prev' />
+          <div className='swiper-button-next swiper-bullet-button-next' />
         </div>
       }
     </Modal>

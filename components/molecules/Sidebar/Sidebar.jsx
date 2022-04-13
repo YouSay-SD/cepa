@@ -2,6 +2,7 @@ import styles from './Sidebar.module.scss'
 import { useState } from 'react'
 import { CountryCard, Switch } from "../../atoms";
 import { useSelector } from 'react-redux';
+import SelectCategoryTaxHavens from '@/components/atoms/SelectCategoryTaxHavens/SelectCategoryTaxHavens';
 
 const Sidebar = ({ items, type = 'switch', modal = true }) => {
   const { switchDirection } = useSelector(state => state.general)
@@ -16,6 +17,12 @@ const Sidebar = ({ items, type = 'switch', modal = true }) => {
       {type === 'switch' ?
         <Switch className={styles['switch-desktop']} />
       : null}
+
+      {type === 'tax-havens' ? 
+        <div className={styles['select-container']}>
+          <SelectCategoryTaxHavens />
+        </div>
+      : null}
       <div className={styles.btn} onClick={() => setIsOpen(!isOpen)} />
       <div className={styles.list}>
         {items && items.map(({ attributes, id }) => {
@@ -27,6 +34,7 @@ const Sidebar = ({ items, type = 'switch', modal = true }) => {
               number={attributes[switchDirectionProp]}
               type={countryCardType}
               modal={modal}
+              flag={attributes?.flag}
             />
           )
         })}

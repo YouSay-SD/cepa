@@ -22,6 +22,8 @@ function MyApp({ Component, pageProps, router }) {
         <Hydrate state={pageProps.dehydratedState}>
           <AnimatePresence exitBeforeEnter>
             <div id="modal-graphic"></div>
+            <div id="modal-bullet"></div>
+            <div id="modal-proposal"></div>
             <Component {...pageProps} key={router.asPath} />
             <ReactQueryDevtools initialIsOpen={false} />
           </AnimatePresence>

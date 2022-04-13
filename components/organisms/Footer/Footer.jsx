@@ -20,7 +20,7 @@ const Footer = ({ description, email, logo, socialMedia }) => {
             }
           </div>
 
-          <P className={styles.description} color='white'>
+          <P as="div" className={styles.description} color='white'>
             <ReactMarkdown>{description}</ReactMarkdown>
           </P>
         </div>

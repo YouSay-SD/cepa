@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import { dehydrate, QueryClient, useQuery } from 'react-query'
 import { useDispatch } from 'react-redux';
-import { setCountries } from 'actions/countries';
+import { setCountries, setCountryCategoriesTaxHavens, setCategoryTaxHaven } from 'actions/countries';
 import { HeadSeo, LayoutHome } from 'components/templates'
-import { aliquotCategories, aliquots, countries, header, footer, heroResp, mapProgressivityResp, mapProposalResp, mapTaxHavensResp, modules, ctaBottomResp, aliquotCategoriesType } from './api';
+import { aliquotCategories, aliquots, countries, header, footer, heroResp, mapProgressivityResp, mapProposalResp, mapTaxHavensResp, modules, ctaBottomResp, aliquotCategoriesType, aliquotCategoriesTaxHavens, countryCategoriesTaxHavens } from './api';
 import { setAliquotCategories, setAliquotCategoriesType, setAliquots, setCategory, setCategoryType } from 'actions/aliquots';
+// import {animateScroll as scroll} from 'react-scroll'
 
 export default function Home() {
   const { data: dataHeader } = useQuery('header', () => header?.getAll())
@@ -19,12 +20,25 @@ export default function Home() {
   const { data: dataMapTaxHavens } = useQuery('mapTaxHavensResp', () => mapTaxHavensResp?.getAll())
   const { data: dataAliquotCategories } = useQuery('aliquotCategories', () => aliquotCategories?.getAll());
   const { data: dataAliquotCategoriesType } = useQuery('aliquotCategoriesType', () => aliquotCategoriesType?.getAll());
+  const { data: dataCountryCategoriesTaxHavens } = useQuery('countryCategoriesTaxHavens', () => countryCategoriesTaxHavens?.getAll());
   const dataHeroWithImage = dataHero?.data?.attributes.hero;
   const dataMapProposalCountries = dataMapProposal?.data?.attributes.mapProposal?.countries;
   const dataMapProgressivityCountries = dataMapProgressivity?.data?.attributes.mapProgressivity?.countries;
   const dataMapTaxHavensCountries = dataMapTaxHavens?.data?.attributes.mapTaxHavens?.countries;
   const dataMapProgressivityCountriesWithGraphics = dataMapProgressivityCountries?.data.map(({ id: idCountry }) => dataCountries.data.find(({ id }) => idCountry === id ));
+  const filteredCountries = dataCountries?.data.filter(({ id }) => dataMapTaxHavensCountries?.data.some(item => item.id === id) )
   const dispatch = useDispatch()
+
+  // useEffect(() => {
+  //   // scroll.scrollToBottom();
+  //   scroll.scrollTo('proposal-map', {
+  //     duration: 1500,
+  //     delay: 100,
+  //     smooth: true,
+  //     containerId: 'ContainerElementID',
+  //     offset: 50, // Scrolls to element + 50 pixels down the page
+  //   })
+  // }, [])
 
   useEffect(() => {
     dispatch(setCountries(dataCountries?.data))
@@ -41,6 +55,15 @@ export default function Home() {
   useEffect(() => {
     dispatch(setAliquotCategoriesType(dataAliquotCategoriesType?.data))
   }, [dispatch, dataAliquotCategoriesType])
+
+  useEffect(() => {
+    dispatch(setCountryCategoriesTaxHavens(dataCountryCategoriesTaxHavens?.data))
+  }, [dispatch, dataCountryCategoriesTaxHavens])
+
+  // Set Category Tax Havens by default
+  useEffect(() => {
+    dispatch(setCategoryTaxHaven(dataCountryCategoriesTaxHavens?.data[0]?.id))
+  }, [dispatch, dataCountryCategoriesTaxHavens])
 
   // Set Category Type by default
   useEffect(() => {
@@ -74,7 +97,7 @@ export default function Home() {
     },
     mapTaxHavens: {
       ...dataModules?.data?.attributes.mapTaxHavens,
-      countries: { ...dataMapTaxHavensCountries }
+      countries: [...filteredCountries]
     },
     ctaBottom: {
       ...dataCtaBottom?.data.attributes.ctaBottom
@@ -83,7 +106,10 @@ export default function Home() {
 
   return (
     <div>
-      <HeadSeo title='CEPA | Home' />
+      <HeadSeo 
+        title='CEPA | Home' 
+        favicon={dataHeader?.data?.attributes.favicon}
+      />
       <LayoutHome modules={allData} />
     </div>
   )
@@ -104,6 +130,7 @@ export const getServerSideProps = async () => {
   await queryClient.prefetchQuery('mapTaxHavensResp', () => mapTaxHavensResp?.getAll());
   await queryClient.prefetchQuery('aliquotCategories', () => aliquotCategories?.getAll());
   await queryClient.prefetchQuery('aliquotCategoriesType', () => aliquotCategoriesType?.getAll());
+  await queryClient.prefetchQuery('countryCategoriesTaxHavens', () => countryCategoriesTaxHavens?.getAll());
 
   return {
     props: {

@@ -48,7 +48,10 @@ export default function Aliquots() {
 
   return (
     <div>
-      <HeadSeo title='CEPA | Alicuotas' />
+      <HeadSeo 
+        title='CEPA | Alicuotas'
+        favicon={dataHeader?.data?.attributes.favicon}
+      />
       <LayoutAliquots modules={allData} />
     </div>
   )

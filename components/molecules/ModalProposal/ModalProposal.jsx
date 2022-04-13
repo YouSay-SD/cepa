@@ -17,7 +17,7 @@ const ModalProposal = () => {
     dispatch(setOpenModalProposal())
   }
 
-  Modal.setAppElement('#__next');
+  Modal.setAppElement('#modal-proposal');
   
   return (
     <Modal
@@ -47,7 +47,7 @@ const ModalProposal = () => {
               {country?.attributes.resultProposal ?
                 <div className={styles['result-content']}>
                   <P className={styles['result-title']}>RESULTADO</P>
-                  <P className={styles['result-text']}>
+                  <P as="div" className={styles['result-text']}>
                     <ReactMarkdown>
                       {country?.attributes.resultProposal}
                     </ReactMarkdown>

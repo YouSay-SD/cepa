@@ -71,7 +71,7 @@ const MyMap = ({ type = 'progressivity', countries }) => {
         return (
           <MapContainer {...mapProps}>
             <TileLayer
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              url='https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png'
             />
     
             {countries && countries?.map(({ id, attributes }) => {
@@ -101,7 +101,7 @@ const MyMap = ({ type = 'progressivity', countries }) => {
         return (
           <MapContainer {...mapProps}>
             <TileLayer
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              url='https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png'
             />
     
             {countries && countries?.map(({ id, attributes }) => {
@@ -131,7 +131,7 @@ const MyMap = ({ type = 'progressivity', countries }) => {
         return (
           <MapContainer {...mapProps}>
             <TileLayer
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              url='https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png'
             />
     
             {countries && countries?.map(({ id, attributes }) => {
