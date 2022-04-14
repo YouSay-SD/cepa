@@ -79,6 +79,10 @@
 .active {
   max-height: 560px;
 
+  @include respond-to($bp-md) {
+    max-height: 420px;
+  }
+
   .list {
     overflow-y: scroll !important;
   }

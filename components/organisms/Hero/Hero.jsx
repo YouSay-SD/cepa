@@ -26,9 +26,7 @@ const Hero = ({ title, description, image, ctaTextPrimary, ctaLinkPrimary, ctaTe
           <div className={styles['button-container']}>
             {ctaLinkPrimary &&
               <Button type='outline-white' color='primary'>
-                <Link href={ctaLinkPrimary}>
-                  <a target='_blank'>{ctaTextPrimary}</a>
-                </Link>
+                <a href={ctaLinkPrimary} target='_blank' rel="noreferrer">{ctaTextPrimary}</a>
               </Button>
             }
 

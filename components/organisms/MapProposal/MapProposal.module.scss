@@ -34,7 +34,6 @@
 }
 
 .map {
-  // height: 678px;
   width: 100%;
   border-radius: 10px;
   overflow: hidden;
@@ -42,7 +41,6 @@
 
   @include respond-to($bp-md) {
     border-radius: initial;
-    // height: 500px;
   }
 }
 
@@ -50,7 +48,7 @@
   height: 678px;
 
   @include respond-to($bp-md) {
-    height: 500px;
+    height: calc(100vh - 290px);
   }
 }
 

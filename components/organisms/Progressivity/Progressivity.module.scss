@@ -20,6 +20,7 @@
   }
 
   @include respond-to($bp-md) {
+    min-height: initial;
     grid-template-columns: 1fr;
     display: flex;
     flex-direction: column-reverse;
@@ -41,9 +42,9 @@
   z-index: 1;
 
   @include respond-to($bp-md) {
-    max-height: 500px;
-    min-height: 500px;
-    height: 500px !important;
+    max-height: calc(100vh - 400px);
+    min-height: calc(100vh - 400px);
+    height: calc(100vh - 400px) !important;
     margin-bottom: 140px;
     border-radius: initial;
   }
