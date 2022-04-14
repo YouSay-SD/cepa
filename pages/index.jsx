@@ -5,7 +5,6 @@ import { setCountries, setCountryCategoriesTaxHavens, setCategoryTaxHaven } from
 import { HeadSeo, LayoutHome } from 'components/templates'
 import { aliquotCategories, aliquots, countries, header, footer, heroResp, mapProgressivityResp, mapProposalResp, mapTaxHavensResp, modules, ctaBottomResp, aliquotCategoriesType, aliquotCategoriesTaxHavens, countryCategoriesTaxHavens } from './api';
 import { setAliquotCategories, setAliquotCategoriesType, setAliquots, setCategory, setCategoryType } from 'actions/aliquots';
-// import {animateScroll as scroll} from 'react-scroll'
 
 export default function Home() {
   const { data: dataHeader } = useQuery('header', () => header?.getAll())
@@ -28,17 +27,6 @@ export default function Home() {
   const dataMapProgressivityCountriesWithGraphics = dataMapProgressivityCountries?.data.map(({ id: idCountry }) => dataCountries.data.find(({ id }) => idCountry === id ));
   const filteredCountries = dataCountries?.data.filter(({ id }) => dataMapTaxHavensCountries?.data.some(item => item.id === id) )
   const dispatch = useDispatch()
-
-  // useEffect(() => {
-  //   // scroll.scrollToBottom();
-  //   scroll.scrollTo('proposal-map', {
-  //     duration: 1500,
-  //     delay: 100,
-  //     smooth: true,
-  //     containerId: 'ContainerElementID',
-  //     offset: 50, // Scrolls to element + 50 pixels down the page
-  //   })
-  // }, [])
 
   useEffect(() => {
     dispatch(setCountries(dataCountries?.data))

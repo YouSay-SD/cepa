@@ -1,7 +1,21 @@
 import styles from './LinkSection.module.scss'
 import { Link } from 'react-scroll'
+import { useDispatch } from 'react-redux'
+import { setSectionLink } from 'actions/general'
+import { useRouter } from 'next/router'
 
 const LinkSection = ({children, to }) => {
+  const dispatch = useDispatch()
+  const router = useRouter()
+
+  const handleClick = async () => {
+    dispatch(setSectionLink(to))
+
+    if (router.route !=='/') {
+      await router.push('/')
+    }
+  }
+
   return (
     <Link 
       className={styles['link-section']}
@@ -11,8 +25,8 @@ const LinkSection = ({children, to }) => {
       smooth={true} 
       offset={-95} 
       duration={500}
-      // hashSpy={true}
-      // containerId="ContainerElementID"
+      id={to}
+      onClick={handleClick}
     >
       {children}
     </Link>

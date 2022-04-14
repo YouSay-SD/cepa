@@ -13,6 +13,8 @@ const initState = {
   modalProposalId: 1,
 
   currentPage: 0,
+
+  sectionLink: null
 }
 
 export const generalReducer = (state = initState, action) => {
@@ -63,6 +65,12 @@ export const generalReducer = (state = initState, action) => {
       return {
         ...state,
         currentPage: action.payload
+      }
+
+    case types.SET_SECTION_LINK:
+      return {
+        ...state,
+        sectionLink: action.payload
       }
 
     default:

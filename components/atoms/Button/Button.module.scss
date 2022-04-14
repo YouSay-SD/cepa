@@ -57,6 +57,8 @@
 
   // Outline
   &.outline {
+    background-color: transparent;
+    
     &.primary {
       color: $color-primary;
       border: 1px solid rgba(168, 214, 255, 0.4);

@@ -76,3 +76,13 @@ export const setCurrentPage = (currentPage) => {
     })
   }
 }
+
+// Set Section Link
+export const setSectionLink = (sectionLink) => {
+  return async (dispatch) => {
+    await dispatch({
+      type: types.SET_SECTION_LINK,
+      payload: sectionLink
+    })
+  }
+}
