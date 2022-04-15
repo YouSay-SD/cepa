@@ -147,14 +147,14 @@ const MyMap = ({ type = 'progressivity', countries }) => {
                     icon={iconMarker}
                   >
                     <Popup>
-                      {attributes?.flag ?
+                      {attributes?.flag?.data ?
                         <div style={{
                           width: 18,
                           height: 12
                         }}>
                           <Image
-                            src={attributes?.flag.data.attributes.url}
-                            alt={attributes?.flag.data.attributes.alternativeText}
+                            src={attributes?.flag?.data?.attributes.url}
+                            alt={attributes?.flag?.data?.attributes.alternativeText}
                             width={18}
                             height={12}
                           />
