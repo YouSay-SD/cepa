@@ -10,3 +10,4 @@ export { default as AliquotBox } from './AliquotBox/AliquotBox';
 export { default as Map } from './Map/Map';
 export { default as SelectCategory } from './SelectCategory/SelectCategory';
 export { default as CloseModal } from './CloseModal/CloseModal';
+export { default as Info } from './Info/Info';

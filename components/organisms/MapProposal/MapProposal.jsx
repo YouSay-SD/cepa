@@ -1,5 +1,5 @@
 import styles from './MapProposal.module.scss'
-import { Container, Map } from "../../atoms"
+import { Container, Map, Info } from "../../atoms"
 import { Heading } from '../../molecules'
 
 const ProposalMap = ({ title, description, countries }) => {
@@ -31,6 +31,8 @@ const ProposalMap = ({ title, description, countries }) => {
             <Map {...mapProps} type='proposal' countries={countries?.data} />
           </div>
         </div>
+
+        <Info />
       </Container>
 
     </section>

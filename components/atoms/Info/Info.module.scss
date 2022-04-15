@@ -1,0 +1,53 @@
+@import "../../../styles/baseline/_styles";
+
+.info {
+  position: absolute;
+  bottom: 20px;
+  right: 50px;
+  z-index: 2;
+  width: 31px;
+  height: 31px;
+
+  @include respond-to($bp-md) {
+    display: none;
+  }
+
+  img {
+    cursor: pointer;
+  }
+}
+
+.content {
+  background-color: $color-white;
+  padding: 17px 30px;
+  font-size: rem-calc(16);
+  line-height: rem-calc(24);
+  font-family: $font-primary;
+  color: #333333;
+  box-shadow: 0px 4px 16px rgba(11, 78, 137, 0.1);
+  border: 1px solid rgba(64, 136, 200, 0.25);
+  border-radius: 10px;
+  position: absolute;
+  right: 56px;
+  top: -15px;
+  min-width: 347px;
+  opacity: 0;
+  transition: $global-transition;
+
+  &:after {
+    content: '';
+    background-color: $color-white;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: -5px;
+    top: 19px;
+    transform: rotate(45deg);
+  }
+}
+
+.active {
+  .content {
+    opacity: 1;
+  }
+}

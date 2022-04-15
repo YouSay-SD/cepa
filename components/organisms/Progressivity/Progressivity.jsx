@@ -1,5 +1,5 @@
 import styles from './Progressivity.module.scss'
-import { Container, Switch, Map } from "../../atoms"
+import { Container, Switch, Map, Info } from "../../atoms"
 import { Heading, Sidebar } from "../../molecules"
 
 const Progressivity = ({ title, description, countries }) => {
@@ -20,6 +20,8 @@ const Progressivity = ({ title, description, countries }) => {
         <div className={styles.map}>
           <Map countries={countries?.data} />
         </div>
+
+        <Info />
       </Container>
     </section>
   )

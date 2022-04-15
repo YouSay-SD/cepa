@@ -3,6 +3,7 @@ import 'leaflet/dist/leaflet.css'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { setModalGraphic, setModalProposal, setOpenModalGraphic, setOpenModalProposal } from 'actions/general'
+import Image from 'next/image'
 
 const MyMap = ({ type = 'progressivity', countries }) => {
   const [map, setMap] = useState(null);
@@ -145,6 +146,23 @@ const MyMap = ({ type = 'progressivity', countries }) => {
                     className={styles.marker}
                     icon={iconMarker}
                   >
+                    <Popup>
+                      {attributes?.flag ?
+                        <div style={{
+                          width: 18,
+                          height: 12
+                        }}>
+                          <Image
+                            src={attributes?.flag.data.attributes.url}
+                            alt={attributes?.flag.data.attributes.alternativeText}
+                            width={18}
+                            height={12}
+                          />
+                        </div>
+                      : null}
+
+                      <p>{attributes?.name}</p>
+                    </Popup>
                   </Marker>
                 )
               }

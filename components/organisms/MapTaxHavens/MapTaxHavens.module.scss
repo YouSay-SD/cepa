@@ -12,6 +12,7 @@
   display: grid;
   grid-template-columns: 305px 1fr;
   border-radius: 10px;
+  position: relative;
 
   @include respond-to($bp-md) {
     grid-template-columns: 1fr;
