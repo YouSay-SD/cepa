@@ -4,3 +4,49 @@ $global-transition: all $hover-duration ease-in;
 .hover-animation-basic {
 	transition: all $hover-duration ease-in;
 }
+
+// Anim Play
+.anim-play {
+	animation-play-state: running !important;
+}
+
+// Fade In Left
+@keyframes fade-in-left {
+	from {
+		opacity: 0;
+		transform: translateX(-100px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+
+.anim-fade-in-left {
+	animation: fade-in-left 0.7s ease;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	animation-play-state: paused;
+}
+
+// Anim Delay
+.anim-delay-1 {
+	animation-delay: 0ms;
+}
+
+.anim-delay-2 {
+	animation-delay: 100ms;
+}
+
+.anim-delay-3 {
+	animation-delay: 200ms;
+}
+
+.anim-delay-4 {
+	animation-delay: 300ms;
+}
+
+.anim-delay-5 {
+	animation-delay: 400ms;
+}
