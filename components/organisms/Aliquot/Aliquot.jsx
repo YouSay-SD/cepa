@@ -84,7 +84,7 @@ export const Aliquot = ({ title, description }) => {
       </div>
 
       <Container className={styles['cta-container']}>
-        <Link href='/aliquots'>
+        <Link href='/alicuotas'>
           <a>
             <Button type='outline' color='primary'>Ver Todos</Button>
           </a>

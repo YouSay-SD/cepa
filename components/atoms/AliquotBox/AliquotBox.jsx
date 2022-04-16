@@ -33,7 +33,8 @@ export const AliquotBox = ({name, earnings, ownership, flag, index}) => {
             src={flag.data.attributes.url}
             alt={flag.data.attributes.alternativeText}
             width={50}
-            height={40}
+            height={45}
+            objectFit="contain"
           />
         }
 
