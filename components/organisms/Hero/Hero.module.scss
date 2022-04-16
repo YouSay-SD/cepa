@@ -2,7 +2,7 @@
 
 .hero {
   background-color: $color-blue-light-2;
-  padding: 56px 0 88px;
+  padding: 156px 0 88px;
 
   @include respond-to($bp-lg) {
     padding: 150px 0 80px;

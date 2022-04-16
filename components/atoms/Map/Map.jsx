@@ -157,6 +157,7 @@ const MyMap = ({ type = 'progressivity', countries }) => {
                             alt={attributes?.flag?.data?.attributes.alternativeText}
                             width={18}
                             height={12}
+                            objectFit="contain"
                           />
                         </div>
                       : null}

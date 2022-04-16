@@ -1,16 +1,12 @@
 @import "../../../styles/baseline/_styles";
 
 .header {
-  position: sticky;
+  position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 9999999;
   transition: $global-transition;
-  
-  @include respond-to($bp-lg) {
-    position: fixed;
-  }
   
   &:after {
     content: '';
@@ -64,11 +60,11 @@
   overflow: hidden;
   
   &.primary {
-    background-color: $color-primary;
+    background-color: rgba($color-primary, .95);
   }
 
   &.tertiary {
-    background-color: $color-green;
+    background-color: rgba($color-green, .95);
   }
 
   @include respond-to($bp-lg) {

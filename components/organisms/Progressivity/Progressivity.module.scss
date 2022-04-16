@@ -5,6 +5,7 @@
 
   @include respond-to($bp-md) {
     padding: 40px 0 10px;
+    border-bottom: 1px solid $color-blue-light;
   }
 }
 
