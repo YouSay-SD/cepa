@@ -35,8 +35,11 @@
 }
 
 .select-container {
+  display: none;
+
   @include respond-to($bp-md) {
     position: relative;
+    display: block;
     padding-bottom: 50px;
     margin-top: 30px;
   }

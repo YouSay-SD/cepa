@@ -15,31 +15,29 @@ const LayoutHome = ({ modules }) => {
         <Hero {...modules.hero} />
       }
 
-      <div id="ContainerElementID">
-        {modules?.mapProgressivity.id ?
-          <Element name='progressivity'>
-            <Progressivity {...modules.mapProgressivity} />
-          </Element>
-        : null}
+      {modules?.mapProgressivity.id ?
+        <Element name='progressivity'>
+          <Progressivity {...modules.mapProgressivity} />
+        </Element>
+      : null}
 
-        {modules?.aliquots &&
-          <Element name='aliquot'>
-            <Aliquot {...modules.aliquots} />
-          </Element>
-        }
+      {modules?.aliquots &&
+        <Element name='aliquot'>
+          <Aliquot {...modules.aliquots} />
+        </Element>
+      }
 
-        {modules?.mapProposal.id ?
-          <Element name='proposal-map'>
-            <MapProposal {...modules.mapProposal} />
-          </Element>
-        : null}
+      {modules?.mapProposal.id ?
+        <Element name='proposal-map'>
+          <MapProposal {...modules.mapProposal} />
+        </Element>
+      : null}
 
-        {modules?.mapTaxHavens.id ?
-          <Element name='tax-havens'>
-            <MapTaxHavens {...modules.mapTaxHavens} />
-          </Element>
-        : null}
-      </div>
+      {modules?.mapTaxHavens.id ?
+        <Element name='tax-havens'>
+          <MapTaxHavens {...modules.mapTaxHavens} />
+        </Element>
+      : null}
 
       {modules?.ctaBottom.id ?
         <CtaBottom {...modules.ctaBottom} />

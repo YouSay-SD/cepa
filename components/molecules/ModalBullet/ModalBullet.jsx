@@ -10,7 +10,7 @@ import { CloseModal, P, Title } from '@/components/atoms';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, Navigation } from 'swiper';
 import { useEffect, useState } from 'react';
-
+import { animateScroll } from "react-scroll";
 
 const ModalBullet = ({ items }) => {
   const { isOpenModalBullet, modalBulletId } = useSelector(state => state.general)
@@ -20,6 +20,7 @@ const ModalBullet = ({ items }) => {
 
   const closeModal = () => {
     dispatch(setOpenModalBullet())
+    animateScroll.scrollMore(1);
   }
 
   const swiperProps = {

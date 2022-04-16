@@ -10,12 +10,10 @@ import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useEffect, useState } from 'react';
 import { EffectFade, Navigation } from 'swiper';
-import { STRAPI_URL } from 'constants';
 
 const ModalGraphic = ({ countries }) => {
   const { isOpenModalGraphic, modalGraphicId, switchDirection } = useSelector(state => state.general)
   const [swiperInstance, setSwiperInstance] = useState();
-  // const { countries } = useSelector(state => state.country)
   const areThereCountries = countries?.length !== 0;
   const isCarousel = countries?.length !== 1;
   const dispatch = useDispatch()
