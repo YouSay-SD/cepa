@@ -58,6 +58,7 @@
   cursor: pointer;
   text-transform: uppercase;
   border-bottom: 1px solid #C8C8C8;
+  transition: $global-transition;
 
   &:first-of-type {
     margin-left: initial;
@@ -69,12 +70,19 @@
   
   &.active {
     color: $color-secondary;
-    border-bottom: 2px solid $color-secondary;
   }
 
   @include respond-to($bp-md) {
     min-width: max-content;
   }
+}
+
+.line {
+  height: 2px;
+  background-color: $color-secondary;
+  position: absolute;
+  bottom: 0;
+  transition: $global-transition;
 }
 
 .cta-container {

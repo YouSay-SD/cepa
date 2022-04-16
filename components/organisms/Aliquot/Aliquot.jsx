@@ -1,17 +1,32 @@
 import styles from './Aliquot.module.scss'
 import { Container, Button, SelectCategory } from "@/components/atoms";
 import { Slider, Heading } from '@/components/molecules';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterAliquots, resetFilterAliquots, setCategoryType } from 'actions/aliquots';
 
 export const Aliquot = ({ title, description }) => {
   const dispatch = useDispatch()
+  const ref = useRef(null)
+  const categories = ref?.current?.querySelectorAll('.js-categories')
+  const firstCategoryWidth = categories?.length ? categories[0].offsetWidth : 0 
+  const firstCategoryLeft = categories?.length ? categories[0].getBoundingClientRect().x : 0 
   const { aliquotCategoriesType, selectedCategoryType, filteredAliquots, selectedCategory } = useSelector(state => state.aliquot)
+  const [ position, setLeft ] = useState({
+    left: 0,
+    width: null,
+  });
   
-  const handleClick = (idCategoryType) => {
+  const handleClick = (target, idCategoryType) => {
     dispatch(setCategoryType(idCategoryType))
+    const leftPosition = target.getBoundingClientRect().x
+    const width = target.offsetWidth
+    
+    setLeft({
+      left: leftPosition - firstCategoryLeft,
+      width,
+    })
   }
 
   useEffect(() => {
@@ -38,13 +53,14 @@ export const Aliquot = ({ title, description }) => {
       <div className={styles['slider-container']}>
         <Container>
           <div className={styles['slider-heading']}>
-            <div className={styles['slider-sections']}>
+            <div className={styles['slider-sections']} ref={ref}>
+              <div className={styles.line} style={{ left: position.left, width: position.width ?? firstCategoryWidth }} />
               {aliquotCategoriesType?.length !== 0 ? aliquotCategoriesType.map(({ id, attributes }) => {
                 return (
                   <span 
                     key={id} 
-                    className={`${styles['slider-section']} ${id === selectedCategoryType && styles['active']}`} 
-                    onClick={() => handleClick(id)}
+                    className={`${styles['slider-section']} ${id === selectedCategoryType && styles['active']} js-categories`} 
+                    onClick={({ target }) => handleClick(target, id)}
                   >
                     {attributes.name}
                   </span>
