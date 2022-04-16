@@ -25,11 +25,11 @@ const Sidebar = ({ items, type = 'switch', modal = true }) => {
       : null}
       <div className={styles.btn} onClick={() => setIsOpen(!isOpen)} />
       <div className={styles.list}>
-        {items && items.map(({ attributes, id }) => {
+        {items && items.map(({ attributes, id }, index) => {
           return (
             <CountryCard 
               key={id}
-              id={id} 
+              id={index + 1} 
               name={attributes.name}
               number={attributes[switchDirectionProp]}
               type={countryCardType}
