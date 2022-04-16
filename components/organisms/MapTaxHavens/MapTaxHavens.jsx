@@ -4,8 +4,7 @@ import { Container, Map, Info } from '../../atoms'
 import { useSelector } from 'react-redux'
 import SelectCategoryTaxHavens from '@/components/atoms/SelectCategoryTaxHavens/SelectCategoryTaxHavens'
 
-const MapTaxHavens = ({ title, description, countries }) => {
-  // const { aliquotCategoriesType, selectedCategoryType, filteredAliquots, selectedCategory } = useSelector(state => state.aliquot)
+const MapTaxHavens = ({ title, description, countries, info }) => {
   const { selectedCategoryTaxHaven } = useSelector(state => state.country)
   const filteredCountries = countries.filter(({ attributes }) => attributes?.categoryTaxHaven?.data?.id === selectedCategoryTaxHaven)
 
@@ -39,7 +38,7 @@ const MapTaxHavens = ({ title, description, countries }) => {
           <Map {...mapProps} countries={filteredCountries} type='tax-havens' />
         </div>
 
-        <Info />
+        <Info info={info} />
       </Container>
     </section>
   )

@@ -2,7 +2,7 @@ import styles from './MapProposal.module.scss'
 import { Container, Map, Info } from "../../atoms"
 import { Heading } from '../../molecules'
 
-const ProposalMap = ({ title, description, countries }) => {
+const ProposalMap = ({ title, description, countries, info }) => {
   const mapProps = {
     defaultCenter: {
       lat: 8.7129179,
@@ -32,7 +32,7 @@ const ProposalMap = ({ title, description, countries }) => {
           </div>
         </div>
 
-        <Info />
+        <Info info={info} />
       </Container>
 
     </section>
