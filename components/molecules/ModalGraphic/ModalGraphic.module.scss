@@ -4,7 +4,7 @@
   padding: 59px 72px;
 
   @include respond-to($bp-md) {
-    padding: 44px 24px;
+    padding: 44px 14px;
   }
 }
 
@@ -13,11 +13,12 @@
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
-  padding: 34px 23px;
+  padding: 24px 23px;
   align-items: center;
 
   @include respond-to($bp-md) {
     flex-direction: column;
+    padding: 24px 10px;
   }
 }
 

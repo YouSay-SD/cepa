@@ -64,16 +64,16 @@ const ModalGraphic = ({ countries }) => {
                     </p>
                     <p className={styles.name}>{name}</p>
                   </div>
-                  <div className={styles['img-container']}>
-                    {graphic?.data && 
-                      <Image 
-                        src={graphic.data?.attributes.url} 
-                        alt={graphic.data?.attributes.alternativeText} 
-                        width={388} 
-                        height={103} 
-                      />
-                    }
-                  </div>
+                  
+                  {graphic?.data && 
+                    <Image 
+                      src={graphic.data?.attributes.url} 
+                      alt={graphic.data?.attributes.alternativeText} 
+                      width={388} 
+                      height={150}
+                      objectFit="contain"
+                    />
+                  }
                 </SwiperSlide>
               )
             })}
