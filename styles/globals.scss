@@ -156,7 +156,7 @@ p {
 		max-height: 90vh;
 
 		@media screen and (max-width: 900px) {
-			max-width: calc(100% - 20px)
+			max-width: calc(100% - 30px)
 		}
 
 		
@@ -219,11 +219,23 @@ p {
 .swiper-button-prev {
   left: -50px !important;
   background-image: url('/img/icons/prev-modal.svg');
+
+	@media screen and (max-width: 900px) {
+		left: 40% !important;
+		top: initial !important;
+		bottom: -40px !important;
+	}
 }
 
 .swiper-button-next {
 	right: -50px !important;
   background-image: url('/img/icons/next-modal.svg');
+
+	@media screen and (max-width: 900px) {
+		right: 40% !important;
+		top: initial !important;
+		bottom: -40px !important;
+	}
 }
 
 // Leaftel

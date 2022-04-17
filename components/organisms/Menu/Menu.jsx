@@ -10,7 +10,8 @@ export const Menu = ({ color = 'primary', logo, firstTextLink, secondTextLink, t
 
   return (
     <header className={`${styles.header} ${isOpen && styles.active} `}>
-      <nav className={`${styles.menu} ${isOpen && styles.active} ${styles[color]}`}>
+      <div className={styles.overlay} onClick={() => setIsOpen(false)} />
+      <nav className={`${styles.menu} ${isOpen && styles.active} ${styles[color]}`} id='nav'>
         <Container className={styles.container}>
           <Link href='/'>
             <a>
@@ -26,7 +27,7 @@ export const Menu = ({ color = 'primary', logo, firstTextLink, secondTextLink, t
             </a>
           </Link>
 
-          <div className={styles.btn} onClick={() => setIsOpen(!isOpen)}>
+          <div className={styles.btn} onClick={() => setIsOpen(!isOpen)} id='btn'>
             <Image
               src={`/img/icons/${isOpen ? 'hamburger-close' : 'hamburger'}.svg`}
               alt='Hamburger'
