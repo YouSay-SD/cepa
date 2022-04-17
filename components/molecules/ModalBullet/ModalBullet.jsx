@@ -34,8 +34,8 @@ const ModalBullet = ({ items }) => {
 			crossFade: true,
 		},
 		navigation: {
-			nextEl: '.swiper-bullet-button-next',
-			prevEl: '.swiper-bullet-button-prev',
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
 		},
 	};
 
@@ -70,8 +70,8 @@ const ModalBullet = ({ items }) => {
             })}
           </Swiper>
 
-          <div className='swiper-button-prev swiper-bullet-button-prev' />
-          <div className='swiper-button-next swiper-bullet-button-next' />
+          <div className='swiper-button-prev' />
+          <div className='swiper-button-next' />
         </div>
       }
     </Modal>
