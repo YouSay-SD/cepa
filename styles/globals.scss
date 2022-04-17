@@ -152,8 +152,7 @@ p {
     transform: translate(-50%, -50%) !important; 
 		border: initial !important;
 		padding: initial !important;
-		overflow-y: auto !important;
-		overflow-x: hidden !important;
+		overflow: initial !important;
 		max-height: 90vh;
 
 		@media screen and (max-width: 900px) {
@@ -186,6 +185,20 @@ p {
 			opacity: 0;
 		}
 	}
+}
+
+// Modal Proposal
+.modal-proposal {
+	inset: 50% auto auto 50%; 
+	margin-right: -50%; 
+	transform: translate(-50%, -50%); 
+	position: absolute; 
+	border: 1px solid rgb(204, 204, 204); 
+	background: rgb(255, 255, 255); 
+	overflow-y: auto !important; 
+	border-radius: 4px; 
+	outline: none; 
+	padding: 20px;
 }
 
 // Swiper

@@ -42,6 +42,14 @@
     }
   }
 
+  &:hover {
+    &:after {
+      @include respond-to($bp-lg) {
+        opacity: 1;
+      }
+    }
+  }
+
   @include respond-to($bp-lg) {
     text-align: center;
     margin: initial;

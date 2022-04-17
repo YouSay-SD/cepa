@@ -64,3 +64,34 @@
     display: none;
   }
 }
+
+.btn {
+  button {
+    background-color: $color-green-light !important;
+    color: $color-primary !important;
+    border: 1px solid transparent;
+    opacity: 1 !important;
+
+    &:hover {
+      background-color: transparent !important;
+      color: $color-white !important;
+      border: 1px solid $color-white !important;
+
+      svg {
+        path {
+          fill: $color-white !important;
+        }
+      }
+    }
+
+    svg {
+      path {
+        fill: $color-primary !important;
+      }
+    }
+  }
+
+  &:after {
+    display: none !important;
+  }
+}

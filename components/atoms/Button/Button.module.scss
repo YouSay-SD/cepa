@@ -14,10 +14,17 @@
 
   svg {
     margin-left: 10px;
+    transition: $global-transition;
 
     path {
       transition: $global-transition;
       fill: $color-white;
+    }
+  }
+
+  &:hover {
+    svg {
+      transform: translateX(2px);
     }
   }
 

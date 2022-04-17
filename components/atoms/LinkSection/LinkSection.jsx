@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { setSectionLink } from 'actions/general'
 import { useRouter } from 'next/router'
 
-const LinkSection = ({children, to }) => {
+const LinkSection = ({ children, to, className }) => {
   const dispatch = useDispatch()
   const router = useRouter()
 
@@ -18,7 +18,7 @@ const LinkSection = ({children, to }) => {
 
   return (
     <Link 
-      className={styles['link-section']}
+      className={`${styles['link-section']} ${className}`}
       activeClass={styles.active}
       to={to} 
       spy={true} 

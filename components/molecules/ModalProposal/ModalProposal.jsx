@@ -17,16 +17,30 @@ const ModalProposal = () => {
     dispatch(setOpenModalProposal())
   }
 
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      overflowY: 'scroll !important',
+      transform: 'translate(-50%, -50%)',
+    },
+  };
+
   Modal.setAppElement('#modal-proposal');
   
   return (
     <Modal
       isOpen={isOpenModalProposal}
       onRequestClose={closeModal}
+      style={customStyles}
+      className='modal-proposal'
       contentLabel="Example Modal"
     >
       {areThereCountries &&
-        <div className={styles['modal-proposal']}>
+        <>
           <CloseModal onClick={closeModal} />
 
           <div className={`${styles['modal-heading']} ${!isThereContent ? styles['modal-heading--more-padding'] : null}`}>
@@ -56,7 +70,7 @@ const ModalProposal = () => {
               : null}
             </div>
           : null}
-        </div>
+        </>
       }
     </Modal>
   )

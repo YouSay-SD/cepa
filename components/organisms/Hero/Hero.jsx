@@ -35,7 +35,7 @@ const Hero = ({ title, description, image, ctaTextPrimary, ctaLinkPrimary, ctaTe
             }
 
             {ctaTextSecondary &&
-              <LinkSection to='progressivity'>
+              <LinkSection to='progressivity' className={styles.btn}>
                 <Button type='solid' color='tertiary'>{ctaTextSecondary}</Button>
               </LinkSection>
             }

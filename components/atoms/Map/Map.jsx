@@ -145,6 +145,14 @@ const MyMap = ({ type = 'progressivity', countries }) => {
                     position={position}
                     className={styles.marker}
                     icon={iconMarker}
+                    eventHandlers={{
+                      mouseover: (e) => {
+                        e.target.openPopup();
+                      },
+                      mouseout: (e) => {
+                        e.target.closePopup();
+                      }
+                    }}
                   >
                     <Popup>
                       {attributes?.flag?.data ?
