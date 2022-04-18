@@ -4,6 +4,10 @@
   padding: 16px;
   border-radius: 10px;
   transition: $global-transition;
+  
+  &:last-of-type {
+    margin-bottom: 16px;
+  }
 
   @include respond-to($bp-md) {
     display: flex;
@@ -35,10 +39,6 @@
 .primary {
   cursor: pointer;
   background-color: $color-white;
-
-  &:last-of-type {
-    margin-bottom: 16px;
-  }
 
   &:hover {
     background-color: $color-blue-light-2;

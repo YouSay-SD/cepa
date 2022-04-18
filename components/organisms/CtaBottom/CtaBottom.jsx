@@ -32,7 +32,7 @@ const CtaBottom = ({ title, description, ctaText, ctaLink, image }) => {
 
           <div className={styles['cta-container']}>
             {ctaLink &&
-              <a href={ctaLink}>
+              <a href={ctaLink} target='_blank' rel="noreferrer">
                 <Button
                   type='outline-white'
                   color='tertiary'

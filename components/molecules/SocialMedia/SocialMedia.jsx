@@ -6,7 +6,7 @@ const SocialMedia = ({ socialMedia }) => {
     <div className={styles['social-media']}>
       {socialMedia.map(({id, icon, url}) => {
         return (
-          <a key={id} className={styles.link} href={url}>
+          <a key={id} className={styles.link} href={url} target='_blank' rel="noreferrer">
             <Image
               src={icon.data.attributes.url}
               alt={icon.data.attributes.alternativeText}

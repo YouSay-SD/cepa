@@ -7,22 +7,28 @@ import Image from 'next/image'
 
 const MyMap = ({ type = 'progressivity', countries }) => {
   const [map, setMap] = useState(null);
+  const [leaflet, setLeaflet] = useState(null);
   const dispatch = useDispatch()
     
   useEffect(() => {
     const data = require('react-leaflet')
     setMap(data);
-
   },[])
 
   useEffect(() => {
     const L = require('leaflet')
+    setLeaflet(L)
   }, [])
 
   const position = [-1.416097, -25.616672]
 
-  if (map) {
+  if (map && leaflet) {
     const { MapContainer, TileLayer, Marker, Popup } = map;
+    const isMobile = window.innerWidth < 700
+
+    const corner1 = leaflet.latLng(-90, -200)
+    const corner2 = leaflet.latLng(90, 200)
+    const bounds = leaflet.latLngBounds(corner1, corner2)
 
     // Icon Marker Red
     const iconMarker = L.icon({
@@ -64,7 +70,11 @@ const MyMap = ({ type = 'progressivity', countries }) => {
       style: {height: '100%'},
       center: position,
       zoom: 2,
+      maxZoom: 7,
+      minZoom: 1,
       scrollWheelZoom: false,
+      maxBoundsViscosity: 1.0,
+      maxBounds: bounds,
     }
 
     switch(type) {
@@ -147,10 +157,14 @@ const MyMap = ({ type = 'progressivity', countries }) => {
                     icon={iconMarker}
                     eventHandlers={{
                       mouseover: (e) => {
-                        e.target.openPopup();
+                        if (!isMobile) {
+                          e.target.openPopup();
+                        }
                       },
                       mouseout: (e) => {
-                        e.target.closePopup();
+                        if (!isMobile) {
+                          e.target.closePopup();
+                        }
                       }
                     }}
                   >
