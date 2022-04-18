@@ -71,7 +71,7 @@ const MyMap = ({ type = 'progressivity', countries }) => {
       center: position,
       zoom: 2,
       maxZoom: 7,
-      minZoom: 1,
+      minZoom: 2,
       scrollWheelZoom: false,
       maxBoundsViscosity: 1.0,
       maxBounds: bounds,
@@ -85,7 +85,7 @@ const MyMap = ({ type = 'progressivity', countries }) => {
               url='https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png'
             />
     
-            {countries && countries?.map(({ id, attributes }) => {
+            {countries && countries?.map(({ id, attributes }, index) => {
               const position = [attributes?.lat, attributes?.lng]
     
               if(attributes.lat && attributes.lng) {
@@ -97,7 +97,7 @@ const MyMap = ({ type = 'progressivity', countries }) => {
                     icon={iconMarker}
                     eventHandlers={{
                       click: () => {
-                        openModal(id)
+                        openModal(index + 1)
                       }
                     }}
                   >

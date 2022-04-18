@@ -3,6 +3,17 @@ import { Container, Switch, Map, Info } from "../../atoms"
 import { Heading, Sidebar } from "../../molecules"
 
 const Progressivity = ({ title, description, countries, info }) => {
+
+  // console.log('c', countries)
+  // const orderByNumber = (array) => {
+  //   array.sort(( a, b ) => {
+  //     if ( a.attributes.progressiveness < b.attributes.progressiveness ) return -1
+  //     if ( a.attributes.progressiveness > b.attributes.progressiveness ) return 1
+  //     return 0
+  //   })
+  // }
+  // const pepe = orderByNumber(countries?.data)
+  // console.log('order', pepe)
   return (
     <section className={styles.progressivity}>
       <Container className={styles['heading-container']}>
