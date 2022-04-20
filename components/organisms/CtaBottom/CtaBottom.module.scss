@@ -3,7 +3,7 @@
 .cta-bottom {
   padding: 70px 0;
 
-  @include respond-to($bp-md) {
+  @include respond-to($bp-lg) {
     padding: 60px 0;
   }
 }
@@ -15,7 +15,7 @@
   background-color: $color-green;
   border-radius: 10px;
 
-  @include respond-to($bp-md) {
+  @include respond-to($bp-lg) {
     flex-direction: column;
     text-align: center;
     padding: 45px 19px;
@@ -26,6 +26,12 @@
   font-weight: $bold;
   max-width: 425px;
   margin-bottom: 8px;
+
+  @include respond-to($bp-lg) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: initial;
+  }
 }
 
 .img-container {
@@ -34,7 +40,7 @@
   border-radius: 10px;
   margin-right: 32px;
 
-  @include respond-to($bp-md) {
+  @include respond-to($bp-lg) {
     margin-right: initial;
     margin-bottom: 22px;
   }
@@ -43,7 +49,7 @@
 .text-container {
   padding-right: 30px;
 
-  @include respond-to($bp-md) {
+  @include respond-to($bp-lg) {
     padding-right: initial;
   }
 }
@@ -52,6 +58,7 @@
   margin-left: auto;
 
   @include respond-to($bp-lg) {
-    display: none;
+    margin-top: 20px;
+    margin-left: initial;
   }
 }
