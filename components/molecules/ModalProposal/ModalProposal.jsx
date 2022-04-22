@@ -30,6 +30,8 @@ const ModalProposal = () => {
   };
 
   Modal.setAppElement('#modal-proposal');
+
+  console.log('MODAL PROPOSAL - RENDERED', areThereCountries)
   
   return (
     <Modal

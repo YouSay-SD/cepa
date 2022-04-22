@@ -2,6 +2,11 @@
 
 .modal-bullet {
   padding: 60px 40px 40px;
+  max-height: 80vh;
+
+  @include respond-to($bp-md) {
+    padding-right: 20px;
+  }
 }
 
 .title {
@@ -18,5 +23,23 @@
     &:last-of-type {
       margin-bottom: initial;
     }
+  }
+}
+
+.description {
+  @include respond-to($bp-md) {
+    max-height: 60vh;
+    overflow: auto;
+    padding-right: 20px;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+      background: rgba(90, 137, 178, 0.25);
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background-color: #5A89B3;
+      border-radius: 50px;
+    }  
   }
 }

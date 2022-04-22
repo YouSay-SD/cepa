@@ -50,6 +50,7 @@ const ModalBullet = ({ items }) => {
       isOpen={isOpenModalBullet}
       onRequestClose={closeModal}
       contentLabel="Example Modal"
+      // className='modal-bullet'
     >
       {items.length !== 0 &&
         <div className={styles['modal-bullet']}>
@@ -60,7 +61,7 @@ const ModalBullet = ({ items }) => {
               return (
               <SwiperSlide key={id} className={styles.content}>
                 <Title className={styles.title} size='xs'>{name}</Title>
-                <P as="div">
+                <P as="div" className={styles.description}>
                   <ReactMarkdown className={styles.markdown}>
                     {description}
                   </ReactMarkdown>

@@ -55,6 +55,7 @@ const MyMap = ({ type = 'progressivity', countries }) => {
     });
 
     const openModal = (id) => {
+      console.log('TYPE', type)
       if (type === 'progressivity') {
         dispatch(setOpenModalGraphic());
         dispatch(setModalGraphic(id));
@@ -127,6 +128,7 @@ const MyMap = ({ type = 'progressivity', countries }) => {
                     icon={attributes.isApproved ? iconMarkerGreen : iconMarkerYellow}
                     eventHandlers={{
                       click: () => {
+                        console.log('CLICK MARKER', id)
                         openModal(id)
                       }
                     }}
