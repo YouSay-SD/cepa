@@ -1,4 +1,4 @@
-const SERVER_URL = 'https://progresividadtributaria.tk/api'
+const SERVER_URL = 'https://gestion.progresividadtributaria.com.ar/api'
 
 class Request {
   constructor(resource) {
