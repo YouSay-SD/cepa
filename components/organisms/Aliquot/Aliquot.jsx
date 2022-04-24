@@ -74,7 +74,7 @@ export const Aliquot = ({ title, description }) => {
           </div>
         </Container>
 
-        <Container side='right'>
+        <Container side='right' className={styles['slider-aliquots-container']}>
           {
             filteredAliquots.length !== 0 
             ? <Slider items={filteredAliquots} />
@@ -89,6 +89,9 @@ export const Aliquot = ({ title, description }) => {
             <Button type='outline' color='primary'>Ver Todos</Button>
           </a>
         </Link>
+
+        <div className='swiper-aliquot-button-prev swiper-button-prev' />
+        <div className='swiper-aliquot-button-next swiper-button-next' />
       </Container>
     </section>
   )

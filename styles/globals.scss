@@ -251,6 +251,32 @@ p {
 	}
 }
 
+// Aliquot Slider
+.swiper-aliquot-button-next,
+.swiper-aliquot-button-prev {
+	width: 32px !important;
+  height: 32px !important;
+	top: 15px !important;
+	margin-top: initial !important;
+	transform: translateY(0px);
+
+	@media screen and (max-width: 900px) {
+		display: none !important;
+	}
+}
+
+.swiper-aliquot-button-prev {
+  background-image: url('/img/icons/arrow-slider.svg');
+	transform: translateY(0px) scaleX(-1);
+	right: 75px !important;
+	left: initial !important;
+}
+
+.swiper-aliquot-button-next {
+  background-image: url('/img/icons/arrow-slider.svg');
+	right: 30px !important;
+}
+
 // Leaftel
 .leaflet-control-zoom {
 	background: #ffffff;

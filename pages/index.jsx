@@ -93,13 +93,14 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <>
       <HeadSeo 
         title='CEPA | Home' 
+        description={dataHero?.data?.attributes?.hero.description}
         favicon={dataHeader?.data?.attributes.favicon}
       />
       <LayoutHome modules={allData} />
-    </div>
+    </>
   )
 }
 

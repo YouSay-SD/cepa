@@ -2,6 +2,7 @@
 
 .aliquot {
   padding: 70px 0;
+  overflow: hidden;
 }
 
 .text-container {
@@ -17,7 +18,7 @@
 }
 
 .slider-heading {
-  margin-bottom: 67px;
+  margin-bottom: 60px;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -25,6 +26,10 @@
   @include respond-to($bp-md) {
     flex-direction: column;
   }
+}
+
+.slider-aliquots-container {
+  position: relative;
 }
 
 .slider-sections {
@@ -85,7 +90,9 @@
   transition: $global-transition;
 }
 
-.cta-container {
+.cta-container {  
+  position: relative;
+
   @include respond-to($bp-md) {
     text-align: center;
   }

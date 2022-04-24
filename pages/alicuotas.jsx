@@ -47,13 +47,14 @@ export default function Aliquots() {
   }
 
   return (
-    <div>
+    <>
       <HeadSeo 
         title='CEPA | Alicuotas'
+        description={dataAliquotsPage?.data?.attributes?.heroAliquot.title}
         favicon={dataHeader?.data?.attributes.favicon}
       />
       <LayoutAliquots modules={allData} />
-    </div>
+    </>
   )
 }
 

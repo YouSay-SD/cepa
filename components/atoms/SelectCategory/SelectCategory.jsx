@@ -45,6 +45,13 @@ const SelectCategory = ({ className = '' }) => {
             </p>
           )
         })}
+
+        <p 
+          className={`${styles['option-unselected']} ${styles.option}`}
+          onClick={() => handleCategory(null, 'ver todos')}
+        >
+          ver todos
+        </p>
       </ul>
     </div>
   )
