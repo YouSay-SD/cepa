@@ -43,7 +43,7 @@ const ModalBullet = ({ items }) => {
     swiperInstance?.slideTo(modalBulletId, 0)
   }, [swiperInstance, modalBulletId])
 
-  Modal.setAppElement('#modal-bullet');
+  Modal.setAppElement('#__next');
   
   return (
     <Modal

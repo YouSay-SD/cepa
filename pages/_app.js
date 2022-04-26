@@ -21,9 +21,9 @@ function MyApp({ Component, pageProps, router }) {
       <QueryClientProvider client={queryClient.current}>
         <Hydrate state={pageProps.dehydratedState}>
           <AnimatePresence exitBeforeEnter>
-            <div id="modal-graphic"></div>
+            {/* <div id="modal-graphic"></div>
             <div id="modal-bullet"></div>
-            <div id="modal-proposal"></div>
+            <div id="modal-proposal"></div> */}
             <Component {...pageProps} key={router.asPath} />
             <ReactQueryDevtools initialIsOpen={false} />
           </AnimatePresence>

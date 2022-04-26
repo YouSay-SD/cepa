@@ -29,16 +29,16 @@ const ModalProposal = () => {
     },
   };
 
-  Modal.setAppElement('#modal-proposal');
+  Modal.setAppElement('#__next');
 
   console.log('MODAL PROPOSAL - RENDERED', areThereCountries)
   
   return (
-    <Modal
+    <div
       isOpen={isOpenModalProposal}
       onRequestClose={closeModal}
       style={customStyles}
-      className='modal-proposal'
+      className={`modal-proposal ${isOpenModalProposal ? styles['open-modal'] : ''}`}
       contentLabel="Example Modal"
     >
       {areThereCountries &&
@@ -74,7 +74,7 @@ const ModalProposal = () => {
           : null}
         </>
       }
-    </Modal>
+    </div>
   )
 }
 
