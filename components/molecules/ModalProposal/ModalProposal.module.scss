@@ -81,6 +81,10 @@
   font-family: $font-primary;
 }
 
+.modal-proposal {
+  display: none;
+}
+
 .open-modal {
   display: block;
   position: fixed;

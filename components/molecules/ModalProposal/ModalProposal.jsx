@@ -38,7 +38,7 @@ const ModalProposal = () => {
       isOpen={isOpenModalProposal}
       onRequestClose={closeModal}
       style={customStyles}
-      className={`modal-proposal ${isOpenModalProposal ? styles['open-modal'] : ''}`}
+      className={`modal-proposal ${styles['modal-proposal']} ${isOpenModalProposal ? styles['open-modal'] : ''}`}
       contentLabel="Example Modal"
     >
       {areThereCountries &&
