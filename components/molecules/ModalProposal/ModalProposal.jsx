@@ -34,11 +34,12 @@ const ModalProposal = () => {
   console.log('MODAL PROPOSAL - RENDERED', areThereCountries)
   
   return (
-    <div
+    <Modal
       isOpen={isOpenModalProposal}
       onRequestClose={closeModal}
       style={customStyles}
-      className={`modal-proposal ${styles['modal-proposal']} ${isOpenModalProposal ? styles['open-modal'] : ''}`}
+      className='modal-proposal'
+      // className={`modal-proposal ${styles['modal-proposal']} ${isOpenModalProposal ? styles['open-modal'] : ''}`}
       contentLabel="Example Modal"
     >
       {areThereCountries &&
@@ -74,7 +75,7 @@ const ModalProposal = () => {
           : null}
         </>
       }
-    </div>
+    </Modal>
   )
 }
 
