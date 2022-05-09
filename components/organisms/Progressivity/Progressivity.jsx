@@ -21,19 +21,23 @@ const Progressivity = ({ title, description, countries, info, ctaText, ctaLink, 
           description={description}
         />
 
-        <div className={styles['button-container']}>
-          {ctaLink &&
-            <a href={ctaLink} target='_blank' rel="noreferrer">
-              <Button type='outline' color='primary'>{ctaText2}</Button>
-            </a>
-          }
+        {
+          ctaLink || ctaLink2 ?
+            <div className={styles['button-container']}>
+              {ctaLink &&
+                <Button type='outline' color='primary'>
+                  <a href={ctaLink} target='_blank' rel="noreferrer">{ctaText}</a>
+                </Button>
+              }
 
-          {ctaLink2 &&
-            <a href={ctaLink2} target='_blank' rel="noreferrer">
-              <Button type='outline' color='primary'>{ctaText2}</Button>
-            </a>
-          }
-        </div>
+              {ctaLink2 &&
+                <Button type='outline' color='primary'>
+                  <a href={ctaLink2} target='_blank' rel="noreferrer">{ctaText2}</a>
+                </Button>
+              }
+            </div>
+          : null
+        }
 
         <Switch className={styles['switch-mobile']} />
       </Container>
