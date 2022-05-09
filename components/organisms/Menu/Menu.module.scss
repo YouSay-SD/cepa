@@ -68,10 +68,10 @@
 
   @include respond-to($bp-lg) {
     position: fixed;
-    max-height: 88px;
+    max-height: 75px;
     height: 100vh;
     border-bottom: initial;
-    padding: 13px 0;
+    padding: 6px 0;
   }
 }
 
