@@ -15,11 +15,11 @@ const MenuItems = ({ firstTextLink, secondTextLink, thirdTextLink, fourthTextLin
     if (router.route === '/' && sectionLink) {
       scroller.scrollTo(sectionLink, {smooth: true, duration: 700, offset: -95})
     }
-  }, [])
+  }, [router.route, sectionLink])
 
   useEffect(() => {
     dispatch(setSectionLink(null))
-  }, [])
+  }, [dispatch])
 
   return (
     <div className={styles['menu-items']}>

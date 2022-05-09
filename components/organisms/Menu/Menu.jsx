@@ -14,7 +14,7 @@ export const Menu = ({ color = 'primary', logo, firstTextLink, secondTextLink, t
       <nav className={`${styles.menu} ${isOpen && styles.active} ${styles[color]}`} id='nav'>
         <Container className={styles.container}>
           <Link href='/'>
-            <a>
+            <a style={{display: 'flex'}}>
               {logo?.data &&
                 <Image
                   src={logo.data?.attributes.url}
