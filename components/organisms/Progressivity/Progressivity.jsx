@@ -1,10 +1,10 @@
 import styles from './Progressivity.module.scss'
-import { Container, Switch, Map, Info } from "../../atoms"
+import { Container, Switch, Map, Info, Button } from "../../atoms"
 import { Heading, Sidebar } from "../../molecules"
 import { useSelector } from 'react-redux'
 import { orderByNumber } from 'utils/orderByNumber'
 
-const Progressivity = ({ title, description, countries, info }) => {
+const Progressivity = ({ title, description, countries, info, ctaText, ctaLink, ctaText2, ctaLink2 }) => {
   const { switchDirection } = useSelector(state => state.general)
   const switchDirectionProp = switchDirection === 'left' ? 'progressiveness' : 'taxPressure'
 
@@ -20,6 +20,20 @@ const Progressivity = ({ title, description, countries, info }) => {
           title={title}
           description={description}
         />
+
+        <div className={styles['button-container']}>
+          {ctaLink &&
+            <a href={ctaLink} target='_blank' rel="noreferrer">
+              <Button type='outline' color='primary'>{ctaText2}</Button>
+            </a>
+          }
+
+          {ctaLink2 &&
+            <a href={ctaLink2} target='_blank' rel="noreferrer">
+              <Button type='outline' color='primary'>{ctaText2}</Button>
+            </a>
+          }
+        </div>
 
         <Switch className={styles['switch-mobile']} />
       </Container>

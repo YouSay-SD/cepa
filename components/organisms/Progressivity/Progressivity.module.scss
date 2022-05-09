@@ -60,3 +60,10 @@
     display: flex;
   }
 }
+
+.button-container {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
