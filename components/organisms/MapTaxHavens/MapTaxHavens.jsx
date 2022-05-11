@@ -1,8 +1,7 @@
 import styles from './MapTaxHavens.module.scss'
-import { Heading, Sidebar } from "../../molecules"
-import { Container, Map, Info } from '../../atoms'
+import { Heading, Sidebar, CountryQuantity } from "../../molecules"
+import { Container, Map, Info, SelectCategoryTaxHavens } from '../../atoms'
 import { useSelector } from 'react-redux'
-import SelectCategoryTaxHavens from '@/components/atoms/SelectCategoryTaxHavens/SelectCategoryTaxHavens'
 
 const MapTaxHavens = ({ title, description, countries, info }) => {
   const { selectedCategoryTaxHaven } = useSelector(state => state.country)
@@ -35,6 +34,9 @@ const MapTaxHavens = ({ title, description, countries, info }) => {
         </div>
 
         <div className={styles.map}>
+          <div className={styles['country-quantity']}>
+            <CountryQuantity />
+          </div>
           <Map {...mapProps} countries={filteredCountries} type='tax-havens' />
         </div>
 

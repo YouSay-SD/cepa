@@ -23,8 +23,9 @@
 .map {
   border-radius: 0 10px 10px 0;
   overflow: hidden;
-  min-height: 590px;
+  min-height: 596px;
   height: 100%;
+  position: relative;
 
   @include respond-to($bp-md) {
     height: calc(100vh - 290px);
@@ -51,4 +52,11 @@
   @include respond-to($bp-md) {
     display: none;
   }
+}
+
+.country-quantity {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  z-index: 2;
 }

@@ -14,7 +14,7 @@ export const mapProgressivityResp = new Modules('module?populate[mapProgressivit
 export const mapTaxHavensResp = new Modules('module?populate[mapTaxHavens][populate]=*')
 export const aliquotCategories = new Modules('aliquot-categories')
 export const aliquotCategoriesType = new Modules('aliquot-categories-type')
-export const countryCategoriesTaxHavens = new Modules('country-categories-tax-havens')
+export const countryCategoriesTaxHavens = new Modules('country-categories-tax-havens?populate=*')
 
 // Aliquots Page
 export const aliquotsPage = new Modules('aliquots-page?populate=*')

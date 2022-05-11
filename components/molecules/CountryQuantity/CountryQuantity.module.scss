@@ -1,0 +1,51 @@
+@import "../../../styles/baseline/_styles";
+
+.country-quantity {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+
+  @include respond-to($bp-md) {
+    display: none;
+  }
+}
+
+.box {
+  box-shadow: 16px 16px 24px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  background-color: hsla(0, 0%, 0%, 0.16);
+  border: 1px solid $color-white;
+  padding: 12px 14px;
+}
+
+.title {
+  font-size: rem-calc(12);
+  line-height: rem-calc(18);
+  font-family: $font-primary;
+  font-weight: $medium;
+  color: $color-white;
+  margin-bottom: 4px;
+}
+
+.quantity {
+  font-size: rem-calc(18);
+  line-height: rem-calc(27);
+  letter-spacing: 1px;
+  font-weight: $bold;
+  font-family: $font-primary;
+  color: $color-white;
+}
+
+// Active
+.active {
+  background-color: $color-white;
+  border: 1px solid transparent;
+
+  .title {
+    color: $color-blue-light-2;
+  }
+
+  .quantity {
+    color: $color-blue-light-2;
+  }
+}

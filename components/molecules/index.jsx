@@ -7,3 +7,4 @@ export { default as ModalProposal } from './ModalProposal/ModalProposal';
 export { default as Sidebar } from './Sidebar/Sidebar';
 export { default as Slider } from './Slider/Slider';
 export { default as SocialMedia } from './SocialMedia/SocialMedia';
+export { default as CountryQuantity } from './CountryQuantity/CountryQuantity';
