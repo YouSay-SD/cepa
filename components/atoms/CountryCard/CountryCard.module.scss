@@ -11,8 +11,8 @@
 
   @include respond-to($bp-md) {
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
+    flex-direction: column-reverse;
+    text-align: center;
     align-items: center;
     gap: 16px;
   }
