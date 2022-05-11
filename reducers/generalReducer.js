@@ -3,6 +3,9 @@ import { types } from "../types/types"
 const initState = {
   switchDirection: 'left',
 
+  isOpenModalBigGraphic: false,
+  modalBigGraphic: {},
+
   isOpenModalGraphic: false,
   modalGraphicId: 1,
 
@@ -36,7 +39,19 @@ export const generalReducer = (state = initState, action) => {
         ...state,
         modalGraphicId: action.payload
       }
-    
+
+    case types.SET_OPEN_MODAL_BIG_GRAPHIC:
+      return {
+        ...state,
+        isOpenModalBigGraphic: action.payload
+      }
+
+    case types.SET_MODAL_BIG_GRAPHIC:
+      return {
+        ...state,
+        modalBigGraphic: action.payload
+      }
+
     case types.SET_OPEN_MODAL_BULLET:
       return {
         ...state,

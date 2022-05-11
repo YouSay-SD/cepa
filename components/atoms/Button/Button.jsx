@@ -1,8 +1,8 @@
 import styles from './Button.module.scss'
 
-const Button = ({ type = 'solid', color = 'white', children }) => {
+const Button = ({ type = 'solid', color = 'white', children, onClick }) => {
   return (
-    <button className={`${styles.button} ${styles[type]} ${styles[color]}`}>
+    <button className={`${styles.button} ${styles[type]} ${styles[color]}`} onClick={onClick}>
       {children}
 
       <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">

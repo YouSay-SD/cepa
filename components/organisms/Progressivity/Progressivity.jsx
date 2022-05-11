@@ -1,10 +1,12 @@
 import styles from './Progressivity.module.scss'
 import { Container, Switch, Map, Info, Button } from "../../atoms"
 import { Heading, Sidebar } from "../../molecules"
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { orderByNumber } from 'utils/orderByNumber'
+import { setModalBigGraphic, setOpenModalBigGraphic } from 'actions/general'
 
-const Progressivity = ({ title, description, countries, info, ctaText, ctaLink, ctaText2, ctaLink2 }) => {
+const Progressivity = ({ title, description, countries, info, ctaText, ctaText2, graphic, graphic2 }) => {
+  const dispatch = useDispatch()
   const { switchDirection } = useSelector(state => state.general)
   const switchDirectionProp = switchDirection === 'left' ? 'progressiveness' : 'taxPressure'
 
@@ -12,6 +14,11 @@ const Progressivity = ({ title, description, countries, info, ctaText, ctaLink, 
     array: countries?.data,
     orderBy: switchDirectionProp
   })
+
+  const handleModalBigGraphic = (graphic) => {
+    dispatch(setOpenModalBigGraphic(true))
+    dispatch(setModalBigGraphic(graphic))
+  }
 
   return (
     <section className={styles.progressivity}>
@@ -22,17 +29,17 @@ const Progressivity = ({ title, description, countries, info, ctaText, ctaLink, 
         />
 
         {
-          ctaLink || ctaLink2 ?
+          graphic?.data || graphic2?.data ?
             <div className={styles['button-container']}>
-              {ctaLink &&
-                <Button type='outline' color='primary'>
-                  <a href={ctaLink} target='_blank' rel="noreferrer">{ctaText}</a>
+              {ctaText &&
+                <Button type='outline' color='primary' onClick={() => handleModalBigGraphic(graphic)}>
+                  {ctaText}
                 </Button>
               }
 
-              {ctaLink2 &&
-                <Button type='outline' color='primary'>
-                  <a href={ctaLink2} target='_blank' rel="noreferrer">{ctaText2}</a>
+              {ctaText2 &&
+                <Button type='outline' color='primary' onClick={() => handleModalBigGraphic(graphic2)}>
+                  {ctaText2}
                 </Button>
               }
             </div>

@@ -17,7 +17,9 @@ export const types = {
 
   SET_SWITCH_DIRECTION: '[General] Set Switch Direction',
   SET_OPEN_MODAL_GRAPHIC: '[General] Set Open Modal Graphic',
+  SET_OPEN_MODAL_BIG_GRAPHIC: '[General] Set Open Modal Big Graphic',
   SET_MODAL_GRAPHIC: '[General] Set Modal Graphic',
+  SET_MODAL_BIG_GRAPHIC: '[General] Set Modal Big Graphic',
   SET_OPEN_MODAL_BULLET: '[General] Set Open Modal Bullet',
   SET_MODAL_BULLET: '[General] Set Modal Bullet',
   SET_OPEN_MODAL_PROPOSAL: '[General] Set Open Modal Proposal',

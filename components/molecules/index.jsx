@@ -2,6 +2,7 @@ export { default as Grid } from './Grid/Grid';
 export { default as Heading } from './Heading/Heading';
 export { default as MenuItems } from './MenuItems/MenuItems';
 export { default as ModalGraphic } from './ModalGraphic/ModalGraphic';
+export { default as ModalBigGraphic } from './ModalBigGraphic/ModalBigGraphic';
 export { default as ModalBullet } from './ModalBullet/ModalBullet';
 export { default as ModalProposal } from './ModalProposal/ModalProposal';
 export { default as Sidebar } from './Sidebar/Sidebar';

@@ -1,5 +1,5 @@
 import { Aliquot, CtaBottom, Footer, Hero, Menu, Progressivity, MapProposal, MapTaxHavens } from "@/components/organisms"
-import { ModalGraphic, ModalBullet, ModalProposal } from "@/components/molecules"
+import { ModalGraphic, ModalBullet, ModalProposal, ModalBigGraphic } from "@/components/molecules"
 import { Element } from 'react-scroll'
 import Layout from "../Layout/Layout"
 import { useSelector } from "react-redux"
@@ -54,6 +54,8 @@ const LayoutHome = ({ modules }) => {
       {filteredAliquots &&
         <ModalBullet items={filteredAliquots} />
       }
+
+      <ModalBigGraphic />
       <ModalProposal />
     </Layout>
   )

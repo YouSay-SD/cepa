@@ -76,12 +76,12 @@ export default function Home() {
     },
     mapProgressivity: {
       ...dataModules?.data?.attributes.mapProgressivity,
-      // countries: { ...dataMapProgressivityCountries }
+      ...dataMapProgressivity?.data.attributes.mapProgressivity,
       countries: dataMapProgressivityCountriesWithGraphics ? {
         data: [
           ...dataMapProgressivityCountriesWithGraphics
         ]
-      } : null
+      } : null,
     },
     mapTaxHavens: {
       ...dataModules?.data?.attributes.mapTaxHavens,

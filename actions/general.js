@@ -10,6 +10,26 @@ export const setSwitchDirection = (direction) => {
   }
 }
 
+// Set Open Modal Big Graphic
+export const setOpenModalBigGraphic = (isOpen) => {
+  return async (dispatch) => {
+    await dispatch({
+      type: types.SET_OPEN_MODAL_BIG_GRAPHIC,
+      payload: isOpen
+    })
+  }
+}
+
+// Set Modal Big Graphic
+export const setModalBigGraphic = (graphic) => {
+  return async (dispatch) => {
+    await dispatch({
+      type: types.SET_MODAL_BIG_GRAPHIC,
+      payload: graphic
+    })
+  }
+}
+
 // Set Open Modal Graphic
 export const setOpenModalGraphic = () => {
   return async (dispatch) => {
