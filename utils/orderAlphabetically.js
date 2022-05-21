@@ -1,5 +1,5 @@
 export const orderAlphabetically = ({ array, orderBy }) => {
-  const myNewSort = array.sort((a, b) => {
+  const myNewSort = [...array].sort((a, b) => {
     if (a.attributes[orderBy] > b.attributes[orderBy]) {
       return 1;
     }

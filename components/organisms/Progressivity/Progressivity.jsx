@@ -4,18 +4,44 @@ import { Heading, Sidebar } from "../../molecules"
 import { useDispatch, useSelector } from 'react-redux'
 import { orderByNumber } from 'utils/orderByNumber'
 import { setModalBigGraphic, setOpenModalBigGraphic } from 'actions/general'
+import { useBreakpoint } from 'hooks/useBreakpoint'
+import { useEffect, useState } from 'react'
+import { orderAlphabetically } from 'utils/orderAlphabetically'
 
 const Progressivity = ({ title, description, countries, info, ctaText, ctaText2, graphic, graphic2 }) => {
   const dispatch = useDispatch()
   const { switchDirection } = useSelector(state => state.general)
   const switchDirectionProp = switchDirection === 'left' ? 'progressiveness' : 'taxPressure'
+  const { isBreakpoint } = useBreakpoint('sm')
+  const [orderedCountries, setOrderedCountries] = useState(null);
 
-  const orderedItems = orderByNumber({
-    array: countries?.data,
-    orderBy: switchDirectionProp
-  })
+  // const orderedItems = orderByNumber({
+  //   array: countries?.data,
+  //   orderBy: switchDirectionProp
+  // })
 
-  console.log('oredred', orderedItems)
+  useEffect(() => {
+    if (isBreakpoint) {
+      const orderedItems = orderAlphabetically({
+        array: countries?.data,
+        orderBy: 'name'
+      })
+
+      setOrderedCountries(orderedItems)
+    } else {
+      const orderedItems = orderByNumber({
+        array: countries?.data,
+        orderBy: switchDirectionProp
+      })
+
+      setOrderedCountries(orderedItems)
+    }
+  }, [isBreakpoint, countries?.data, switchDirectionProp])
+
+  // const orderedItemsMobile = orderAlphabetically({
+  //   array: countries?.data,
+  //   orderBy: 'name'
+  // })
 
   const handleModalBigGraphic = (graphic) => {
     dispatch(setOpenModalBigGraphic(true))
@@ -52,10 +78,14 @@ const Progressivity = ({ title, description, countries, info, ctaText, ctaText2,
       </Container>
 
       <Container className={styles.content}>
-        <Sidebar items={orderedItems} />
+        {orderedCountries ?
+          <Sidebar items={orderedCountries} />
+        : null}
 
         <div className={styles.map}>
-          <Map countries={orderedItems} />
+          {orderedCountries ?
+            <Map countries={orderedCountries} />
+          : null}
         </div>
 
         <Info info={info} />

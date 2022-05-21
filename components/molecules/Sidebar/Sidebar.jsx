@@ -2,19 +2,18 @@ import styles from './Sidebar.module.scss'
 import { useState } from 'react'
 import { CountryCard, Switch, SelectCategoryTaxHavens, P } from "../../atoms";
 import { useSelector } from 'react-redux';
-import { orderByNumber } from 'utils/orderByNumber';
-import { orderAlphabetically } from 'utils/orderAlphabetically';
+// import { orderByNumber } from 'utils/orderByNumber';
+// import { orderAlphabetically } from 'utils/orderAlphabetically';
 
 const Sidebar = ({ items, type = 'switch', modal = true }) => {
   const { switchDirection } = useSelector(state => state.general)
   const [isOpen, setIsOpen] = useState(false);
   const switchDirectionProp = switchDirection === 'left' ? 'progressiveness' : 'taxPressure'
-  console.log('items', items)
 
-  const orderedItems = orderAlphabetically({
-    array: items,
-    orderBy: 'name'
-  })
+  // const orderedItems = orderAlphabetically({
+  //   array: items,
+  //   orderBy: 'name'
+  // })
   // console.log('ITEMS', items)
   // console.log('orderredItems', orderedItems)
 

@@ -10,17 +10,41 @@ import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useEffect, useState } from 'react';
 import { EffectFade, Navigation } from 'swiper';
+import { useBreakpoint } from 'hooks/useBreakpoint';
+import { orderAlphabetically } from 'utils/orderAlphabetically';
+import { orderByNumber } from 'utils/orderByNumber';
 
 const ModalGraphic = ({ countries }) => {
   const { isOpenModalGraphic, modalGraphicId, switchDirection } = useSelector(state => state.general)
   const [swiperInstance, setSwiperInstance] = useState();
+  const switchDirectionProp = switchDirection === 'left' ? 'progressiveness' : 'taxPressure'
   const areThereCountries = countries?.length !== 0;
   const isCarousel = countries?.length !== 1;
   const dispatch = useDispatch()
+  const { isBreakpoint } = useBreakpoint('sm')
+  const [orderedCountries, setOrderedCountries] = useState(null);
 
   const closeModal = () => {
     dispatch(setOpenModalGraphic())
   }
+
+  useEffect(() => {
+    if (isBreakpoint) {
+      const orderedItems = orderAlphabetically({
+        array: countries,
+        orderBy: 'name'
+      })
+
+      setOrderedCountries(orderedItems)
+    } else {
+      const orderedItems = orderByNumber({
+        array: countries,
+        orderBy: switchDirectionProp
+      })
+
+      setOrderedCountries(orderedItems)
+    }
+  }, [isBreakpoint, countries, switchDirectionProp])
   
   const swiperProps = {
 		loop: isCarousel,
@@ -55,7 +79,7 @@ const ModalGraphic = ({ countries }) => {
           <CloseModal onClick={closeModal} />
           
           <Swiper {...swiperProps} onSwiper={setSwiperInstance}>
-            {countries?.map(({id, attributes: {name, progressiveness, taxPressure, graphic}}) => {
+            {orderedCountries?.map(({id, attributes: {name, progressiveness, taxPressure, graphic}}) => {
               return (
                 <SwiperSlide key={id} className={styles.content}>
                   <div className={styles['text-container']}>
