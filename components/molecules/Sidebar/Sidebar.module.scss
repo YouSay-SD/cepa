@@ -14,7 +14,7 @@
     background-color: $color-white;
     border-radius: 10px 10px 0px 0px;
     padding: 24px 14px 24px 17px;
-    max-height: 140px;
+    max-height: 200px;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -34,6 +34,8 @@
   
   @include respond-to($bp-md) {
     display: flex;
+    padding-top: initial;
+    padding-bottom: 38px;
   }
 
   &:before {
@@ -68,6 +70,13 @@
     margin-top: initial;
     grid-template-columns: 1fr 1fr;
   }
+}
+
+.list-title {
+  font-family: $font-primary;
+  font-weight: $medium;
+  color: $color-primary;
+  text-align: center;
 }
 
 .switch-desktop {

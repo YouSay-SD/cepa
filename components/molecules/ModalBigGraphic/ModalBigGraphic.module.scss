@@ -4,7 +4,7 @@
   padding: 59px 72px;
 
   @include respond-to($bp-md) {
-    padding: 44px 14px;
+    padding: 44px 14px 14px;
   }
 }
 

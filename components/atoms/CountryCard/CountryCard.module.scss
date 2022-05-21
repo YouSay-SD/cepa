@@ -14,7 +14,26 @@
     flex-direction: column-reverse;
     text-align: center;
     align-items: center;
-    gap: 16px;
+    gap: 8px;
+    padding-top: 27px;
+    padding-bottom: 7px;
+    position: relative;
+  }
+
+  &:after {
+    content: '';
+    width: 90%;
+    height: 1px;
+    background-color: #DCDCDC;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+
+    @include respond-to($bp-md) {
+      display: block;
+    }
   }
 }
 
@@ -33,6 +52,10 @@
   letter-spacing: 1px;
   font-weight: $light;
   color: $color-blue-light-3;
+
+  @include respond-to($bp-md) {
+    line-height: rem-calc(35);
+  }
 }
 
 // Primary

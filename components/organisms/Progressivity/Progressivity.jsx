@@ -15,6 +15,8 @@ const Progressivity = ({ title, description, countries, info, ctaText, ctaText2,
     orderBy: switchDirectionProp
   })
 
+  console.log('oredred', orderedItems)
+
   const handleModalBigGraphic = (graphic) => {
     dispatch(setOpenModalBigGraphic(true))
     dispatch(setModalBigGraphic(graphic))
@@ -46,7 +48,7 @@ const Progressivity = ({ title, description, countries, info, ctaText, ctaText2,
           : null
         }
 
-        <Switch className={styles['switch-mobile']} />
+        {/* <Switch className={styles['switch-mobile']} /> */}
       </Container>
 
       <Container className={styles.content}>

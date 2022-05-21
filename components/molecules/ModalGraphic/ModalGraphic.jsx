@@ -59,10 +59,23 @@ const ModalGraphic = ({ countries }) => {
               return (
                 <SwiperSlide key={id} className={styles.content}>
                   <div className={styles['text-container']}>
-                    <p className={styles.number}>
-                      {switchDirection === 'left' ? progressiveness : taxPressure}%
-                    </p>
+                    <div className={styles['number-desktop']}>
+                      <p className={styles.number}>
+                        {switchDirection === 'left' ? progressiveness : taxPressure}%
+                      </p>
+                    </div>
+
                     <p className={styles.name}>{name}</p>
+
+                    <div className={styles['number-mobile']}>
+                      <p className={styles.number}>
+                        {taxPressure}%
+                      </p>
+
+                      <p className={`${styles.number} ${styles.red}`}>
+                        {progressiveness}%
+                      </p>
+                    </div>
                   </div>
                   
                   {graphic?.data && 

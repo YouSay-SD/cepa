@@ -4,7 +4,7 @@
   padding: 59px 72px;
 
   @include respond-to($bp-md) {
-    padding: 44px 14px;
+    padding: 44px 14px 14px;
   }
 }
 
@@ -22,6 +22,21 @@
   }
 }
 
+.number-desktop {
+  @include respond-to($bp-md) {
+    display: none;
+  }
+}
+
+.number-mobile {
+  display: none;
+
+  @include respond-to($bp-md) {
+    display: flex;
+    margin-top: 8px;
+  }
+}
+
 .number {
   font-size: rem-calc(42);
   line-height: rem-calc(44);
@@ -31,6 +46,9 @@
 
   @include respond-to($bp-md) {
     text-align: center;
+    font-size: rem-calc(40);
+    line-height: rem-calc(42);
+    padding: 0 16px;
   }
 }
 
@@ -41,6 +59,10 @@
   text-transform: uppercase;
   color: $color-secondary;
   font-weight: $medium;
+
+  @include respond-to($bp-md) {
+    text-align: center;
+  }
 }
 
 .text-container {
@@ -49,5 +71,22 @@
   @include respond-to($bp-md) {
     padding-right: initial;
     margin-bottom: 20px;
+  }
+}
+
+.red {
+  color: $color-red;
+  position: relative;
+
+  &:before {
+    content: '';
+    background-color: #A7CBEC;
+    width: 1px;
+    height: 24px;
+    display: block;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
   }
 }

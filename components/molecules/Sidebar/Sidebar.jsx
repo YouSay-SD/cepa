@@ -1,6 +1,6 @@
 import styles from './Sidebar.module.scss'
 import { useState } from 'react'
-import { CountryCard, Switch, SelectCategoryTaxHavens } from "../../atoms";
+import { CountryCard, Switch, SelectCategoryTaxHavens, P } from "../../atoms";
 import { useSelector } from 'react-redux';
 import { orderByNumber } from 'utils/orderByNumber';
 import { orderAlphabetically } from 'utils/orderAlphabetically';
@@ -9,7 +9,7 @@ const Sidebar = ({ items, type = 'switch', modal = true }) => {
   const { switchDirection } = useSelector(state => state.general)
   const [isOpen, setIsOpen] = useState(false);
   const switchDirectionProp = switchDirection === 'left' ? 'progressiveness' : 'taxPressure'
-  // console.log('items', items)
+  console.log('items', items)
 
   const orderedItems = orderAlphabetically({
     array: items,
@@ -64,6 +64,7 @@ const Sidebar = ({ items, type = 'switch', modal = true }) => {
       {type === 'switch' ?
         <div className={`${styles.list} ${styles['list-mobile']}`}>
           <div className={styles['list-mobile-column']}>
+            <P className={styles['list-title']}>PROGRESIVIDAD</P>
             {
               items ? items.map(({ attributes, id }, index) => {
                 return (
@@ -81,6 +82,7 @@ const Sidebar = ({ items, type = 'switch', modal = true }) => {
             }
           </div>
           <div className={styles['list-mobile-column']}>
+          <P className={styles['list-title']}>PRESIÓN FISCAL</P>
             {
               items ? items.map(({ attributes, id }, index) => {
                 return (
