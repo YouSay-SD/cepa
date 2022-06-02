@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { dehydrate, QueryClient, useQuery } from 'react-query'
 import { useDispatch } from 'react-redux'
-import { setAliquotCategories, setAliquotCategoriesType, setAliquots, setCategoryType } from '../actions/aliquots'
+import { setAliquotCategories, setAliquotCategoriesType, setAliquots, setCategory, setCategoryType } from '../actions/aliquots'
 import { HeadSeo, LayoutAliquots } from '../components/templates'
 import { aliquotCategories, aliquots, header, aliquotsPage, footer, ctaBottomResp, aliquotCategoriesType } from './api'
 
@@ -33,9 +33,9 @@ export default function Aliquots() {
   }, [dispatch, dataAliquotCategoriesType])
 
   // Set Category Country by default
-  // useEffect(() => {
-  //   dispatch(setCategory(dataAliquotCategories.data[0]?.id))
-  // }, [dispatch, dataAliquotCategories])
+  useEffect(() => {
+    dispatch(setCategory(null))
+  }, [dispatch])
 
   const allData = {
     header: dataHeader?.data.attributes,
