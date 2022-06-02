@@ -35,15 +35,7 @@
   @include respond-to($bp-md) {
     display: flex;
     padding-top: initial;
-    padding-bottom: 38px;
-  }
-
-  &:before {
-    background: $color-gray;
-    content: '';
-    width: 40px;
-    height: 6px;
-    position: absolute;
+    padding-bottom: 16px;
   }
 }
 

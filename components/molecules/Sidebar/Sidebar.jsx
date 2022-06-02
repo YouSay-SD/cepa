@@ -2,6 +2,7 @@ import styles from './Sidebar.module.scss'
 import { useState } from 'react'
 import { CountryCard, Switch, SelectCategoryTaxHavens, P } from "../../atoms";
 import { useSelector } from 'react-redux';
+import Image from 'next/image';
 // import { orderByNumber } from 'utils/orderByNumber';
 // import { orderAlphabetically } from 'utils/orderAlphabetically';
 
@@ -9,7 +10,7 @@ const Sidebar = ({ items, type = 'switch', modal = true }) => {
   const { switchDirection } = useSelector(state => state.general)
   const [isOpen, setIsOpen] = useState(false);
   const switchDirectionProp = switchDirection === 'left' ? 'progressiveness' : 'taxPressure'
-
+  const isOpenText = isOpen ? 'close' : 'open'
   // const orderedItems = orderAlphabetically({
   //   array: items,
   //   orderBy: 'name'
@@ -43,7 +44,16 @@ const Sidebar = ({ items, type = 'switch', modal = true }) => {
           <SelectCategoryTaxHavens />
         </div>
       : null}
-      <div className={styles.btn} onClick={() => setIsOpen(!isOpen)} />
+
+      <div className={styles.btn} onClick={() => setIsOpen(!isOpen)}>
+        <Image
+          src={`/img/icons/${isOpenText}-dropdown.svg`}
+          width={32}
+          height={32}
+          alt={`${isOpenText} dropdown`}
+        />
+      </div>
+
       <div className={styles.list}>
         {items ? items.map(({ attributes, id }, index) => {
           return (

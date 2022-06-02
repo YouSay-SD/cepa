@@ -1,12 +1,12 @@
 import { setCategory } from 'actions/aliquots';
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './SelectCategory.module.scss'
 
 const SelectCategory = ({ className = '' }) => {
   const { aliquotCategories } = useSelector(state => state.aliquot)
   const [isOpen, setIsOpen] = useState(false);
-  const [categoryName, setCategoryName] = useState(aliquotCategories[0]?.attributes.name);
+  const [categoryName, setCategoryName] = useState('Ver Todos');
   const dispatch = useDispatch()
 
   const handleClick = () => {
@@ -17,10 +17,6 @@ const SelectCategory = ({ className = '' }) => {
     dispatch(setCategory(id))
     setCategoryName(name)
   }
-
-  useEffect(() => {
-    setCategoryName(aliquotCategories[0]?.attributes.name)
-  }, [setCategoryName, aliquotCategories])
 
   return (
     <div 
@@ -48,7 +44,7 @@ const SelectCategory = ({ className = '' }) => {
 
         <p 
           className={`${styles['option-unselected']} ${styles.option}`}
-          onClick={() => handleCategory(null, 'ver todos')}
+          onClick={() => handleCategory(null, 'Ver Todos')}
         >
           Ver Todos
         </p>

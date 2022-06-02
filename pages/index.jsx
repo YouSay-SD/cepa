@@ -59,9 +59,9 @@ export default function Home() {
   }, [dispatch, dataAliquotCategoriesType])
 
   // Set Category Country by default
-  useEffect(() => {
-    dispatch(setCategory(dataAliquotCategories.data[0]?.id))
-  }, [dispatch, dataAliquotCategories])
+  // useEffect(() => {
+  //   dispatch(setCategory(dataAliquotCategories.data[0]?.id))
+  // }, [dispatch, dataAliquotCategories])
 
   const allData = {
     header: dataHeader?.data?.attributes,

@@ -4,10 +4,10 @@ import { Grid } from "../../molecules"
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { setCurrentPage } from 'actions/general'
-import { filterAliquots, filterAliquotsByCategory, setCategory, setCategoryType } from 'actions/aliquots'
+import { filterAliquots, setCategoryType } from 'actions/aliquots'
 
 const AliquotArchive = () => {
-  const { aliquotCategories, aliquotCategoriesType, selectedCategory, selectedCategoryType, filteredAliquots } = useSelector(state => state.aliquot)
+  const { aliquotCategoriesType, selectedCategory, selectedCategoryType, filteredAliquots } = useSelector(state => state.aliquot)
   const { currentPage } = useSelector(state => state.general)
 
   const itemsPerPage = 12
@@ -25,7 +25,7 @@ const AliquotArchive = () => {
   // }, [dispatch, selectedCategory])
 
   useEffect(() => {
-    dispatch(filterAliquots({ idCategoryType: selectedCategoryType, idCategoryCountry: selectedCategory }))
+    dispatch(filterAliquots({ idCategoryType: selectedCategoryType, idCategoryCountry: selectedCategory ?? null }))
   }, [dispatch, selectedCategory, selectedCategoryType])
 
   // Dismmount
