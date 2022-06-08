@@ -79,13 +79,15 @@ const ModalGraphic = ({ countries }) => {
           <CloseModal onClick={closeModal} />
           
           <Swiper {...swiperProps} onSwiper={setSwiperInstance}>
-            {orderedCountries?.map(({id, attributes: {name, progressiveness, taxPressure, graphic}}) => {
+            {orderedCountries?.map(({id, attributes: {name, progressiveness, progressivenessFallback, taxPressure, taxPressureFallback, graphic}}) => {
               return (
                 <SwiperSlide key={id} className={styles.content}>
                   <div className={styles['text-container']}>
                     <div className={styles['number-desktop']}>
                       <p className={styles.number}>
-                        {switchDirection === 'left' ? progressiveness : taxPressure}%
+                        {switchDirection === 'left' ?
+                          progressivenessFallback ? progressivenessFallback : progressiveness + '%'
+                        : taxPressureFallback ? taxPressureFallback : taxPressure + '%'}
                       </p>
                     </div>
 
@@ -93,11 +95,11 @@ const ModalGraphic = ({ countries }) => {
 
                     <div className={styles['number-mobile']}>
                       <p className={styles.number}>
-                        {taxPressure}%
+                        {taxPressureFallback ? taxPressureFallback : taxPressure + '%'}
                       </p>
 
                       <p className={`${styles.number} ${styles.red}`}>
-                        {progressiveness}%
+                        {progressivenessFallback ? progressivenessFallback : progressiveness + '%'}
                       </p>
                     </div>
                   </div>

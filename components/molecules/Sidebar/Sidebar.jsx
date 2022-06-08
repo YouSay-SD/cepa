@@ -10,6 +10,7 @@ const Sidebar = ({ items, type = 'switch', modal = true }) => {
   const { switchDirection } = useSelector(state => state.general)
   const [isOpen, setIsOpen] = useState(false);
   const switchDirectionProp = switchDirection === 'left' ? 'progressiveness' : 'taxPressure'
+  const switchDirectionPropFallback = switchDirection === 'left' ? 'progressivenessFallback' : 'taxPressureFallback'
   const isOpenText = isOpen ? 'close' : 'open'
   // const orderedItems = orderAlphabetically({
   //   array: items,
@@ -62,6 +63,7 @@ const Sidebar = ({ items, type = 'switch', modal = true }) => {
               id={index + 1} 
               name={attributes.name}
               number={attributes[switchDirectionProp]}
+              fallback={attributes[switchDirectionPropFallback]}
               type={countryCardType}
               modal={modal}
               flag={attributes?.flag}
@@ -82,6 +84,7 @@ const Sidebar = ({ items, type = 'switch', modal = true }) => {
                     id={index + 1} 
                     name={attributes.name}
                     number={attributes.progressiveness}
+                    fallback={attributes.progressivenessFallback}
                     type={countryCardType}
                     modal={modal}
                     flag={attributes?.flag}
@@ -100,6 +103,7 @@ const Sidebar = ({ items, type = 'switch', modal = true }) => {
                     id={index + 1} 
                     name={attributes.name}
                     number={attributes.taxPressure}
+                    fallback={attributes.taxPressureFallback}
                     type={countryCardType}
                     modal={modal}
                     flag={attributes?.flag}

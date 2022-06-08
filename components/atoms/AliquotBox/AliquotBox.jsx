@@ -3,7 +3,7 @@ import { setModalBullet, setOpenModalBullet } from 'actions/general';
 import Image from 'next/image'
 import { useDispatch } from 'react-redux';
 
-export const AliquotBox = ({name, earnings, ownership, flag, index}) => {
+export const AliquotBox = ({name, earnings, earningsFallback, ownership, ownershipFallback, flag, index}) => {
   const dispatch = useDispatch();
 
   const openModal = () => {
@@ -44,12 +44,16 @@ export const AliquotBox = ({name, earnings, ownership, flag, index}) => {
       <div className={styles['boxes']}>
         <div className={styles['box']}>
           <p className={styles['box-name']}>Ingresos</p>
-          <p className={styles['box-number']}>{earnings}%</p>
+          <p className={styles['box-number']}>
+            {earningsFallback ? earningsFallback : earnings + '%'}
+          </p>
         </div>
 
         <div className={styles['box']}>
           <p className={styles['box-name']}>Propiedad</p>
-          <p className={styles['box-number']}>{ownership}%</p>
+          <p className={styles['box-number']}>
+            {ownershipFallback ? ownershipFallback : ownership + '%'}
+          </p>
         </div>
       </div>
     </div>
