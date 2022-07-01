@@ -64,6 +64,10 @@
   }
 }
 
+.list-secondary {
+  margin-top: 15px;
+}
+
 .list-title {
   font-family: $font-primary;
   font-weight: $medium;
@@ -127,4 +131,29 @@
 .select-container {
   position: relative;
   padding-bottom: 50px;
+}
+
+.labels-container {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+
+  @include respond-to($bp-md) {
+    display: none;
+  }
+}
+
+.label {
+  font-family: $font-secondary;
+  font-size: rem-calc(14);
+  line-height: rem-calc(21);
+  font-weight: $regular;
+  color: $color-primary;
+  max-width: 1043px;
+  text-align: center;
+}
+
+.labels-container-mobile {
+  margin-bottom: 10px;
 }

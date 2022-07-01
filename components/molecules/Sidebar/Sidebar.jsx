@@ -37,7 +37,13 @@ const Sidebar = ({ items, type = 'switch', modal = true }) => {
   return (
     <aside className={`${styles.sidebar} ${isOpen && styles.active} ${styles[type]}`}>
       {type === 'switch' ?
-        <Switch className={styles['switch-desktop']} />
+        <div className={styles['switch-desktop']}>
+          <Switch />
+          <div className={styles['labels-container']}>
+            <p className={styles.label}>% de recaudación total</p>
+            <p className={styles.label}>% del PBI</p>
+          </div>
+        </div>
       : null}
 
       {type === 'tax-havens' ? 
@@ -55,7 +61,7 @@ const Sidebar = ({ items, type = 'switch', modal = true }) => {
         />
       </div>
 
-      <div className={styles.list}>
+      <div className={`${styles.list} ${type === 'switch' ? styles['list-secondary'] : null}`}>
         {items ? items.map(({ attributes, id }, index) => {
           return (
             <CountryCard 
@@ -76,6 +82,9 @@ const Sidebar = ({ items, type = 'switch', modal = true }) => {
         <div className={`${styles.list} ${styles['list-mobile']}`}>
           <div className={styles['list-mobile-column']}>
             <P className={styles['list-title']}>PROGRESIVIDAD</P>
+            <div className={styles['labels-container-mobile']}>
+              <p className={styles.label}>% de recaudación total</p>
+            </div>
             {
               items ? items.map(({ attributes, id }, index) => {
                 return (
@@ -95,6 +104,9 @@ const Sidebar = ({ items, type = 'switch', modal = true }) => {
           </div>
           <div className={styles['list-mobile-column']}>
           <P className={styles['list-title']}>PRESIÓN FISCAL</P>
+            <div className={styles['labels-container-mobile']}>
+              <p className={styles.label}>% del PBI</p>
+            </div>
             {
               items ? items.map(({ attributes, id }, index) => {
                 return (
