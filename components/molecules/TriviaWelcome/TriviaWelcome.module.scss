@@ -1,0 +1,19 @@
+@import "../../../styles/baseline/_styles";
+
+.title {
+  margin-bottom: 24px;
+  font-size: rem-calc(22);
+  line-height: 60px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.description {
+  font-family: $font-primary;
+  margin-bottom: 40px;
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+}
