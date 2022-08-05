@@ -87,6 +87,16 @@ export const setModalProposal = (id) => {
   }
 }
 
+// Set Open Modal Trivia
+export const setOpenModalTrivia = (isOpen) => {
+  return async (dispatch) => {
+    await dispatch({
+      type: types.SET_OPEN_MODAL_TRIVIA,
+      payload: isOpen
+    })
+  }
+}
+
 // Set Current Page
 export const setCurrentPage = (currentPage) => {
   return async (dispatch) => {

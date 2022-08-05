@@ -2,4 +2,16 @@
 
 .modal-trivia {
   padding: 50px 40px 40px;
+
+  @include respond-to($bp-md) {
+    padding: 40px 30px 30px;
+  }
+}
+
+.title {
+  margin-bottom: 24px;
+  font-size: rem-calc(22);
+  line-height: 60px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }

@@ -12,4 +12,5 @@ export { default as SelectCategory } from './SelectCategory/SelectCategory';
 export { default as SelectCategoryTaxHavens } from './SelectCategoryTaxHavens/SelectCategoryTaxHavens';
 export { default as CloseModal } from './CloseModal/CloseModal';
 export { default as Info } from './Info/Info';
-export { default as TriviaItem } from './TriviaItem/TriviaItem';
+export { default as TriviaOption } from './TriviaOption/TriviaOption';
+export { default as TriviaButton } from './TriviaButton/TriviaButton';

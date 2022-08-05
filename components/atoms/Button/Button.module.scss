@@ -30,6 +30,8 @@
 
   // Solid
   &.solid {
+    box-shadow: 0px 6px 16px rgba(11, 78, 137, 0.18);
+  
     &:hover {
       opacity: .8;
     }
@@ -46,8 +48,14 @@
     }
 
     &.tertiary {
-      background-color: $color-tertiary;
-      color: $color-white;
+      background-color: $color-green-light;
+      color: $color-primary;
+
+      svg {
+        path {
+          fill: $color-primary;;
+        }
+      }
     }
 
     &.white {

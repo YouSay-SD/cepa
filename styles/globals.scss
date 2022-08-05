@@ -171,6 +171,16 @@ p {
 		}
 	}
 
+	&__Body {
+		&--open {
+			#__next {
+				main {
+					filter: blur(3px);
+				}
+			}
+		}
+	}
+
 	&__Overlay {
 		height: 100vh;
 		opacity: 0;

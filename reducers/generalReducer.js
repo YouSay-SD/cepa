@@ -15,6 +15,8 @@ const initState = {
   isOpenModalProposal: false,
   modalProposalId: 1,
 
+  isOpenModalTrivia: true,
+
   currentPage: 0,
 
   sectionLink: null
@@ -74,6 +76,12 @@ export const generalReducer = (state = initState, action) => {
       return {
         ...state,
         modalProposalId: action.payload
+      }
+
+    case types.SET_OPEN_MODAL_TRIVIA:
+      return {
+        ...state,
+        isOpenModalTrivia: action.payload
       }
 
     case types.SET_CURRENT_PAGE:

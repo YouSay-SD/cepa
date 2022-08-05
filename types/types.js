@@ -24,6 +24,7 @@ export const types = {
   SET_MODAL_BULLET: '[General] Set Modal Bullet',
   SET_OPEN_MODAL_PROPOSAL: '[General] Set Open Modal Proposal',
   SET_MODAL_PROPOSAL: '[General] Set Modal Proposal',
+  SET_OPEN_MODAL_TRIVIA: '[General] Set Modal Trivia',
   SET_CURRENT_PAGE: '[General] Set Current Page',
   SET_SECTION_LINK: '[General] Set Section Link'
 }

@@ -1,18 +1,21 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { dehydrate, QueryClient, useQuery } from 'react-query'
 import { useDispatch } from 'react-redux';
 import { setCountries, setCountryCategoriesTaxHavens, setCategoryTaxHaven } from 'actions/countries';
 import { HeadSeo, LayoutHome } from 'components/templates'
-import { aliquotCategories, aliquots, countries, header, footer, heroResp, mapProgressivityResp, mapProposalResp, mapTaxHavensResp, modules, ctaBottomResp, aliquotCategoriesType, aliquotCategoriesTaxHavens, countryCategoriesTaxHavens } from './api';
+import { aliquotCategories, aliquots, countries, header, footer, heroResp, mapProgressivityResp, mapProposalResp, mapTaxHavensResp, modules, ctaBottomResp, aliquotCategoriesType, aliquotCategoriesTaxHavens, countryCategoriesTaxHavens, triviaResp } from './api';
 import { setAliquotCategories, setAliquotCategoriesType, setAliquots, setCategory, setCategoryType } from 'actions/aliquots';
+import { STRAPI_API } from 'constants';
 
 export default function Home() {
+  const [dataTrivia, setDataTrivia] = useState(null)
   const { data: dataHeader } = useQuery('header', () => header?.getAll())
   const { data: dataFooter } = useQuery('footer', () => footer?.getAll())
   const { data: dataCountries } = useQuery('countries', () => countries?.getAll())
   const { data: dataAliquots } = useQuery('aliquots', () => aliquots?.getAll())
   const { data: dataModules } = useQuery('modules', () => modules?.getAll())
   const { data: dataHero } = useQuery('heroResp', () => heroResp?.getAll())
+  // const { data: dataTrivia } = useQuery('triviaResp', () => triviaResp?.getAll())
   const { data: dataCtaBottom } = useQuery('ctaBottomResp', () => ctaBottomResp?.getAll())
   const { data: dataMapProposal } = useQuery('mapProposalResp', () => mapProposalResp?.getAll())
   const { data: dataMapProgressivity } = useQuery('mapProgressivityResp', () => mapProgressivityResp?.getAll())
@@ -27,6 +30,12 @@ export default function Home() {
   const dataMapProgressivityCountriesWithGraphics = dataMapProgressivityCountries?.data.map(({ id: idCountry }) => dataCountries.data.find(({ id }) => idCountry === id ));
   const filteredCountries = dataCountries?.data.filter(({ id }) => dataMapTaxHavensCountries?.data.some(item => item.id === id) )
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    fetch(`${STRAPI_API}/module?populate[Trivia][populate][TriviaItem][populate]=*`)
+    .then(response => response.json())
+    .then(data => setDataTrivia(data.data.attributes.Trivia));
+  }, [])
 
   useEffect(() => {
     dispatch(setCountries(dataCountries?.data))
@@ -64,6 +73,7 @@ export default function Home() {
   }, [dispatch])
 
   const allData = {
+    trivia: dataTrivia,
     header: dataHeader?.data?.attributes,
     footer: dataFooter?.data?.attributes,
     ...dataModules?.data?.attributes,
@@ -113,6 +123,7 @@ export const getServerSideProps = async () => {
   await queryClient.prefetchQuery('aliquots', () => aliquots.getAll());
   await queryClient.prefetchQuery('modules', () => modules?.getAll());
   await queryClient.prefetchQuery('heroResp', () => heroResp?.getAll());
+  // await queryClient.prefetchQuery('triviaResp', () => triviaResp?.getAll());
   await queryClient.prefetchQuery('ctaBottomResp', () => ctaBottomResp?.getAll());
   await queryClient.prefetchQuery('mapProposalResp', () => mapProposalResp?.getAll());
   await queryClient.prefetchQuery('mapProgressivityResp', () => mapProgressivityResp?.getAll());

@@ -1,0 +1,32 @@
+@import "../../../styles/baseline/_styles";
+
+.trivia-result {
+  text-align: center;
+}
+
+.title {
+  font-size: rem-calc(18);
+  margin-bottom: 15px;
+  font-weight: $bold;
+  font-family: $font-primary;
+}
+
+.description {
+  font-family: $font-primary;
+  margin: 0 auto 44px;
+  max-width: 607px;
+}
+
+.image {
+  margin-bottom: 7px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+
+  @include respond-to($bp-md) {
+    flex-direction: column;
+  }
+}

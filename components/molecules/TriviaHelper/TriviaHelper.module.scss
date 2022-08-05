@@ -1,0 +1,23 @@
+@import "../../../styles/baseline/_styles";
+
+.trivia-helper {
+  margin-top: 34px;
+}
+
+.helper {
+  background-color: #F5F5F5;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 32px;
+}
+
+.helper-text {
+  font-family: $font-primary;
+  color: $color-black-2 !important;
+}
+
+.button {
+  @include respond-to($bp-md) {
+    width: 100%;
+  }
+}

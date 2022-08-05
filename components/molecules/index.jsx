@@ -8,6 +8,8 @@ export { default as ModalProposal } from './ModalProposal/ModalProposal';
 export { default as ModalTrivia } from './ModalTrivia/ModalTrivia';
 export { default as TriviaWelcome } from './TriviaWelcome/TriviaWelcome';
 export { default as Trivia } from './Trivia/Trivia';
+export { default as TriviaItem } from './TriviaItem/TriviaItem';
+export { default as TriviaResult } from './TriviaResult/TriviaResult';
 export { default as Sidebar } from './Sidebar/Sidebar';
 export { default as Slider } from './Slider/Slider';
 export { default as SocialMedia } from './SocialMedia/SocialMedia';
