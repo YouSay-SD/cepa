@@ -18,22 +18,43 @@ const ModalTrivia = ({ trivia }) => {
     dispatch(setOpenModalTrivia(false))
   }
 
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      overflowY: 'scroll !important',
+      transform: 'translate(-50%, -50%)',
+    },
+  };
+
   Modal.setAppElement('#__next');
   
   return (
     <Modal
       isOpen={isOpenModalTrivia}
+      // style={customStyles}
+      // className="modal-trivia"
       contentLabel="Example Modal"
     >
       <div className={styles['modal-trivia']}>
         <CloseModal onClick={closeModal} />
         <div>
           {isStarted 
-            ? <Trivia items={trivia.TriviaItem} answersToWin={trivia.answersToWin} />  
+            ? <Trivia 
+                items={trivia?.TriviaItem} 
+                answersToWin={trivia?.answersToWin}
+                titleWin={trivia?.triviaWinTitle}
+                descriptionWin={trivia?.triviaWinDescription}
+                titleLose={trivia?.triviaLoseTitle}
+                descriptionLose={trivia?.triviaLoseDescription}
+              />  
             : <TriviaWelcome 
-                title={trivia.triviaTitle}
+                title={trivia?.triviaTitle}
                 setIsStarted={setIsStarted} 
-                description={trivia.triviaDescription} 
+                description={trivia?.triviaDescription} 
               />
           }
         </div>

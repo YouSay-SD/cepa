@@ -4,6 +4,28 @@
   position: relative;
 }
 
+.content {
+  overflow-y: auto !important; 
+	overflow-x: hidden !important;
+  max-height: 58vh;
+  padding-right: 20px;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    background: rgba(90, 137, 178, 0.25);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #5A89B3;
+    border-radius: 50px;
+  }
+
+  @include respond-to($bp-md) {
+    padding-right: 15px;
+    max-height: 68vh;
+  }
+}
+
 .question {
   font-size: rem-calc(18);
   margin-bottom: 30px;
@@ -49,7 +71,7 @@
     font-weight: $regular;
   }
 
-  bold {
+  strong {
     font-weight: $heavy;
   }
 }

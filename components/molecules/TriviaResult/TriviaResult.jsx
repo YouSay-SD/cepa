@@ -4,11 +4,8 @@ import Image from 'next/image'
 import { useDispatch } from 'react-redux'
 import styles from './TriviaResult.module.scss'
 
-const TriviaResult = ({ won, setResult, setGameFinished, setSwiperIndex }) => {
+const TriviaResult = ({ won, setResult, setGameFinished, setSwiperIndex, titleWin, descriptionWin, titleLose, descriptionLose }) => {
   const dispatch = useDispatch()
-  const title = won ? '!Felicitaciones! Eres un experto en progresividad!' : 'Oops, parece que no te ha ido muy bien...'
-  const description = won ? 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.' 
-  : 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
 
   const closeModal = () => {
     dispatch(setOpenModalTrivia(false))
@@ -33,8 +30,8 @@ const TriviaResult = ({ won, setResult, setGameFinished, setSwiperIndex }) => {
           height={68}
         />
       </div>
-      <P className={styles.title}>{title}</P>
-      <P className={styles.description}>{description}</P>
+      <P className={styles.title}>{won ? titleWin : titleLose}</P>
+      <P className={styles.description}>{won ? descriptionWin : descriptionLose}</P>
       <div className={styles.buttons}>
         <Button type='outline' color='primary' onClick={closeModal}>Volver al Home</Button>
 

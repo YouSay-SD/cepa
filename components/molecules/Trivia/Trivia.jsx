@@ -8,7 +8,7 @@ import 'swiper/css/effect-fade';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, Navigation } from 'swiper';
 
-const Trivia = ({ items, answersToWin }) => {
+const Trivia = ({ items, answersToWin, titleWin, descriptionWin, titleLose, descriptionLose }) => {
   const [result, setResult] = useState({
     correct: 0,
     answered: 0
@@ -36,40 +36,50 @@ const Trivia = ({ items, answersToWin }) => {
 
   return (
     <div className={styles.trivia}>
-      {!gameFinished ?
-        <div>
-          <Title size='xs' h='3' className={styles.title}>Trivia tributaria</Title>
+      <div className={styles.content}>
+        {!gameFinished ?
+          <>
+            <Title size='xs' h='3' className={styles.title}>Trivia tributaria</Title>
 
-          <Swiper {...swiperProps} onSwiper={setSwiperInstance}>
-            {items.length ?
-              items.map(({ id, triviaQuestion, TriviaOptions, answer }) => (
-                <SwiperSlide key={id}>
-                  <TriviaItem 
-                    options={TriviaOptions} 
-                    question={triviaQuestion}
-                    setResult={setResult}
-                    swiperInstance={swiperInstance}
-                    setGameFinished={setGameFinished}
-                    isLastQuestion={isLastQuestion}
-                    answer={answer}
-                  />
-                </SwiperSlide>
-              ))
-            : null}
-          </Swiper>
+            <Swiper {...swiperProps} onSwiper={setSwiperInstance}>
+              {items.length ?
+                items.map(({ id, triviaQuestion, TriviaOptions, answer }) => (
+                  <SwiperSlide key={id}>
+                    <TriviaItem 
+                      options={TriviaOptions} 
+                      question={triviaQuestion}
+                      setResult={setResult}
+                      swiperInstance={swiperInstance}
+                      setGameFinished={setGameFinished}
+                      isLastQuestion={isLastQuestion}
+                      answer={answer}
+                    />
+                  </SwiperSlide>
+                ))
+              : null}
+            </Swiper>
+          </>
+        : 
+        <TriviaResult 
+            won={result.correct >= answersToWin}
+            setGameFinished={setGameFinished} 
+            setSwiperIndex={setSwiperIndex} 
+            setResult={result.correct >= answersToWin ? null : setResult}
+            titleWin={titleWin} 
+            descriptionWin={descriptionWin} 
+            titleLose={titleLose} 
+            descriptionLose={descriptionLose}
+          />
+        }
+      </div>
+      <div>
+        <div className={`swiper-button-prev ${styles.prev}`} />
+        <div className={`swiper-button-next ${styles.next}`} />
 
-          <div className={`swiper-button-prev ${styles.prev}`} />
-          <div className={`swiper-button-next ${styles.next}`} />
-
-          <div className={styles.index}>
-            <P color='white'><strong>{swiperIndex}</strong>/{items.length}</P>
-          </div>
+        <div className={styles.index}>
+          <P color='white'><strong>{swiperIndex}</strong>/{items.length}</P>
         </div>
-      : 
-        result.correct >= answersToWin
-        ? <TriviaResult won setGameFinished={setGameFinished} setSwiperIndex={setSwiperIndex} />
-        : <TriviaResult won={false} setGameFinished={setGameFinished} setSwiperIndex={setSwiperIndex} setResult={setResult} />
-      }
+      </div>
     </div>
   )
 }
