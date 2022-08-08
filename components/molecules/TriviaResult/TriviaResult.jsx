@@ -14,7 +14,8 @@ const TriviaResult = ({ won, setResult, setGameFinished, setSwiperIndex, titleWi
   const resetTrivia = () => {
     setResult({
       correct: 0,
-      answered: 0
+      answered: 0,
+      solved: []
     })
     setGameFinished(false)
     setSwiperIndex(1)

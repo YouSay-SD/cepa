@@ -11,15 +11,19 @@ import { EffectFade, Navigation } from 'swiper';
 const Trivia = ({ items, answersToWin, titleWin, descriptionWin, titleLose, descriptionLose }) => {
   const [result, setResult] = useState({
     correct: 0,
-    answered: 0
+    answered: 0,
+    solved: []
   })
+
   const [gameFinished, setGameFinished] = useState(false)
   const isLastQuestion = result.answered === items.length
   const [swiperInstance, setSwiperInstance] = useState();
   const [swiperIndex, setSwiperIndex] = useState(1);
+  const enableNextSlide = result?.solved.some((indexItem) => indexItem === swiperIndex)
 
   const swiperProps = {
 		slidesPerView: 1,
+    allowSlideNext: enableNextSlide,
 		effect: 'fade',
 		modules: [EffectFade, Navigation],
 		watchOverflow: true,
@@ -43,9 +47,10 @@ const Trivia = ({ items, answersToWin, titleWin, descriptionWin, titleLose, desc
 
             <Swiper {...swiperProps} onSwiper={setSwiperInstance}>
               {items.length ?
-                items.map(({ id, triviaQuestion, TriviaOptions, answer }) => (
+                items.map(({ id, triviaQuestion, TriviaOptions, answer }, index) => (
                   <SwiperSlide key={id}>
                     <TriviaItem 
+                      index={index + 1}
                       options={TriviaOptions} 
                       question={triviaQuestion}
                       setResult={setResult}
@@ -73,12 +78,15 @@ const Trivia = ({ items, answersToWin, titleWin, descriptionWin, titleLose, desc
         }
       </div>
       <div>
-        <div className={`swiper-button-prev ${styles.prev}`} />
-        <div className={`swiper-button-next ${styles.next}`} />
-
-        <div className={styles.index}>
-          <P color='white'><strong>{swiperIndex}</strong>/{items.length}</P>
-        </div>
+        {!gameFinished ?
+          <>
+            <div className={`swiper-button-prev ${styles.prev}`} />
+            <div className={`swiper-button-next ${styles.next} ${enableNextSlide ? '' : 'swiper-button-disabled'}`} />
+            <div className={styles.index}>
+              <P color='white'><strong>{swiperIndex}</strong>/{items.length}</P>
+            </div>
+          </>
+        : null}
       </div>
     </div>
   )

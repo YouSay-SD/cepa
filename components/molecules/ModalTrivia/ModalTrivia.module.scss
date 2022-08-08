@@ -3,6 +3,7 @@
 .modal-trivia {
   height: 100%;
   padding: 50px 20px 40px 40px;
+  position: relative;
 
   @include respond-to($bp-md) {
     padding: 40px 15px 30px 30px;

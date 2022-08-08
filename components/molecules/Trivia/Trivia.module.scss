@@ -1,13 +1,13 @@
 @import "../../../styles/baseline/_styles";
 
 .trivia {
-  position: relative;
+  // position: relative;
 }
 
 .content {
   overflow-y: auto !important; 
 	overflow-x: hidden !important;
-  max-height: 58vh;
+  max-height: 70vh;
   padding-right: 20px;
 
   &::-webkit-scrollbar {
@@ -62,7 +62,8 @@
 .index {
   text-align: center;
   position: absolute;
-  bottom: -82px;
+  bottom: -41px;
+  left: 0;
   width: 100%;
 
   p {
@@ -77,9 +78,9 @@
 }
 
 .prev {
-  left: -80px !important;
+  left: -32px !important;
 }
 
 .next {
-  right: -80px !important;
+  right: -32px !important;
 }

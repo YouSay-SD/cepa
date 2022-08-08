@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import TriviaHelper from '../TriviaHelper/TriviaHelper';
 
-const TriviaItem = ({ question, options, setResult, swiperInstance, setGameFinished, isLastQuestion, answer }) => {
+const TriviaItem = ({ question, options, setResult, swiperInstance, setGameFinished, isLastQuestion, answer, index }) => {
   const [wasSolved, setWasSolved]  = useState(false);
   const [isCorrectAnswer, setIsCorrectAnswer] = useState(false)
 
@@ -15,6 +15,7 @@ const TriviaItem = ({ question, options, setResult, swiperInstance, setGameFinis
   useEffect(() => {
     setWasSolved(wasSolved)
     setIsCorrectAnswer(isCorrectAnswer)
+    console.log('SOLVED', wasSolved)
   }, [wasSolved, isCorrectAnswer])
 
   const handleTrivia = (finished, isCorrect) => {
@@ -24,7 +25,8 @@ const TriviaItem = ({ question, options, setResult, swiperInstance, setGameFinis
       setResult((prev) => ({
         ...prev,
         correct: isCorrect ? prev?.correct + 1 : prev.correct,
-        answered: prev?.answered + 1
+        answered: prev?.answered + 1,
+        solved: [ ...prev?.solved, index ]
       }))
     }
   }
